@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<div id="app">
+  <p>{{ message }}</p>
+</div>
+<h1 id="a1">{{ a }}</h1>
+<div id="vue_det">
+    <h1>site : {{site}}</h1>
+    <h1>url : {{url}}</h1>
+    <h1>{{details()}}</h1>
+</div>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue.js!'
+  }
+})
+new Vue({
+  el: '#a1',
+  data: {
+    a: '233333'
+  }
+})
+ var vm = new Vue({
+        el: '#vue_det',
+        data: {
+            site: "website",
+            url: "this.url",
+            alexa: "12345"
+        },
+        methods: {
+            details: function() {
+                return  this.url + " - how to study";
+            }
+        }
+    })
+</script>
+</body>
+</html>

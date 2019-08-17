@@ -1,0 +1,140 @@
+*{
+	margin:0;
+	padding:0;
+}
+ol,ul{
+	list-style-type: none;
+}
+a{
+	color:#666;
+	text-decoration: none;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+#top,#header,#nav,#banner,#star,#accessory,#world,#serve,#after_sale,#footer{
+	height: 120px;
+	width: 100%;
+	border:1px solid #000;
+}
+.container{
+	width:1280px;
+	border:1px solid #f00;
+	margin:0px auto;
+}
+
+#top{
+	height:5px;
+	background-color: #00925F;
+}
+#header{
+	height:50px;
+	background-color: #2D2D2D;
+}
+#header .xlwb{
+	width:34px;
+	height:34px;
+	background: url("../img/icons.jpg") no-repeat -147px -195px;
+/*	transform: scale(0.5)*/
+
+}
+#header .txwb{
+	width:34px;
+	height:34px;
+	background: url("../img/icons.jpg") no-repeat -211px -195px;
+	/*transform: scale(0.5)*/
+	
+}
+#header .tel{
+	color:#17925F;	
+	font-size:24px;
+}
+#header .header_left div{
+	float: left;
+	margin:5px 10px 0px;
+	line-height: 50px;
+
+}
+#header ul li{
+	float: left;
+	line-height: 50px;
+}
+#header li a{
+	color:#B2B2B2;
+	font-size:24px;
+	border-right: 1px solid #B2B2B2;
+	padding: 0px 15px;
+}
+#header li a:hover{
+	color:#00925F;
+}
+#header .shop_car a{
+	border:none;
+	padding-left: 8px;
+}
+#header .shop_car span{
+	width: 31px;
+	height: 24px;
+	margin-left:10px;
+	margin-bottom: 10px;
+	display: inline-block;
+	vertical-align: middle;
+	background: url("../img/icons.jpg") no-repeat -86px -67px;
+}
+
+#star{
+	height: 750px;
+	background-color:#F2F2F2;
+}
+#star .star_top{
+	text-align: center;
+	margin:10px;
+}
+#star ul{
+	width: 1500px;
+	margin: 10px auto;
+}
+#star li{
+	width: 289px;
+	float: left;
+	border-bottom: 4px solid rgb(255,192,203);
+	transition: all .3s;
+}
+#star li:hover{
+	border-bottom: 4px solid #4F859D;
+	transform: translateY(-10px);
+}
+#star li img{
+	width: 289px;
+}
+#star li h2 {
+	text-align: center;
+	margin-top:10px;
+}
+#star li p {
+	text-align: center;
+	margin: 10px 0px;
+	font-size:12px;
+	color:#BDBDBD;
+}
+#star .money{
+	color: #00925F;
+	font-size: 14px;
+}
+#star li span{
+	height: 26px; 
+	width: 26px;
+	background: url("../img/icons.jpg") no-repeat -278px -131px;
+	display: inline-block;
+	vertical-align: middle;
+	transform: scale(0.6);
+}
+#star .line{
+	width: 0px;
+	height: 333px;
+	border-left: 1px solid #EAEAEA;
+	margin:0px 20px;
+}

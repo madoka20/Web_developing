@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>calculator</title>
+	<script src="calculator.js"></script>
+	<link rel="stylesheet" type="text/css" href="calculator.css">
+</head>
+<body>
+	<h1 id="title">Yumemi的计算器</h1>
+	<div>
+		<table border="2" align="center" id="t1">
+			<tr> 
+				<td><input type="text" id="number1"></td>
+				<td><p class="operator">+</p></td>
+				<td><input type="text" id="number2" ></td>
+				<td><input type="button" class="b1" value="=" onclick="add()"></td>
+				<td><input type="text" id="result1"></td>
+			</tr>
+			<tr> 
+				<td><input type="text" id="number3"></td>
+				<td><p class="operator">*</p></td>
+				<td><input type="text" id="number4" ></td>
+				<td><input type="button"class="b1" value="=" onclick="mul()"></td>
+				<td><input type="text" id="result2"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

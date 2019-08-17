@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="button" value="开始" @click="start">
+		<input type="button" value="停止" @click="stop">
+		<h1>{{ msg }}</h1>
+	</div>
+
+	<script>
+		var vm=new Vue({
+			el:'#app',
+			data:{
+				msg:'死亡如风，常伴吾身。且随疾风前行，身后亦须留心。',
+				intervalID:null
+			},
+			methods:{
+				
+				start(){
+					//防止二次启动
+					if(this.intervalID!=null){
+						return;
+					}
+					// =>可将内部方法导向外层
+					this.intervalID=setInterval( ()=>{
+						var start = this.msg.substring(0,1)
+						var end= this.msg.substring(1)
+						this.msg=end+start
+					},122)
+					//头放在末尾
+				},
+				stop(){
+					clearInterval(this.intervalID)
+					//重置intervalID
+					this.intervalID=null;
+				}
+
+			}
+		})
+
+	</script>
+</body>
+</html>

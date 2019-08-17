@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+	<style></style>
+</head>
+<body>
+	<div id="app">
+		<!-- 对象就是无序值对的集合 -->
+		<!-- 属性包含横杠的情况，必须加单引号 -->
+		<h1 :style="styleObj01">this is a h1</h1>
+		<!-- 多个style对象可以放在一个数组内 -->
+		<h2 :style="[styleObj01,styleObj02]">this is a h2</h2>
+	</div>
+
+	<script>
+		var vm= new Vue({
+			el:'#app',
+			data:{
+				styleObj01:{color:'red','font-weight':200},
+				styleObj02:{color:'pink','font-style':'italic'}
+			},
+			methods:{}
+		});
+
+	</script>
+</body>
+</html>

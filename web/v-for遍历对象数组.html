@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+	<style></style>
+</head>
+<body>
+	<div id="app">
+		<p v-for="(user,i) in list">ID:{{user.id}}--NAME:{{user.name}}---index:{{i}}</p>
+	</div>
+
+	<script>
+		var vm= new Vue({
+			el:'#app',
+			data:{
+				list:[
+				{id:1,name:'aa'},
+				{id:2,name:'bb'},
+				{id:3,name:'cc'},
+				{id:4,name:'dd'}
+				]
+			},
+			methods:{}
+		});
+
+	</script>
+</body>
+</html>

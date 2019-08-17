@@ -1,0 +1,23 @@
+body{
+	background:url(4.jpg);
+}
+#title{
+	color:rgb(255,192,203);
+	text-align: center;
+	text-shadow: 3px 3px 3px rgb(138,43,226);
+}
+#t1{	
+	background-image: url(1.jpg);
+}
+.operator{
+	background-color: rgb(255,255,255);
+	font-size:25px;
+	color:rgb(138,43,226);
+
+}
+.b1{
+	background-color: rgb(255,255,255);
+	font-size:15px;
+	color:rgb(138,43,226);
+
+}

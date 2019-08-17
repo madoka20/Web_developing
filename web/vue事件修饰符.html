@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+	<style>
+		.inner{
+			height:150px;
+			background-color:pink;
+		}
+		.outer{
+			padding:40px;
+			background-color:red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!-- stop阻止冒泡 -->
+		<!-- <div class="inner" @click="divClick">
+			<input type="button" value="click me" @click.stop=btnClick>
+		</div> -->
+		
+		 <!-- prevent阻止默认行为 -->
+		 <!-- <a href="http://www.baidu.com" @click.prevent="linkClick">baidu</a> -->
+		
+		<!-- capture捕获机制改变顺序 -->
+		<!--  <div class="inner" @click.capture="divClick">
+			<input type="button" value="click me" @click=btnClick>
+		</div> -->
+		 
+		 <!-- self 只有点本身才会触发 -->
+		 <!-- <div class="inner" @click.self="divClick">
+			<input type="button" value="click me" @click=btnClick>
+		</div> -->
+		
+		<!-- once只触发一次事件，第二次就会触发默认行为 -->
+		 <!-- <a href="http://www.baidu.com" @click.prevent.once="linkClick">baidu</a> -->
+
+		<!-- self 别让我被别人冒泡 stop 别让其他人冒泡 -->
+		<!-- <div class="outer" @click="div2Click">	
+		 <div class="inner" @click="divClick">
+			<input type="button" value="click me" @click.stop=btnClick>
+		</div>
+	</div> -->
+
+		<!-- <div class="outer" @click="div2Click">	
+		 <div class="inner" @click.self="divClick">
+			<input type="button" value="click me" @click=btnClick>
+		</div>
+	</div> -->
+
+
+
+
+	</div>
+
+	<script>
+		var vm= new Vue({
+			el:'#app',
+			data:{},
+			methods:{
+				divClick(){
+					console.log('inner div')
+				},
+				btnClick(){
+					console.log('button')
+				},
+				linkClick(){
+					console.log('linkClick')
+				},
+				div2Click(){
+					console.log('outer div')
+				}
+			}
+		});
+
+	</script>
+</body>
+</html>

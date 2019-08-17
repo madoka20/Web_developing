@@ -1,0 +1,40 @@
+*{
+	background-color:pink;
+}
+h1{
+	color:red;
+}
+#a1,#a2,#a3{
+	text-align: center;
+}
+#a4{
+	font-size: 16px;
+	color:green;
+	border-width: : 2px;
+	border-style: double;
+	font-weight: bold;
+}
+#a100{
+	height:42px;
+	background-color: rgb(146,133,212);
+	color:pink;
+	font-size: 15px;
+	line-height: 40px;
+	text-decoration: underline;
+}
+#a101{
+	text-align: right;
+	font-size: 26px;
+	color:rgb(43,221,143);
+	border: dotted;
+	border-width: 0.7em;
+	font-weight: bold;
+}
+#a102{
+	text-decoration: line-through;
+	color: rgb(133,133,133);
+	font-style: italic;
+}
+a{
+	text-decoration: none;
+}

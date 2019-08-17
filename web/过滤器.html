@@ -1,0 +1,30 @@
+<!DO CTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+	<style></style>
+</head>
+<body>
+	<div id="app"></div>
+
+	<script>
+		var vm= new Vue({
+			el:'#app',
+			data:{},
+			methods:{}
+		});
+
+	//过滤器的定义语法
+	//Vue.filter('过滤器的名称',function(){})
+
+	//过滤器中的function 的第一个参数已经被规定死了，永远都是过滤器管道符前面传递过来的数据
+	// Vue.filter('过滤器的名称',function(data){
+	// 	return data+123
+	// })
+	</script>
+</body>
+</html>
+
+过滤器调用的格式： {{name | 过滤器的名称}}

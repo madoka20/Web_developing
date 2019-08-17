@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+	<style>
+		[v-cloak]{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+
+<div id="app">
+	<p v-cloak>{{ msg }}</p>
+	<h4 v-text="msg"></h4>
+	<div v-html="msg2"></div>
+	<input id="btn" type="button" value="点我变妹" v-bind:title="mytitle+'QAQ'" v-on:click="show">
+	<!-- v-cloak防止闪烁，隐藏源代码 -->
+	<!-- v-bind 是绑定属性的指令 -->
+	<!-- 可以用冒号代替 -->
+	<!-- v-bind可以写合法表达式 -->
+	<!-- v-on可以绑定事件 缩写@ -->
+</div>
+
+<script>
+	var vm=new Vue({
+		el:'#app',
+		data:{
+			msg:'呜呜呜呜呜',
+			msg2:'<h1>好想做女孩子QAQ</h1>',
+			mytitle:'呜呜呜'
+		},
+		methods:{ //定义方法
+			show:function(){
+				alert('重新随机吧,没救了')
+			}
+		}
+	})
+	// document.getElementById('btn').onclick=function(){
+	// 	alert('变不了放弃吧')
+	// }
+</script>
+</body>
+</html>

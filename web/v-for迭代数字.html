@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+	<style></style>
+</head>
+<body>
+	<div id="app">
+		<!-- in后面都放普通数组，对象数组，对象，还可以放数字 -->
+		<!-- 注意，v-for迭代数字是从1开始 -->
+		<p v-for="count in 13">this is the # {{count*3}} iteration</p>
+	</div>
+
+	<script>
+		var vm= new Vue({
+			el:'#app',
+			data:{},
+			methods:{}
+		});
+
+	</script>
+</body>
+</html>
