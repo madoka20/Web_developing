@@ -8,14 +8,21 @@
 </head>
 <body>
 	<div id="app"></div>
-
+	<div id="app2">
+		{{1+1}}
+		<!-- 要用vm变量才能渲染出表达式的结果 -->
+	</div>
 	<script>
 		var vm= new Vue({
 			el:'#app',
 			data:{},
 			methods:{}
 		});
-
+		var vm2= new Vue({
+			el:'#app2',
+			data:{},
+			methods:{}
+		});
 	//过滤器的定义语法
 	//Vue.filter('过滤器的名称',function(){})
 
@@ -27,4 +34,4 @@
 </body>
 </html>
 
-过滤器调用的格式： {{name | 过滤器的名称}}
+<!-- 过滤器调用的格式： {{name | 过滤器的名称}} -->
