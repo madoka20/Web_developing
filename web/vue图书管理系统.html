@@ -190,7 +190,12 @@
 			methods:{
 				
 			},
-		
+			mounted(){
+				var _this=this
+				var timer=setInterval(()=>{
+					_this.dt=new Date()
+				},1000)
+			},
 			filters:{//定义私有过滤器。过滤器有两个条件：过滤器名称和处理函数
 				dateFormat2:function(dateStr,pattern){
 					var dt=new Date(dateStr)
