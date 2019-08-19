@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>图书管理系统</title>
 	<script src="vue.js"></script>
 	<style>
 		#title{
@@ -39,7 +39,9 @@
 		<!-- 在search内部执行for循环，把所有包含关键字的数据保存到一个新的数组中然后返回。 -->
 		<div class="search">
 			书名搜索：
-			<input type="text"  v-model="keywords">
+			<!-- Vue中所有的指令在调用的时候，都以v-开头 -->
+			<input type="text"  v-model="keywords" id="search" v-focus v-color="'orange'">
+			<!-- v-focus为自定义指令 -->
 		</div><br>
 
 		<table id="t1" class="table table-bordered table-hover table-striped">
@@ -76,19 +78,21 @@
 		<p>总字数：{{count()}}</p>
 
 		<div id="sheet">
-		编号：<input type="text" v-model='id'>
-		名称：<input type="text" v-model='name'>
-		作者：<input type="text" v-model='author'>
-		字数：<input type="text" v-model='numwords'>
-		发表日期：<input type="text" v-model='pubtime'>
-		链接：<input type="text" v-model='srclink'>
+		编号：<input type="text" v-model='id' @keyup.enter="add" @keyup.f2="add">
+		名称：<input type="text" v-model='name' @keyup.enter="add" @keyup.f2="add">
+		作者：<input type="text" v-model='author' @keyup.enter="add" @keyup.f2="add">
+		字数：<input type="text" v-model='numwords' @keyup.enter="add" @keyup.f2="add">
+		发表日期：<input type="text" v-model='pubtime' @keyup.enter="add" @keyup.f2="add">
+		链接：<input type="text" v-model='srclink' @keyup.enter="add" @keyup.f2="add">
+		<!-- 回车键或者F2(113)都可以添加 -->
 		<input type="button" value='添加' @click='add'>
 		</div>
 	</div>
 	<div id="app2">
-		<h3>当前时间：{{dt|dateFormat2('yyyy-mm-dd-hh-mm-ss')}}</h3>
+		<h3 v-color="'orange'" v-fontweight="900">当前时间：{{dt|dateFormat2('yyyy-mm-dd-hh-mm-ss')}}</h3>
 	</div>
 	<script>
+		//全局过滤器，进行时间的格式化
 		Vue.filter('dateFormat',function(dateStr,pattern){
 			//根据指定的时间字符串，得到特定的时间
 			var dt=new Date(dateStr)
@@ -107,8 +111,44 @@
 			}
 			
 		})
+		
 
-		//全局过滤器，进行时间的格式化
+		//自定义全局按键修饰符
+		Vue.config.keyCodes.f2 = 113
+		
+
+		//使用Vue.directive()定义全局的指令
+		//参数1是指令的名称，在定义的时候指令的名称前面不需要加v-前缀
+		//在调用的时候必须在指令名称前加成v-前缀来调用
+		//参数2是一个对象，这个对象身上有一些指令相关的函数，这些函数可以在特定的阶段执行相关的操作
+		Vue.directive('focus',{
+			bind:function(el){//每当指令绑定到元素上的时候，执行这个bind函数，只执行一次
+				//注意，在每个函数中，第一个参数永远是el，表示被绑定了指令的那个元素，这个el参数是一个原生的js对象
+				//在元素刚绑定了指令的时候，还没有插入到DOM中去，这时候，调用foucs方法没有用
+				//因为，一个元素，只有插入DOM之后才能获取焦点
+				// el.focus()
+			},
+			inserted:function(el){//inserted表示元素插入到DOM中的时候，会执行inserted函数，只触发一次
+				el.focus()
+				//和JS行为有关的操作，最好在inserted中去执行，放置JS行为不生效
+			},
+			updated:function(el){//当VNode（组件）更新的时候，会执行updated，可能会触发多次。
+
+			},
+		})
+
+		//自定义一个设置字体颜色的指令
+		//focus属于行为，必须要插入到DOM才会执行，但color是样式，只要绑定了指令就能执行。
+		//样式只要通过指令绑定给了元素，不管这个元素有没有被插入到页面中去，这个元素肯定有一个内联的样式
+		//将来元素肯定会显示到页面中，这时候浏览器的渲染引擎必然会解析样式，应用给这个元素
+		Vue.directive('color',{
+			bind:function(el,binding){
+				//第二个参数是形参，可以任意改名，只要保证同步
+				el.style.color=binding.value
+				//和样式相关的操作，一般都可以在bind中执行
+			}
+		})
+
 		var vm= new Vue({
 			el:'#app',
 			data:{
@@ -131,9 +171,11 @@
 				add(){
 					this.list.push({id:this.id,name:this.name,author:this.author,numwords:this.numwords,pubtime:this.pubtime,srclink:this.srclink,utime:new Date()})
 					this.id=''
-					this.name=''
+					this.name='' 
+					this.author=''
 					this.numwords=''
 					this.pubtime=''
+					this.srclink=''
 				},
 				del(id){//根据id删除数据
 					// this.list.some((item,i)=>{
@@ -225,8 +267,20 @@
 				return y+'-'+m+'-'+d+'   '+hh+':'+mm+':'+ss
 			}
 				}
+			},
+
+			//私有要加s，公用不要s
+			//自定义私有指令
+			directives:{
+				'fontweight':{
+					bind:function(el,binding){
+						el.style.fontWeight=binding.value
+					}
+				}
 			}
 		});
+
+		//document.getElementById('search').focus()
 	</script>
 </body>
 </html>
