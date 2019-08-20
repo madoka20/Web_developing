@@ -1,4 +1,4 @@
-<!DO CTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -89,7 +89,7 @@
 		</div>
 	</div>
 	<div id="app2">
-		<h3 v-color="'orange'" v-fontweight="900">当前时间：{{dt|dateFormat2('yyyy-mm-dd-hh-mm-ss')}}</h3>
+		<h3 v-color="'orange'" v-fontweight="900" v-fontsize="30">当前时间：{{dt|dateFormat2('yyyy-mm-dd-hh-mm-ss')}}</h3>
 	</div>
 	<script>
 		//全局过滤器，进行时间的格式化
@@ -272,10 +272,14 @@
 			//私有要加s，公用不要s
 			//自定义私有指令
 			directives:{
-				'fontweight':{
+				'fontweight':{//设置字体粗细
 					bind:function(el,binding){
 						el.style.fontWeight=binding.value
 					}
+				},
+				//简写形式
+				'fontsize':function(el,binding){//这个function等同于把代码写到了bind和update里面去
+					el.style.fontSize=parseInt(binding.value)+'px'
 				}
 			}
 		});
