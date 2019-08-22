@@ -23,21 +23,21 @@
 			methods:{
 				getInfo(){//发起get请求
 					//当发起get请求之后，通过.then来设置成功的回调函数
-					this.$http.get('http://vue.studyit.io/api/getlunbo').then(function(result){
+					this.$http.get('http://jsonplaceholder.typicode.com/users').then(function(result){
 						//通过result.body拿到服务器返回的成功的数据
-						//console.log(result.body)
+						console.log(result.body)
 					})
 					
 				},
 				postInfo(){//发起post请求 application/x-www-form-urlencoded
 					//手动发起的post请求默认没有表单格式，所以有的服务器处理不了
 					//通过post方法的第三个参数，{emulateJSON:true} 设置提交的内容类型为普通表单数据格式
-					this.$http.post('http://vue.studyit.io/api/post',{},{emulateJSON:true}).then(result=>{
+					this.$http.post('http://jsonplaceholder.typicode.com/users',{},{emulateJSON:true}).then(result=>{
 						console.log(result.body)
 					})
 				},
 				jsonpInfo(){//发起jsonp请求
-					this.$http.jsonp('http://vue.studyit.io/api/jsonp').then(result=>{
+					this.$http.jsonp('http://jsonplaceholder.typicode.com/users').then(result=>{
 						console.log(result.body)
 					})
 				}
