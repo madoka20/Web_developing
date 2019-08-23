@@ -47,6 +47,7 @@
 					<th>Id</th>
 					<th>Title</th>
 					<th>Body</th>
+					<th>Operation</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -55,13 +56,16 @@
 					<td>{{item.id}}</td>
 					<td>{{item.title}}</td>
 					<td>{{item.body}}</td>
-					
+					<td><a href="" @click.prevent='del(item.id)'>delete</a></td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 
 	<script>
+		//如果通过全局配置了请求的数据接口根域名，则每次单独发起http请求的时候，请求的url应该以相对路径开头（不能加斜线），否则不会启用根路径拼接
+		Vue.http.options.root='http://jsonplaceholder.typicode.com';
+		Vue.http.options.emulateJSON=true;
 		var vm= new Vue({
 			el:'#app',
 			
@@ -75,13 +79,7 @@
 				]
 			},
 			methods:{
-				add(){
-					this.list.push({userId:this.userId,id:this.id,title:this.title,body:this.body})
-					this.userId=''
-					this.id=''
-					this.title=''
-					this.body=''
-				},
+				
 				getAllList(){//获取所有的列表
 					//分析：1.由于已经导入了vue-resource，所以可以直接通过this.$http来发起数据请求
 					//2.获取列表的时候应该发起get请求
@@ -89,7 +87,7 @@
 					//4.当通过then指定回调函数之后，在回调函数中，可以拿到数据服务器返回的result
 					//5.先判断result.status是否等于0，如果等于0，就成功了，可以把result.message赋值给this.list。
 					//如果不等于0，可以弹框提醒，获取数据失败！
-					this.$http.get('http://jsonplaceholder.typicode.com/posts').then(result=>{
+					this.$http.get('posts').then(result=>{
 						//注意，通过$http获取到的数据，都在result.body中
 						result=result.body
 						this.list=result
@@ -104,6 +102,35 @@
 						// }
 					})
 
+				},
+				add(){//添加品牌列表到后台服务器
+					//分析：1.需要发送post请求 this.$http.post
+					//2.this.$http.post()中接收三个参数:
+					//2.1 第一个，要请求的url
+					//2.2 第二个，要提交给服务器的数据，要以对象形式提交给服务器(name:this.name)
+					//2.3 第三个，是一个配置对象，要以哪种表单数据类型提交回去 {emulateJSON:true}
+					//以普通表单格式将数据提交给服务器 application/x-www-form-urlencoded
+					//3. 在post方法中，使用 .then 来设置成功的回调函数，如果想要拿到成功的结果，需要result.body
+
+					this.$http.post('posts',{userId:this.userId,id:this.id,title:this.title,body:this.body}).then(result=>{
+						// if (result.body.status===0){
+						// 	//添加完成后，只需要手动调用getAllList()就能刷新列表了
+						// 	this.getAllList()
+						// }else{
+						// 	alert('添加失败！')
+						// }
+						this.getAllList()
+						//清空
+						this.userId=''
+						this.id=''
+						this.title=''
+						this.body=''
+					})
+				},
+				del(id){//删除
+					this.$http.delete('posts/'+id).then(result=>{
+						this.getAllList()
+					})
 				}
 			},
 			created(){//当vm实例的data和methods初始化完毕后，vm实例会自动执行created这个生命周期函数
