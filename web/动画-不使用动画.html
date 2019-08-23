@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+	<style></style>
+</head>
+<body>
+	<div id="app">
+		<!-- 需求：点击按钮，让h3显示，再点击，让h3隐藏 -->
+		<input type="button" value="show/hide" @click="flag=!flag">
+		<h3 v-if="flag">this is a h3</h3>
+	</div>
+
+	<script>
+		var vm= new Vue({
+			el:'#app',
+			data:{
+				flag:false
+			},
+			methods:{}
+		});
+
+	</script>
+</body>
+</html>
