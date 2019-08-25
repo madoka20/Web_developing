@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+	<style></style>
+</head>
+<body>
+	<div id="app">
+		<h3>哆啦A梦的时光机器</h3><counter></counter>
+		<h3>小青蛙的时光机器</h3><counter></counter>
+		<h3>长者的时光机器</h3><counter></counter>
+	</div>
+	<template id="temp1">
+		<div>
+			<input type="button" value="+1s" @click="increment1" >
+			<input type="button" value="+13s" @click="increment13" >
+			<input type="button" value="+37s" @click="increment37" >
+			<input type="text" v-model="addition">
+			<input type="button" value="add" @click="incrementAny" >
+			<h3>已获得寿命：{{countStr}}</h3>
+		</div>
+	</template>
+	<script>
+		//这是一个计数器的组件，身上有个按钮，让data中的count+1
+		
+		Vue.component('counter',{
+			template:'#temp1',
+			data:function(){
+				return {count:0,countStr:'0',addition:0}
+				//把数据放在这，可以使得每一个组件不共享数据，如果放在外面，就会共享
+			},
+			methods:{
+				increment1(){
+					this.count++
+					this.toTimeStr()
+				},
+				increment13(){
+					this.count+=13
+					this.toTimeStr()
+				},
+				increment37(){
+					this.count+=37
+					this.toTimeStr()
+				},
+				incrementAny(){
+					this.count+=parseInt(this.addition)
+					this.toTimeStr()
+				},
+				toTimeStr(){
+					if(this.count>=60&&this.count<3600){
+						this.countStr=((this.count-this.count%60)/60)+' m '+(this.count%60)+' s'
+					}else if(this.count>=3600&&this.count<86400){
+						this.countStr=((this.count-this.count%3600)/3600)+' h '+(((this.count%3600)-this.count%60)/60)+' m '+((this.count%3600)%60)+' s'
+					}else if(this.count>=86400){
+						var days=(this.count-this.count%86400)/86400
+						var hours=((this.count-days*86400)-(this.count-days*86400)%3600)/3600
+						var mins=((this.count-days*86400-hours*3600)-(this.count-days*86400-hours*3600)%60)/60
+						var secs=this.count-days*86400-hours*3600-mins*60
+						this.countStr=days+' d '+hours+' h '+mins+' m '+secs+' s '
+					}
+					else{
+						this.countStr=this.count+' s'
+					}
+				}
+			}
+
+		})
+		var vm= new Vue({
+			el:'#app',
+			data:{},
+			methods:{}
+		});
+
+	</script>
+</body>
+</html>

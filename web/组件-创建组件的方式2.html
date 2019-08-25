@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+	<style></style>
+</head>
+<body>
+	<div id="app">
+		<!-- 依然是使用标签的形式来引用组件 -->
+		<mycom2></mycom2>
+	</div>
+
+	<script>
+		Vue.component('mycom2',{
+			//注意，无论是哪种方式创建出来的组件，组件的template属性指向的模板内容，必须有且只能有唯一的一个根元素，
+			template:'<div><h3>这里是直接使用Vue.component创建出来的组件</h3><p></p></div>'
+		})
+
+		var vm= new Vue({
+			el:'#app',
+			data:{},
+			methods:{}
+		});
+
+	</script>
+</body>
+</html>
