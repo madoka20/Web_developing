@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.js"></script>
+	<style></style>
+</head>
+<body>
+	<div id="app">
+		<a href="" @click.prevent="comName='login'">Login</a>
+		<a href="" @click.prevent="comName='register'">Register</a>
+		<!-- Vue提供了component来展示对应名称的组件 -->
+		<!-- component是一个占位符，:is属性需要指定要展示组件的名称 -->
+		<component :is="comName"></component>
+
+		<!-- 当前学过的Vue提供的标签：component,template,transition,transitionGroup -->
+	</div>
+
+	<script>
+		//组件名称是字符串
+		Vue.component('login',{
+			template:'<h3>Login</h3>'
+		})
+		Vue.component('register',{
+			template:'<h3>Register</h3>'
+		})
+		
+
+		var vm= new Vue({
+			el:'#app',
+			data:{
+				comName:'login'//当前component中的:is绑定的组件名称
+			},
+			methods:{}
+		});
+
+	</script>
+</body>
+</html>
