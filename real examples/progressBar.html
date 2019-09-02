@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>progress bar</title>
+    <script src="../web/vue.js"></script>
+    <style type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap"rel="stylesheet">.container {
+        width: 100%
+    }
+
+    .progressbar {
+        counter-reset: step;
+    }
+
+    /*@font-face{
+		font-family: 'Annie'
+		src: url('Annie.ttf');
+	}*/
+    .progressbar li {
+        list-style-type: none;
+        float: left;
+        width: 11.11%;
+        position: relative;
+        text-align: center;
+        font-weight: bold;
+        font-family: 'Chilanka', cursive;
+    }
+
+    .progressbar li:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        border: 5px solid #ddd;
+        display: block;
+        text-align: center;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        background-color: white;
+    }
+
+    .progressbar li:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: #ddd;
+        top: 15px;
+        left: -50%;
+        z-index: -1;
+    }
+
+    .progressbar li:first-child:after {
+        content: none;
+    }
+
+    .progressbar li.active {
+        color: green;
+    }
+
+    .progressbar li.active:before {
+        border-color: green;
+    }
+
+    .progressbar li.active+li:after {
+        background-color: green;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <ul class="progressbar">
+                <li v-bind:class="{ active: isActive1 }" @click="act1()">Step 1</li>
+                <li v-bind:class="{ active: isActive2 }" @click="act2()">Step 2</li>
+                <li v-bind:class="{ active: isActive3 }" @click="act3()">Step 3</li>
+                <li v-bind:class="{ active: isActive4 }" @click="act4()">Step 4</li>
+                <li v-bind:class="{ active: isActive5 }" @click="act5()">Step 5</li>
+                <li v-bind:class="{ active: isActive6 }" @click="act6()">Step 6</li>
+                <li v-bind:class="{ active: isActive7 }" @click="act7()">Step 7</li>
+                <li v-bind:class="{ active: isActive8 }" @click="act8()">Step 8</li>
+                <li v-bind:class="{ active: isActive9 }" @click="act9()">Step 9</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            isActive1: false,
+            isActive2: false,
+            isActive3: false,
+            isActive4: false,
+            isActive5: false,
+            isActive6: false,
+            isActive7: false,
+            isActive8: false,
+            isActive9: false
+
+        },
+        methods: {
+            act1() {
+                this.isActive1 = !this.isActive1
+
+                this.isActive2 = false
+                this.isActive3 = false
+                this.isActive4 = false
+                this.isActive5 = false
+                this.isActive6 = false
+                this.isActive7 = false
+                this.isActive8 = false
+                this.isActive9 = false
+
+            },
+            act2() {
+                this.isActive2 = !this.isActive2
+
+                this.isActive1 = false
+                this.isActive3 = false
+                this.isActive4 = false
+                this.isActive5 = false
+                this.isActive6 = false
+                this.isActive7 = false
+                this.isActive8 = false
+                this.isActive9 = false
+
+            },
+            act3() {
+                this.isActive3 = !this.isActive3
+
+                this.isActive2 = false
+                this.isActive1 = false
+                this.isActive4 = false
+                this.isActive5 = false
+                this.isActive6 = false
+                this.isActive7 = false
+                this.isActive8 = false
+                this.isActive9 = false
+
+            },
+            act4() {
+                this.isActive4 = !this.isActive4
+
+                this.isActive2 = false
+                this.isActive3 = false
+                this.isActive1 = false
+                this.isActive5 = false
+                this.isActive6 = false
+                this.isActive7 = false
+                this.isActive8 = false
+                this.isActive9 = false
+
+            },
+            act5() {
+                this.isActive5 = !this.isActive5
+
+                this.isActive2 = false
+                this.isActive3 = false
+                this.isActive4 = false
+                this.isActive1 = false
+                this.isActive6 = false
+                this.isActive7 = false
+                this.isActive8 = false
+                this.isActive9 = false
+
+            },
+            act6() {
+                this.isActive6 = !this.isActive6
+
+                this.isActive2 = false
+                this.isActive3 = false
+                this.isActive4 = false
+                this.isActive5 = false
+                this.isActive1 = false
+                this.isActive7 = false
+                this.isActive8 = false
+                this.isActive9 = false
+
+            },
+            act7() {
+                this.isActive7 = !this.isActive7
+
+                this.isActive2 = false
+                this.isActive3 = false
+                this.isActive4 = false
+                this.isActive5 = false
+                this.isActive6 = false
+                this.isActive1 = false
+                this.isActive8 = false
+                this.isActive9 = false
+
+            },
+            act8() {
+                this.isActive8 = !this.isActive8
+
+                this.isActive2 = false
+                this.isActive3 = false
+                this.isActive4 = false
+                this.isActive5 = false
+                this.isActive6 = false
+                this.isActive7 = false
+                this.isActive1 = false
+                this.isActive9 = false
+
+            },
+            act9() {
+                this.isActive9 = !this.isActive9
+
+                this.isActive2 = false
+                this.isActive3 = false
+                this.isActive4 = false
+                this.isActive5 = false
+                this.isActive6 = false
+                this.isActive7 = false
+                this.isActive8 = false
+                this.isActive1 = false
+
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>
