@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	   <script src="../web/vue.js"></script>
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			border: 3px solid;
+			border-radius: 25px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="app">
+		
+		<table>
+			<tr>
+				<td><div class="box" :style="{backgroundColor:colorList[colorIndex1]}" @click="switchColor1()"></div></td>
+				<!-- switch four colors by click  -->
+				<td><div class="box" :style="{backgroundColor:colorList[colorIndex2]}" @click="switchColor2()"></div></td>
+			</tr>
+			<tr>
+				<td><div class="box" :style="{backgroundColor:colorList[colorIndex3]}" @click="switchColor3()"></div></td>
+				<td><div class="box" :style="{backgroundColor:colorList[colorIndex4]}" @click="switchColor4()"></div></td>
+			</tr>
+		</table>
+	
+		
+	</div>
+
+	<script>
+		var vm= new Vue({
+			el:'#app',
+			data:{
+				colorList:['red','blue','green','yellow'],
+				colorIndex1:0,
+				colorIndex2:0,
+				colorIndex3:0,
+				colorIndex4:0
+
+				},
+			methods:{
+				switchColor1(){
+					this.colorIndex1++
+					if(this.colorIndex1>=4){
+						this.colorIndex1=this.colorIndex1%4
+					}
+				},
+				switchColor2(){
+					this.colorIndex2++
+					if(this.colorIndex2>=4){
+						this.colorIndex2=this.colorIndex2%4
+					}
+				},
+				switchColor3(){
+					this.colorIndex3++
+					if(this.colorIndex3>=4){
+						this.colorIndex3=this.colorIndex3%4
+					}
+				},
+				switchColor4(){
+					this.colorIndex4++
+					if(this.colorIndex4>=4){
+						this.colorIndex4=this.colorIndex4%4
+					}
+				}
+			}
+		});
+
+	</script>
+</body>
+</html>
