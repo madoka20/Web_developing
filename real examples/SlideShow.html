@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Slide show</title>
+    <script src="../web/vue.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
+    <style>
+    #title {
+        font-family: 'Chilanka', cursive;
+        color: rgb(255, 192, 203);
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+    }
+
+    .mySlides {
+        display: none;
+        padding-bottom: 20px;
+    }
+
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: pink;
+        font-weight: bold;
+        font-size: 33px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .textblack {
+        color: #000;
+        font-size: 19px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 28px;
+        width: 100%;
+        text-align: center;
+        font-family: 'Chilanka', cursive;
+        font-weight: bold;
+
+    }
+
+    .textwhite {
+        color: #fff;
+        font-size: 19px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 28px;
+        width: 100%;
+        text-align: center;
+        font-family: 'Chilanka', cursive;
+
+    }
+
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+        background-color: pink;
+    }
+
+    /* Fading animation */
+    .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+
+    @-webkit-keyframes fade {
+        from {
+            opacity: .4
+        }
+
+        to {
+            opacity: 1
+        }
+    }
+
+    @keyframes fade {
+        from {
+            opacity: .4
+        }
+
+        to {
+            opacity: 1
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2 id="title">Madoka Slideshow</h2>
+        <div class="container">
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 4</div>
+                <img src="C:\Users\Administrator\Desktop\imgs\madoka_03.jpg" style="width:100%">
+                <div class="textblack">"Never leave me"</div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 4</div>
+                <img src="C:\Users\Administrator\Desktop\imgs\madoka_01.png" style="width:100%">
+                <div class="textblack">"The truth, we can't resist"</div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 4</div>
+                <img src="C:\Users\Administrator\Desktop\imgs\madoka_02.jpg" style="width:100%">
+                <div class="textwhite">"The world is broken, but me"</div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">4 / 4</div>
+                <img src="C:\Users\Administrator\Desktop\imgs\madoka_04.jpg" style="width:100%">
+                <div class="textwhite">"To go, or die"</div>
+            </div>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </div>
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {}
+    });
+    </script>
+    <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+    window.onload = function() {
+
+        document.onkeydown = function(event) {
+            event = event || window.event;
+            console.log(event.keyCode);
+            switch (event.keyCode) {
+
+                case 37:
+                    plusSlides(-1)
+                    break;
+
+                case 39:
+                    plusSlides(1)
+                    break;
+
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>

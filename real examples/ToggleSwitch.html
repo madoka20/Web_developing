@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../web/vue.js"></script>
+    <style>
+        .switch{
+			position: relative;
+		}
+		.switch label{
+			width:55px;
+			height: 23px;
+			position: absolute;
+			background-color: #999;
+			top:0;
+			left: 0;
+			border-radius: 50px;
+			transition:all 0.2s;
+		}
+		.switch input[type="checkbox"]{
+			visibility: hidden;
+		}
+		.switch label:after{
+			content: '';
+			width:21px;
+			height: 21px;
+			border-radius: 50px;
+			position: absolute;
+			top:1px;
+			left: 1px;
+			transition:all 0.1s;
+			background-color: white;
+		}
+		.switch input[type="checkbox"]:checked+label:after{
+			left:33px;
+		}
+		.switch input[type="checkbox"]:checked+label{
+			background-color: rgb(127,255,0);
+		}
+
+	</style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="switch">
+            <input type="checkbox" id="checkbox1">
+            <label for="checkbox1"></label>
+        </div>
+    </div>
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {}
+    });
+    </script>
+</body>
+
+</html>
