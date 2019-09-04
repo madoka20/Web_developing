@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Heart checkbox</title>
+    <script src="../web/vue.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
+    <style>
+        .checkbox{
+			width: 30px;
+			height: 30px;
+			background-color: #ddd;
+			position: relative;
+		}
+		.checkbox input[type="checkbox"]{
+			visibility: hidden;
+		}
+		.checkbox label{
+			width: 28px;
+			height: 28px;
+			position: absolute;
+			top:1px;
+			left: 1px;
+			background-color: rgb(255,192,203);
+		}
+		/*.checkbox label:before{
+			content:'';
+			width: 9px;
+			height: 5px;
+			border:3px solid #fff;
+			position: absolute;
+			border-top:none;
+			border-right: none;
+			transform:rotate(-45deg);
+			top:8px;
+			left: 8px;
+			opacity:0;
+
+		}*/
+		#heart{
+			right:6px;
+			top:6px;
+			position: absolute;
+			color:white;
+		}
+		#text1{
+			color:pink;	
+			font-family: 'Amatic SC', cursive;
+			font-size: 20px;
+			top:14px;
+			left:11px;
+			position: absolute;
+		}
+		
+	</style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="checkbox">
+            <input type="checkbox" id="checkbox1" v-model="checked">
+            <label for="checkbox1">
+                <ion-icon name="heart" id="heart" v-show="checked"></ion-icon>
+            </label>
+        </div>
+        <p id="text1" v-show="checked">Love.</p>
+    </div>
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            checked: false
+        },
+        methods: {}
+    });
+    </script>
+</body>
+
+</html>
