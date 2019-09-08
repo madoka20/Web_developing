@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Yumemi's world</title>
+    <script src="../web/vue.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
+    <style>
+    body {
+        background: url(imgs/violet_02.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .nav{
+    	list-style-type: none;
+    }
+    .nav li{
+    	float:left;
+    }
+    .nav .logo img{
+    	width: 60px;
+    	height: 60px;
+    	border: 3px solid pink;
+    	border-radius: 50%;
+		position: relative;
+		bottom: 12px;
+		 }
+    .nav .space{
+    	width:426px;
+    	height: 40px;
+		background: #fff;
+		opacity: 0;
+    }
+    .nav li{
+    	line-height: 40px;
+    	padding-left: 15px;
+    	padding-right: 15px;
+    	font-family: 'Chilanka', cursive;
+    	font-size:30px;
+    	padding-top: 20px;
+    	color:rgb(238,130,238);
+
+
+    }
+   /* .nav .title{
+    	color:rgb(238,130,238);
+    }*/
+    .nav li a.link{
+    	color:inherit;
+    	text-decoration: none;
+    	background-color: rgb(255,255,255,0.6);
+    	/*border:2px dotted pink;*/
+    	border-radius: 3px;
+    	box-sizing: border-box;
+    	padding:5px 5px;
+
+
+
+    }
+    .nav li a.link:hover{
+    	background-color: rgb(240,248,255);
+
+    }
+    .violet div{
+		width: 520px;
+		height: 80px;
+		background-color: #fff;
+		position: absolute;
+		left:738px;
+		top:293px;
+		opacity: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+    	<ul class="nav">
+    		<li class="logo">
+    			<a href="00_MainPage.html"><img src="imgs/yumemi.png" alt=""></a>
+    		</li>
+    		<li><a href="00_MainPage.html"  class="link">Yumemi's World</a></li>
+    		<li>
+    			<div class="space"></div>
+    		</li>
+			<li><a href="01_ImagesTransition.html" class="link">Images</a></li>
+			<li><a href="" class="link">Music</a></li>
+			<li><a href="" class="link">Stories</a></li>
+			<li><a href="" class="link">Poetry</a></li>
+			<li><a href="" class="link">Login</a></li>
+    	</ul>
+    </div>
+    <a class="violet" href="https://www.youtube.com/watch?v=BIkeB9EE0rs" target="_blank"><div></div></a>
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {}
+    });
+    </script>
+</body>
+
+</html>
