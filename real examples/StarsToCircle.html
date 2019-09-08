@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Star to circle</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <style>
+        .shape,.btn{
+			transform:translateX(-300px)
+			translateY(-300px);
+		}
+		
+		.shape span{
+			width: 100px;
+			height: 33px;
+			background-color:orange;
+			position:absolute;
+			top:400px;
+			left:400px;
+			border-radius: 44px;
+			transition: all 0.3s;
+			
+		}
+		#shape1{
+			transform:rotate(-72deg) ;
+			left:404px;
+			top:354px;
+		}
+		#shape2{
+			transform:rotate(72deg);
+			top:354px;
+			left:434px;
+		}
+		#shape3{
+			left:340px;
+		}
+		#shape4{
+			left:498px;
+		}
+		#shape5{
+			transform: rotate(36deg);
+			left:331px;
+			top:429px;
+		}
+		#shape6{
+			transform: rotate(-36deg);
+			left:507px;
+			top:429px;
+		}
+		#shape7{
+			transform: rotate(108deg);
+			left:356px;
+			top:504px;
+		}
+		#shape8{
+			transform: rotate(-108deg);
+			left:482px;
+			top:504px;
+		}
+		#shape9{
+			transform: rotate(-36deg);
+			top:522px;
+			left:381px;
+		}
+		#shape10{
+			transform: rotate(36deg);
+			top:522px;
+			left:458px;
+		}
+		.shape.visible span{
+			background-color: pink;
+		}
+		.shape.visible #shape1{
+			
+			transform: rotate(-18deg)
+			
+		}
+		.shape.visible #shape2{
+
+			transform: rotate(18deg)
+			
+		}
+		.shape.visible #shape3{
+
+			transform: rotate(306deg)
+		
+		}
+		.shape.visible #shape4{
+
+			transform: rotate(54deg)
+			
+		}
+		.shape.visible #shape5{
+
+			transform: rotate(270deg)
+			
+		}
+		.shape.visible #shape6{
+
+			transform: rotate(90deg)
+			
+		}
+		.shape.visible #shape7{
+
+			transform: rotate(234deg)
+			
+		}
+		.shape.visible #shape8{
+
+			transform: rotate(126deg)
+			
+		}
+		.shape.visible #shape9{
+
+			transform: rotate(198deg);
+		}
+		.shape.visible #shape10{
+
+			transform: rotate(162deg);
+		}
+		.btn{
+			position: absolute;
+			top:610px;
+			left:412px;
+			color:orange;
+			font-size:30px;
+			background-color:#7892c2;
+			-moz-border-radius:28px;
+			-webkit-border-radius:28px;
+			border-radius:28px;
+
+		}
+		.btn:hover {
+			background-color:#476e9e;
+		}
+		.btn:active {
+			position:absolute;
+			top:611px;
+		}
+
+		
+		.btn.visible{
+			color:pink;
+			transition: 0.3s all;
+		}
+	</style>
+    <script type="text/javascript">
+    $(function() {
+        $('.shape').click(function() {
+            $(this).toggleClass('visible');
+        })
+    })
+    $(function() {
+        $('.btn').click(function() {
+            $('.shape').toggleClass('visible');
+        })
+    })
+    $(function() {
+        $('.shape').click(function() {
+            $('.btn').toggleClass('visible');
+        })
+    })
+    $(function() {
+        $('.btn').click(function() {
+            $(this).toggleClass('visible');
+        })
+    })
+    </script>
+</head>
+
+<body>
+    <div class="shape">
+        <span id="shape1"></span>
+        <span id="shape2"></span>
+        <span id="shape3"></span>
+        <span id="shape4"></span>
+        <span id="shape5"></span>
+        <span id="shape6"></span>
+        <span id="shape7"></span>
+        <span id="shape8"></span>
+        <span id="shape9"></span>
+        <span id="shape10"></span>
+    </div>
+    <button class="btn">Change!</button>
+</body>
+
+</html>

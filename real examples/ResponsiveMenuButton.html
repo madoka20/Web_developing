@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Responsive Menu Button</title>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<style>
+		.mobile-nav{
+			width: 30px;
+			height: 30px;
+			position: relative;
+		}
+		.mobile-nav span,.mobile-nav span:before,.mobile-nav span:after{
+			position: absolute;
+			width: 26px;
+			height: 2px;
+			background-color: #000;
+		}
+		.mobile-nav span{
+			top:50%;
+			transition: background .3s;
+		}
+		.mobile-nav span:before{
+			content:'';
+			top:-7px;
+			transform-origin:0% 50%;
+			transition: transform 0.3s;
+		}
+		.mobile-nav span:after{
+			content:'';
+			top:7px;
+			transform-origin:0% 50%;
+			transition: transform 0.3s;
+		}
+		.mobile-nav.visible span{
+			background-color: #fff;
+		}
+		.mobile-nav.visible span:before{
+			transform:rotate(45deg) translate(3px) translateY(-6px);
+		}
+		.mobile-nav.visible span:after{
+			transform:rotate(-45deg) translate(3px) translateY(6px);
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$('.mobile-nav').click(function(){
+				$(this).toggleClass('visible');
+			})
+		})
+	</script>
+</head>
+<body>
+	
+		<div class="mobile-nav">
+			<span></span>
+		</div>
+	
+
+</body>
+</html>
