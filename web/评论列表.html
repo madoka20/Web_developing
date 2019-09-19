@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Comments</title>
+    <script src="vue.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
+    <style>
+    	ul li div{
+			font-family: 'Chilanka', cursive;
+			font-weight: bold;
+
+    	}
+    	.title{
+    		font-family: 'Chilanka', cursive;
+			padding-top: 24px;
+			text-align: center;
+			color:blue;
+    	}
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app" class="container">
+    	<h1 class="title">Comments</h1>
+        <cmt-box @refresh="loadComments,n=Math.floor(Math.random()*6)"></cmt-box>
+        <ul class="list-group">
+            <li class="list-group-item" v-for="item in list" :key="item.id">
+                <div :style="{color:colors[n]}">ID:&nbsp;{{item.id}}&nbsp;&nbsp;
+                    User:&nbsp;{{item.user}}
+                </div>
+                <hr>
+                <div style="color:orange;">{{item.content}}</div>
+            </li>
+        </ul>
+    </div>
+    <template id="tmp1">
+        <div>
+            <div class="form-group form-inline row">
+                <label  style="font-family: 'Chilanka', cursive; color:blue;font-weight: bold;font-size: 22px;"class="col-1">User:</label>
+                <input  type="text" class="form-control mx-sm-2 col-3" v-model="user">
+            </div>
+            <div class="form-group form-inline row">
+                <label style="font-family: 'Chilanka', cursive;color:blue;font-weight: bold;font-size: 22px;" class="col-1">Content:</label>
+                <textarea  class="form-control mx-sm-2 col-8" v-model="content"></textarea>
+            </div>
+            <div class="form-group form-inline">
+                <input style="font-family: 'Chilanka', cursive; " type="button" value="submit" class="btn btn-primary offset-1" @click="postCmt">
+            </div>
+        </div>
+    </template>
+    <script>
+    var commentBox = {
+        template: '#tmp1',
+        data() {
+            return {
+                user: '',
+                content: ''
+            }
+        },
+        methods: {
+            postCmt() {
+
+            	var list=JSON.parse(localStorage.getItem('cmts')||'[]')
+            	// var num=Math.ceil(Math.random()*1000)
+            	// for(var i=0;i<list.length;i++){
+            	// 	while(num==list[i].id){
+            	// 		num=(Math.ceil(Math.random()*1000))
+            	// 	}
+            	// }//avoid duplicate id
+            	var num=Math.ceil(Math.random()*999999)
+            	var comment={id:num,user:this.user,content:this.content}
+            	list.push(comment)
+            	localStorage.setItem('cmts',JSON.stringify(list))
+            	this.user=''
+            	this.content=''
+            	this.$emit('refresh')
+            }
+        }
+    }
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+        	n:Math.floor(Math.random()*4),
+        	colors:[
+        	'red','blue','green','orange','violet','black'
+        	],
+            list: [
+                { id: 13, user: 'Lily', content: 'white lily lesbians' },
+                { id: 25, user: 'sakura', content: 'pink sakura' },
+                { id: 31, user: 'iris', content: 'rainbow' }
+            ]
+        },
+        created(){
+        	this.loadComments()
+        },
+        methods: {
+        	loadComments(){
+        		var list=JSON.parse(localStorage.getItem('cmts')||'[]')
+        		this.list=list
+        	}
+        },
+        components: {
+            'cmt-box': commentBox
+        }
+    });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
