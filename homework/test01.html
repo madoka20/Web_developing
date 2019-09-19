@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../web/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        #form1{
+          
+        }
+    </style>
+    <script type="text/javascript">
+    function show() {
+        if (document.getElementById("content").innerHTML == "Red") { document.getElementById("content").innerHTML = "Orange" 
+            document.getElementById("content").style.color="orange"
+
+    } else if(document.getElementById("content").innerHTML == "Orange") {
+            document.getElementById("content").innerHTML = "Blue"
+             document.getElementById("content").style.color="blue"
+        }
+        else if(document.getElementById("content").innerHTML == "Blue") {
+            document.getElementById("content").innerHTML = "Green"
+             document.getElementById("content").style.color="green"
+        }
+
+        else{
+              document.getElementById("content").innerHTML = "Red"
+             document.getElementById("content").style.color="red"
+        }
+
+    }
+
+    function toggle() {
+        var radio = document.getElementsByName("radio")
+        var form1 = document.getElementById("form1")
+        var form2 = document.getElementById("form2")
+        if (radio[0].checked) {
+            form1.style.display = "block"
+            form2.style.display = "none"
+        }
+        if (radio[1].checked) {
+            form1.style.display = "none"
+            form2.style.display = "block"
+        }
+
+    }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-group"> <button class="btn btn-primary" onclick="show()" @keyup.prevent.enter="show()">click me!</button>
+            <h3 id="content" style="color:red;">Red</h3>
+        </div>
+        <div class="form-group">
+            <div class="form-check form-check-inline"> <label class="form-check-label" for="r1">
+                    <input class="form-check-input" name="radio" id="r1" type="radio" value="" checked="checked" onclick="toggle()" />Yes</label></div>
+            <div class="form-check form-check-inline"><label class="form-check-label" for="r2">
+                    <input class="form-check-input" name="radio" id="r2" type="radio" value="" onclick="toggle()" />No</label></div>
+        </div>
+        <div class="form-group"><label class="form-control-label" for="t1" id="form1" style="display:block;">Good to go?
+                <input class="form-control" type="text" id="t1"></label>
+            <label class="form-control-label" for="t2" id="form2" style="display:none;">Wait!
+                <input class="form-control" type="text" id="t2"></label></div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
