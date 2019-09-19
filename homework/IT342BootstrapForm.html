@@ -1,13 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Author:Clare -->
+<!-- Date:9/19/19 -->
 
 <head>
     <meta charset="UTF-8">
     <title>BootstrapForm</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script>
+        function toggle() {
+        var radio = document.getElementsByName("radio")
+        var tag = document.getElementById("tag")
+        var tags = document.getElementById("tags")
+        if (radio[0].checked) {
+            tag.style.display = "block"
+            tags.style.display = "none"
+        }
+        if (radio[1].checked) {
+            tag.style.display = "none"
+            tags.style.display = "block"
+        }
+
+    }
+    </script>
 </head>
 
 <body>
+    <nav class="navbar navbar-light bg-light navbar-expand-sm">
+        <div class="container">
+            <div class="navbar-brand" href="#">CTS Computer Inventory</div>
+            <div class="navbar-nav">
+                <div class="dropdown">
+                    <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" id="devices" aria-haspopup="true" aira-expanded="false">Devices</a>
+                    <div class="dropdown-menu" aria-labelledby="devices">
+                        <a href="#" class="dropdown-item">List</a>
+                        <a href="#" class="dropdown-item">Add Device</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" id="reports" aria-haspopup="true" aira-expanded="false">Reports</a>
+                    <div class="dropdown-menu" aria-labelledby="reports">
+                        <a href="#" class="dropdown-item">Report 1</a>
+                        <a href="#" class="dropdown-item">Report 2</a>
+                        <a href="#" class="dropdown-item">Report 3</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h2 style="text-align: center;">Add Device</h2>
+        <div class="form-group">
+            <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n">
+                    Multiple Machines <input class="form-check-input" name="radio" id="n" type="radio" value="" checked="checked" onclick="toggle()" />No</label></div>
+            <div class="form-check form-check-inline"><label class="form-check-label" for="y">
+                    <input class="form-check-input" name="radio" id="y" type="radio" value="" onclick="toggle()" />Yes</label></div>
+        </div>
+        <!-- radio buttons to toggle -->
+        <div class="form-group row"><label class="form-control-label col-sm-3" id="tag" style="display:block;">Service Tag:
+                <input class="form-control" type="text"></label>
+            <label class="form-control-label col-sm-3" id="tags" style="display:none;">Multiple Service Tags:
+                <textarea class="form-control" rows="4"></textarea></label>
+        </div>
+        <!-- service tag / multiple service tags -->
+        <div class="form-group row">
+            <label class="form-control-label col-sm-3" id="model">Model:
+                <input class="form-control" type="text"></label>
+        </div>
+        <!-- model -->
+        <div class="form-group row">
+            <label class="col-sm-3">Type:
+                <select class="custom-select">
+                    <option selected>Choose one...</option>
+                    <option value="1">laptop</option>
+                    <option value="2">desktop</option>
+                    <option value="3">tablet</option>
+                    <option value="4">other</option>
+                </select></label>
+        </div>
+        <!-- type -->
+        <div class="form-group row">
+            <label class="form-control-label col-sm-3">Purchase Date:
+                <input class="form-control" placeholder="MM/DD/YYYY" type="text" /></label>
+        </div>
+        <!-- purchase date -->
+        <div class="form-group row">
+            <label class="form-control-label col-sm-3" id="warPro"">Warranty Provider:
+                <input class=" form-control" type="text"></label>
+        </div>
+        <!-- warranty provider -->
+        <div class="form-group row">
+            <label class="form-control-label col-sm-3">Warranty Expiration:
+                <input class="form-control" placeholder="MM/DD/YYYY" type="text" /></label>
+        </div>
+        <!-- warranty expiration -->
+        <div class="form-group row">
+            <label class="form-check-label col-sm-3">
+                Retired
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input">
+                </div>
+            </label>
+        </div>
+        <!-- retired -->
+        <div class="form-group row">
+            <div class="col-sm-2">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+            <div class="col-sm-2">
+                <button class="btn btn-danger" onclick="cfm()" type="submit">Cancel</button>
+            </div>
+        </div>
+        <!-- submit and cancel button -->
+    </div>
+    </div>
+    <script>
+    function cfm() {
+
+        var ans = confirm("Are you sure to leave this page? Your input will no longer saved.");
+        if (ans == true) {
+            window.location.href = 'IT342BootstrapTable.html';
+        }
+        document.getElementById("demo").innerHTML = txt;
+    }
+    // confirmation
+    </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
