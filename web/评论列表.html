@@ -70,6 +70,7 @@
             	// 		num=(Math.ceil(Math.random()*1000))
             	// 	}
             	// }//avoid duplicate id
+            	//计算量太大不适用，浪费时间，而且并不能做到不重复
             	var num=Math.ceil(Math.random()*999999)
             	var comment={id:num,user:this.user,content:this.content}
             	list.push(comment)
@@ -84,14 +85,12 @@
     var vm = new Vue({
         el: '#app',
         data: {
-        	n:Math.floor(Math.random()*4),
+        	n:0,
         	colors:[
         	'red','blue','green','orange','violet','black'
         	],
             list: [
-                { id: 13, user: 'Lily', content: 'white lily lesbians' },
-                { id: 25, user: 'sakura', content: 'pink sakura' },
-                { id: 31, user: 'iris', content: 'rainbow' }
+                
             ]
         },
         created(){
