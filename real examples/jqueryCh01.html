@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery-3.4.1.js"></script>
+    <script>
+    $("document").ready(function() {
+        $("#content").append("<p>The page just loaded.</p>")
+    });
+    $("document").ready(function() {
+        $("p").css("border", "3px solid red");
+    });
+    $("document").ready(function() {
+        $(".c1").css("border", "3px solid blue");
+    });
+    $("document").ready(function() {
+        $("#i1").css("border", "3px solid green");
+    });
+    $("document").ready(function() {
+        $("p:first").css("border", "3px solid yellow");
+    });
+    $("document").ready(function() {
+        $("h3:not(.no)").css("border", "3px solid violet");
+    });
+    $("document").ready(function(){
+    	var newP=$("<p>");//new paragraph element
+    	newP.append("<em>hello world!</em>");//append code to newP
+    	$("#p1").html(newP);//interpret newP to p1
+    	$("#p2").prepend("look this!");//append at the beginning
+    	$("#p3").html("<h3>this is a new h3</h3>")//intepreted as html code
+    	$("#p4").text("<h4>this is a new h4</h4>")//never interpreted
+    });
+    </script>
+</head>
+
+<body>
+    <div id="content">
+    </div>
+    <div class="c1">
+        this is a class
+    </div>
+    <div id="i1">
+        this is a id
+    </div>
+    <p>second paragraph</p>
+    <p>third paragraph</p>
+    <h3 class="no">no border</h3>
+    <h3 class="yes">has border</h3>
+    <h3 class="no">no border</h3>
+	
+    <p id="p1"></p>
+    <p id="p2">content</p>
+    <p id="p3">no longer exist</p>
+    <p id="p4"></p>
+</body>
+
+</html>
