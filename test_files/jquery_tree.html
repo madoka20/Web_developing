@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../lib/jquery-3.4.1.js"></script>
+    <script>
+    $("document").ready(function() {
+        // var elem = $("#para3");
+        // elem.prev().css("border", "3px solid red");
+        // elem.next().css("border", "3px solid green");
+        // elem.parentsUntil($("body")).css("border", "3px solid blue");
+        // $(".content").find("#para6").css("font-size","25px");
+        // var leftmargin=0;
+        // var border=3;
+        $(".content p").each(function(index,element){
+        	$(element).css("border",border+"px solid red")
+        	.css("margin-left",leftmargin);
+        	border+=2;
+        	leftmargin+=10;
+        })
+    })
+    </script>
+</head>
+
+<body>
+    <div class="content">
+        <p id="para1">para1</p>
+        <p class="a">para2</p>
+        <p id="para3">para3</p>
+        <p class="b">para4</p>
+        <p>para5</p>
+        <p id="para6">para6</p>
+    </div>
+</body>
+
+</html>
