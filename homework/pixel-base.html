@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pixel Art jQuery Demo</title>
+   <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <style type="text/css">
+    #container {
+        font-size: 0;
+    }
+
+    .pixel {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border: solid 1px #000;
+        margin: 0;
+
+    }
+
+    .swatch {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: solid 1px #000;
+    }
+
+    .pixel:hover {
+        border-color: red;
+    }
+    </style>
+    <script>
+        $("document").ready(function() {
+           drawGrid(12,12);
+           var currentColor = "white";
+
+           $(".swatch").on("click",function(){
+            currentColor=$(this).css("background-color");
+            $("#current").css("background-color",currentColor);
+           });
+
+           $("#container").on("click",".pixel",function(){
+            $(this).css("background-color",currentColor);
+           });
+
+           $("#update").on("click",function(){
+            drawGrid($("#rows").val(), $("#columns").val());
+           });
+       })
+       function drawGrid(numRows,numColunms){
+        $("#container").html("")
+        for(var row=0;row<numRows;row++){
+          $("#container").append("<div class=\"row\">")
+          for(var column=0;column<numColunms;column++){
+            $("#container").append("<div class=\"pixel\">")
+            $("#container").append("</div>")
+          }
+          $("#container").append("</div>")
+        }
+       }
+
+        
+    
+  </script>
+</head>
+
+<body>
+    <div id="palette">
+        <h2>Color Palette</h2>
+        <div class="row">
+            <div class="swatch" style="background-color: red;"></div>
+            <div class="swatch" style="background-color: orange;"></div>
+            <div class="swatch" style="background-color: blue;"></div>
+            <div class="swatch" style="background-color: green;"></div>
+            <div class="swatch" style="background-color: white;"></div>
+            <div class="swatch" style="background-color: black;"></div>
+            Current: <div id="current" class="swatch" style="background-color: white;"></div>
+        </div>
+    </div>
+    <p>How big do you want your grid?</p>
+    <div>
+        <label>Rows: <input type="text" value="12" id="rows" /></label>
+        <label>Columns: <input type="text" value="12" id="columns" /></label>
+        <input type="button" value="Update" id="update" />
+    </div>
+    <p>Click on squares below to change colors.</p>
+    <div id="container">
+        <div class="row">
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+        </div>
+        <div class="row">
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+        </div>
+        <div class="row">
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+        </div>
+        <div class="row">
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+        </div>
+        <div class="row">
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+        </div>
+        <div class="row">
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+        </div>
+        <div class="row">
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+        </div>
+        <div class="row">
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+        </div>
+        <div class="row">
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+        </div>
+        <div class="row">
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+            <div class="pixel"></div>
+        </div>
+    </div>
+</body>
+
+</html>
