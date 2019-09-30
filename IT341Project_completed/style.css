@@ -1,0 +1,39 @@
+ .navbar {
+
+     background-position: -346px 0px;
+     font-family: 'Chilanka', cursive;
+ }
+
+ .linkText {
+     color: violet;
+     padding: 4px;
+     border: 1px solid violet;
+     border-radius: 5px;
+     background-color: rgb(255, 255, 255, 0.6);
+ }
+
+ #logo {
+     padding-right: 10px;
+ }
+
+ .active {
+     border-color: orange;
+     color: orange;
+ }
+
+ .footer {
+     position: fixed;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     background-color: rgb(255, 192, 203, 0.6);
+     color: white;
+     text-align: center;
+ }
+
+ .footerText {
+     text-align: center;
+     font-size: 10px;
+     color: grey;
+
+ }

@@ -6,35 +6,23 @@
     <title>Gallery</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <style>
-        .navbar{
-    	
-			background-position: -346px 0px;
-			font-family: 'Chilanka', cursive;
-    	}
-    	.linkText{
-    		color:violet;
-    		padding: 4px;
-    		border:1px solid violet;
-    		border-radius: 5px;
-    		background-color: rgb(255, 255, 255, 0.6);
-    	}
-    	#logo{
-    		padding-right: 10px;
-    	}
-    	 .active{
-          	border-color: orange;
-          	color:orange;
-        }
-
-
+        .content{
+       		border:3px solid pink;
+       		border-radius: 10px;
+       		height:600px;
+       		margin-top: 70px;
+       	}
+		
+	
     </style>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(255,192,203,0.6);">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgb(255,192,203,0.6);">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.html">
                 <img id="logo" src="imgs/yumemi.png" width="34" height="26" alt=""><span class="linkText">Yumemi's world</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,17 +37,33 @@
                     <li><a class="nav-item nav-link" href="#"><span class="linkText">Login</span></a></li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn linkText my-2 my-sm-0" type="submit">Search</button>
-            </form>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn linkText my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </div>
-             
         </div>
     </nav>
     <div class="container">
         <div class="row">
+            <div class="col-lg-3 list">
+                <div class="col-lg-12 content">
+                </div>
+            </div>
+            <div class="col-lg-6 gallery">
+                <div class="col-lg-12 content">
+                </div>
+            </div>
+            <div class="col-lg-3 rcmd">
+                <div class="col-lg-12 content">
+                </div>
+            </div>
         </div>
     </div>
+    <footer class="footer">
+        
+            <p class="footerText">Author: Clare&nbsp; &nbsp;&nbsp; Last updated:9/30/2019</p>
+        
+    </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
