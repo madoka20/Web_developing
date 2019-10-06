@@ -20,6 +20,7 @@
             width: 142px;
             height: 147px;
             margin:10px;
+            border: 1px solid orange;
         }
         .imgLabel{
             text-align: center;
@@ -28,10 +29,24 @@
         .subtitle{
             text-align: center;
              font-family: 'Chilanka', cursive;
+             color:orange;
+            margin-top: 5px;
 
         }
-        
-    
+        .catList{
+            list-style-type: none;
+            transform: translateX(-34px);
+        }
+        .catItem{
+            border: 1px solid orange;
+            border-radius: 5px;
+            margin-top: 3px;
+        }
+        .iconImg{
+            width: 24px;
+            height: 24px;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
@@ -65,15 +80,15 @@
                 <div class="col-lg-3 list">
                     <div class="col-lg-12 content" style="overflow:auto;">
                         <h2 class="subtitle">Category</h2>
-                        <ul>
-                            <a class="category" href="" @click.prevent="show1()">
-                                <li>1.Madoka Magica</li>
+                        <ul class="catList">
+                            <a  href="" @click.prevent="show1()">
+                                <li class="catItem"><img src="https://img.icons8.com/carbon-copy/100/000000/image.png" class="iconImg">&nbsp;01.{{chName[0]}}</li>
                             </a>
-                            <a class="category" href="" @click.prevent="show2()">
-                                <li>2.Violet Evergarden-1</li>
+                            <a  href="" @click.prevent="show2()">
+                                <li class="catItem"><img src="https://img.icons8.com/carbon-copy/100/000000/image.png" class="iconImg">&nbsp;02.{{chName[1]}}</li>
                             </a>
-                            <a class="category" href="" @click.prevent="show3()">
-                                <li>3.Violet Evergarden-2</li>
+                            <a href="" @click.prevent="show3()">
+                                <li class="catItem"><img src="https://img.icons8.com/carbon-copy/100/000000/image.png" class="iconImg">&nbsp;03.{{chName[2]}}</li>
                             </a>
                         </ul>
                     </div>
@@ -124,64 +139,64 @@
     var vm = new Vue({
         el: '#app',
         data: {
-            chName: ["Madoka Magica", "Violet Evergarden-1", "Violet Evergarden-2"],
+            chName: ["Madoka Magica", "Violet Evergarden", "example 3"],
             chNameIndex: 0,
-            p1: ["imgs/madoka_icon_01.jpg", "imgs/madoka_icon_01.jpg", "imgs/madoka_icon_01.jpg"],
-            a1: ["slideshow.html", "slideshow.html", "slideshow.html"],
-            l1: ["madoka1", "madoka2", "madoka3"],
+            p1: ["imgs/madoka_icon_01.jpg"],
+            a1: ["slideshow_madoka_01.html"],
+            l1: ["madoka-01"],
 
-            p2: ["imgs/madoka_icon_01.jpg", "imgs/madoka_icon_01.jpg", "imgs/madoka_icon_01.jpg"],
-            a2: ["slideshow.html", "slideshow.html", "slideshow.html"],
-            l2: ["madoka4", "madoka5", "madoka6"],
+            p2: [],
+            a2: [],
+            l2: [],
 
-            p3: ["imgs/madoka_icon_01.jpg", "imgs/madoka_icon_01.jpg", "imgs/madoka_icon_01.jpg"],
-            a3: ["slideshow.html", "slideshow.html", "slideshow.html"],
-            l3: ["madoka7", "madoka8", "madoka9"]
+            p3: [],
+            a3: [],
+            l3: []
 
 
         },
         methods: {
             show1() {
-                    this.p1 = ["imgs/madoka_icon_01.jpg", "imgs/madoka_icon_01.jpg", "imgs/madoka_icon_01.jpg"],
-                    this.a1 = ["slideshow.html", "slideshow.html", "slideshow.html"],
-                    this.l1 = ["madoka1", "madoka2", "madoka3"],
+                this.p1 = ["imgs/madoka_icon_01.jpg"],
+                    this.a1 = ["slideshow_madoka_01.html"],
+                    this.l1 = ["madoka-01"],
 
-                    this.p2 = ["imgs/madoka_icon_01.jpg", "imgs/madoka_icon_01.jpg", "imgs/madoka_icon_01.jpg"],
-                    this.a2 = ["slideshow.html", "slideshow.html", "slideshow.html"],
-                    this.l2 = ["madoka4", "madoka5", "madoka6"],
+                    this.p2 = [],
+                    this.a2 = [],
+                    this.l2 = [],
 
-                    this.p3 = ["imgs/madoka_icon_01.jpg", "imgs/madoka_icon_01.jpg", "imgs/madoka_icon_01.jpg"],
-                    this.a3 = ["slideshow.html", "slideshow.html", "slideshow.html"],
-                    this.l3 = ["madoka7", "madoka8", "madoka9"]
-                    this.chNameIndex = 0
+                    this.p3 = [],
+                    this.a3 = [],
+                    this.l3 = []
+                this.chNameIndex = 0
 
             },
             show2() {
-                    this.p1 = ["imgs/violet_01.jpg", "imgs/violet_01.jpg", "imgs/violet_01.jpg"],
-                    this.a1 = ["#", "#", "#"],
-                    this.l1 = ["violet1", "violet2", "violet3"],
+                    this.p1 = ["imgs/violet_icon_01.jpg"],
+                    this.a1 = ["slideshow_violet_01.html"],
+                    this.l1 = ["violet-01"],
 
-                    this.p2 = ["imgs/violet_01.jpg", "imgs/violet_01.jpg", "imgs/violet_01.jpg"],
-                    this.a2 = ["#", "#", "#"],
-                    this.l2 = ["violet4", "violet5", "violet6"],
+                    this.p2 = [],
+                    this.a2 = [],
+                    this.l2 = [],
 
-                    this.p3 = ["imgs/violet_01.jpg", "imgs/violet_01.jpg", "imgs/violet_01.jpg"],
-                    this.a3 = ["#", "#", "#"],
-                    this.l3 = ["violet7", "violet8", "violet9"],
+                    this.p3 = [],
+                    this.a3 = [],
+                    this.l3 = [],
                     this.chNameIndex = 1
             },
             show3() {
-                    this.p1 = ["imgs/violet_02.jpg", "imgs/violet_02.jpg", "imgs/violet_02.jpg"],
-                    this.a1 = ["#", "#", "#"],
-                    this.l1 = ["violet10", "violet11", "violet12"],
+                this.p1 = [],
+                    this.a1 = [],
+                    this.l1 = [],
 
-                    this.p2 = ["imgs/violet_02.jpg", "imgs/violet_02.jpg", "imgs/violet_02.jpg"],
-                    this.a2 = ["#", "#", "#"],
-                    this.l2 = ["violet13", "violet14", "violet15"],
+                    this.p2 = [],
+                    this.a2 = [],
+                    this.l2 = [],
 
-                    this.p3 = ["imgs/violet_02.jpg", "imgs/violet_02.jpg", "imgs/violet_02.jpg"],
-                    this.a3 = ["#", "#", "#"],
-                    this.l3 = ["violet16", "violet17", "violet18"],
+                    this.p3 = [],
+                    this.a3 = [],
+                    this.l3 = [],
                     this.chNameIndex = 2
             }
         }

@@ -1,0 +1,133 @@
+.title {
+        font-family: 'Chilanka', cursive;
+        color: rgb(255, 192, 203);
+        text-align: center;
+        font-size: 40px;
+    }
+     .title img {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        left: 30px;
+        border: 3px dotted pink;
+        border-radius: 50%;
+        top: 15px;
+
+      
+    }
+
+    .container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+    }
+
+    .mySlides {
+        display: none;
+        padding-bottom: 20px;
+    }
+
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: pink;
+        font-weight: bold;
+        font-size: 33px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .textblack {
+        color: #000;
+        font-size: 19px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 28px;
+        width: 100%;
+        text-align: center;
+        font-family: 'Chilanka', cursive;
+        font-weight: bold;
+     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    }
+
+    .textwhite {
+        color: #fff;
+        font-size: 19px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 28px;
+        width: 100%;
+        text-align: center;
+        font-family: 'Chilanka', cursive;
+        
+         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+    }
+
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+        background-color: pink;
+    }
+
+    /* Fading animation */
+    .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+
+    @-webkit-keyframes fade {
+        from {
+            opacity: .4
+        }
+
+        to {
+            opacity: 1
+        }
+    }
+
+    @keyframes fade {
+        from {
+            opacity: .4
+        }
+
+        to {
+            opacity: 1
+        }
+    }
