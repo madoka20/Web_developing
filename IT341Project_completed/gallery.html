@@ -7,16 +7,25 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
     <style>
         .content{
-       		/*border:3px solid pink;*/
-       		border-radius: 10px;
-       		height:600px;
-       		margin-top: 70px;
+            /*border:3px solid pink;*/
+            border-radius: 10px;
+            height:600px;
+            margin-top: 70px;
             background-color: rgb(255,192,203,0.3);
-       	}
-		
-	
+        }
+        .galleryCover{
+            width: 142px;
+            height: 147px;
+            margin:10px;
+        }
+        .imgLabel{
+            text-align: center;
+        }
+        
+    
     </style>
 </head>
 
@@ -44,30 +53,110 @@
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 list">
-                <div class="col-lg-12 content">
-                    Category
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 list">
+                    <div class="col-lg-12 content" style="overflow:auto;">
+                        <h2 style="text-align: center;">Category</h2>
+                        <ul>
+                            <a class="category" href="" @click.prevent="show1()">
+                                <li>1.Madoka Magica</li>
+                            </a>
+                            <a class="category" href="" @click.prevent="show2()">
+                                <li>2.Violet Evergarden-1</li>
+                            </a>
+                            <a class="category" href="" @click.prevent="show3()">
+                                <li>3.Violet Evergarden-2</li>
+                            </a>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 gallery">
-                <div class="col-lg-12 content">
-                    Character name
+                <div class="col-lg-6 gallery">
+                    <div class="col-lg-12 content" style="overflow:auto;">
+                        <h2 style="text-align: center;">Madoka Magica</h2>
+                        <table>
+                            <tr>
+                                <td v-for="(item,i) in p1"><a :href="p1[i*2]"><img class="galleryCover" :src="p1[i*2+1]" alt=""></td></a>
+                            </tr>
+                            <tr>
+                                <td v-for="label in l1">
+                                    <p class="imgLabel">{{label}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td v-for="(item,i) in p2"><a :href="p2[i*2]"><img class="galleryCover" :src="p2[i*2+1]" alt=""></a></td>
+                            </tr>
+                            <tr>
+                                <td v-for="label in l2">
+                                    <p class="imgLabel">{{label}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td v-for="(item,i) in p3"><a :href="p3[i*2]"><img class="galleryCover" :src="p3[i*2+1]" alt=""></a></td>
+                            </tr>
+                            <tr>
+                                <td v-for="label in l3">
+                                    <p class="imgLabel">{{label}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 rcmd">
-                <div class="col-lg-12 content">
-                    Recommend
+                <div class="col-lg-3 rcmd">
+                    <div class="col-lg-12 content" style="overflow:auto;">
+                        <h2 style="text-align: center;">Recommended</h2>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <footer class="footer">
-        
-            <p class="footerText">Author: Clare&nbsp; &nbsp;&nbsp; Last updated:9/30/2019</p>
-        
+        <p class="footerText">Author: Clare&nbsp; &nbsp;&nbsp; Last updated:9/30/2019</p>
     </footer>
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            chName: ["Madoka Magica", "Violet Evergarden"],
+            p1: ["slideshow.html","imgs/madoka_icon_01.jpg","slideshow.html","imgs/madoka_icon_01.jpg", "slideshow.html","imgs/madoka_icon_01.jpg"],
+            l1: ["madoka1", "madoka2", "madoka3"],
+            p2: ["slideshow.html","imgs/madoka_icon_01.jpg","slideshow.html","imgs/madoka_icon_01.jpg", "slideshow.html","imgs/madoka_icon_01.jpg"],
+            l2: ["madoka4", "madoka5", "madoka6"],
+            p3: ["slideshow.html","imgs/madoka_icon_01.jpg","slideshow.html","imgs/madoka_icon_01.jpg", "slideshow.html","imgs/madoka_icon_01.jpg"],
+            l3: ["madoka7", "madoka8", "madoka9"]
+
+
+        },
+        methods: {
+            show1() {
+                     this.p1 = ["slideshow.html","imgs/madoka_icon_01.jpg","slideshow.html","imgs/madoka_icon_01.jpg", "slideshow.html","imgs/madoka_icon_01.jpg"],
+                    this.l1 = ["madoka1", "madoka2", "madoka3"],
+                    this.p2 = ["slideshow.html","imgs/madoka_icon_01.jpg","slideshow.html","imgs/madoka_icon_01.jpg", "slideshow.html","imgs/madoka_icon_01.jpg"],
+                    this.l1 = ["madoka4", "madoka5", "madoka6"],
+                    this.p3 = ["slideshow.html","imgs/madoka_icon_01.jpg","slideshow.html","imgs/madoka_icon_01.jpg", "slideshow.html","imgs/madoka_icon_01.jpg"],
+                    this.l3 = ["madoka7", "madoka8", "madoka9"]
+
+            },
+            show2() {
+                this.p1 = ["imgs/violet_01.jpg", "imgs/violet_01.jpg", "imgs/violet_01.jpg"],
+                    this.l1 = ["violet1", "violet2", "violet3"],
+                    this.p2 = ["imgs/violet_01.jpg", "imgs/violet_01.jpg", "imgs/violet_01.jpg"],
+                    this.l1 = ["violet4", "violet5", "violet6"],
+                    this.p3 = ["imgs/violet_01.jpg", "imgs/violet_01.jpg", "imgs/violet_01.jpg"],
+                    this.l3 = ["violet7", "violet8", "violet9"]
+            },
+            show3() {
+                this.p1 = ["imgs/violet_02.jpg", "imgs/violet_02.jpg", "imgs/violet_02.jpg"],
+                    this.l1 = ["violet1", "violet2", "violet3"],
+                    this.p2 = ["imgs/violet_02.jpg", "imgs/violet_02.jpg", "imgs/violet_02.jpg"],
+                    this.l1 = ["violet4", "violet5", "violet6"],
+                    this.p3 = ["imgs/violet_02.jpg", "imgs/violet_02.jpg", "imgs/violet_02.jpg"],
+                    this.l3 = ["violet7", "violet8", "violet9"]
+            }
+        }
+    });
+    </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
