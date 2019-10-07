@@ -63,7 +63,7 @@
             <div class="collapse navbar-collapse" id="nav">
                 <ul class="navbar-nav mr-auto">
                     <li><a class="nav-item nav-link" href="#"><span class="linkText active">Gallery</span></a></li>
-                    <li><a class="nav-item nav-link" href="#"><span class="linkText">Music</span></a></li>
+                    <li><a class="nav-item nav-link" href="music.html"><span class="linkText">Music</span></a></li>
                     <li><a class="nav-item nav-link" href="#"><span class="linkText">Story</span></a></li>
                     <li><a class="nav-item nav-link" href="#"><span class="linkText">Blog</span></a></li>
                     <li><a class="nav-item nav-link" href="#"><span class="linkText">Login</span></a></li>
@@ -134,13 +134,13 @@
         </div>
     </div>
     <footer class="footer">
-        <p class="footerText">Author: Clare&nbsp; &nbsp;&nbsp; Last updated:9/30/2019</p>
+        <p class="footerText">Author: Clare&nbsp; &nbsp;&nbsp; Last updated:10/06/2019</p>
     </footer>
     <script>
     var vm = new Vue({
         el: '#app',
         data: {
-            chName: ["Madoka Magica", "Violet Evergarden", "example 3"],
+            chName: ["Madoka Magica", "Violet Evergarden", "Nagi no Asukara"],
             chNameIndex: 0,
             p1: ["imgs/madoka_icon_01.jpg"],
             a1: ["slideshow_madoka_01.html"],
@@ -158,7 +158,7 @@
         },
         methods: {
             show1() {
-                this.p1 = ["imgs/madoka_icon_01.jpg"],
+                    this.p1 = ["imgs/madoka_icon_01.jpg"],
                     this.a1 = ["slideshow_madoka_01.html"],
                     this.l1 = ["madoka-01"],
 
@@ -187,9 +187,9 @@
                     this.chNameIndex = 1
             },
             show3() {
-                this.p1 = [],
-                    this.a1 = [],
-                    this.l1 = [],
+                    this.p1 = ["imgs/nagiasu_icon_01.jpg"],
+                    this.a1 = ["slideshow_nagiasu_01.html"],
+                    this.l1 = ["nagiasu-01"],
 
                     this.p2 = [],
                     this.a2 = [],
