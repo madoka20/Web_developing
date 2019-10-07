@@ -53,6 +53,7 @@
             text-decoration: none;
            
         }
+
         .iconImg{
             width: 24px;
             height: 24px;
@@ -93,13 +94,13 @@
                         <h2 class="subtitle">Category</h2>
                         <ul class="catList">
                             <a class="catLink" href="" @click.prevent="show1()">
-                                <li class="catItem"><img src="https://img.icons8.com/carbon-copy/100/000000/image.png" class="iconImg">&nbsp;01.{{chName[0]}}</li>
+                                <li class="catItem"><img src="https://img.icons8.com/carbon-copy/100/000000/image.png" class="iconImg">&nbsp;{{chName[0]}}</li>
                             </a>
                             <a class="catLink" href="" @click.prevent="show2()">
-                                <li class="catItem"><img src="https://img.icons8.com/carbon-copy/100/000000/image.png" class="iconImg">&nbsp;02.{{chName[1]}}</li>
+                                <li class="catItem"><img src="https://img.icons8.com/carbon-copy/100/000000/image.png" class="iconImg">&nbsp;{{chName[1]}}</li>
                             </a>
                             <a class="catLink" href="" @click.prevent="show3()">
-                                <li class="catItem"><img src="https://img.icons8.com/carbon-copy/100/000000/image.png" class="iconImg">&nbsp;03.{{chName[2]}}</li>
+                                <li class="catItem"><img src="https://img.icons8.com/carbon-copy/100/000000/image.png" class="iconImg">&nbsp;{{chName[2]}}</li>
                             </a>
                         </ul>
                     </div>
@@ -150,7 +151,7 @@
     var vm = new Vue({
         el: '#app',
         data: {
-            chName: ["Madoka Magica", "Violet Evergarden", "Nagi no Asukara"],
+            chName: ["01.Madoka Magica", "02.Violet Evergarden", "03.Nagi no Asukara"],
             chNameIndex: 0,
             p1: ["imgs/madoka_icon_01.jpg"],
             a1: ["slideshow_madoka_01.html"],
