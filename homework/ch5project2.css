@@ -1,0 +1,16 @@
+h1{
+		text-align: center;
+	}
+	p{
+		font-size: 20px;
+		text-align: justify;
+		text-indent: 2em;
+	}
+	ul{
+		list-style-type:decimal;
+		font-family: cursive;
+		color: blue;
+	}
+	.p1{
+		color: blue;
+	}
