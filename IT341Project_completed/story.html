@@ -27,18 +27,45 @@
              margin-right: 3px;
         }
         .chNum{
-            border: 1px solid #aaa;
+            /*border: 1px solid #aaa;*/
             background-color: rgb(255, 255, 255, 0.6);
-            border-radius: 2px;
+        /*    border-radius: 2px;*/
             font-size: 20px;
             margin-right:3px;
             padding-left: 3px;
+             font-family: 'Chilanka', cursive;
 
+        }
+         .iconImg{
+            width: 24px;
+            height: 24px;
+            transform: translateY(-2px);
+        }
+         .catList{
+            list-style-type: none;
+            transform: translateX(-34px);
+        }
+        .catItem{
+            border: 1px solid orange;
+            border-radius: 5px;
+            margin-top: 3px;
+            background-color: rgb(255, 255, 255, 0.6);
+        }
+         .catLink{
+         /*  color: violet;*/  
+            font-family: 'Chilanka', cursive;
+        }
+        .catLink:hover{
+            color:orange;
+            text-decoration: none;
+           
         }
         .chNum:hover{
             color:orange;
             text-decoration: none;
         }
+
+
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
@@ -76,13 +103,18 @@
                 <div class="col-lg-3">
                     <div class="col-lg-12 content" style="overflow:auto;">
                          <h2 class="subtitle">Book List</h2>
+                         <ul class="catList">
+                            <a v-for="(item,j) in bookList" class="catLink" href="" @click.prevent="getBook(j)">
+                                <li class="catItem"><img src="https://img.icons8.com/carbon-copy/100/000000/image.png" class="iconImg">&nbsp;{{bookList[j]}}</li>
+                            </a>
+                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="col-lg-12 content" style="overflow:auto;">
                         
-                            <h2 class="subtitle">Example</h2>
-                            <p class="chap">Select Chapter:</p>
+                            <h2 class="subtitle">{{title}}</h2>
+                            <p class="chap">{{msg}}</p>
                             <ul>
                                 
                                     <a class="chNum" v-for="i in chapterNum" href="" @click.prevent="getChap(i)">
@@ -90,13 +122,16 @@
                                     </a>
                                     
                             </ul>
-                            <p>{{currContent}}</p>
+                           
+                            <p style="font-family: 'Chilanka', cursive; text-align: center;">{{currChapterNum}}</p>
+                            <p style="font-family: 'Chilanka', cursive; text-indent: 2em;">{{currContent}}</p>
                         
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="col-lg-12 content" style="overflow:auto;">
                         <h2 class="subtitle">Book Info</h2>
+                        <p style="font-family: 'Chilanka', cursive;">{{currBookInfo}}</p>
                     </div>
                 </div>
             </div>
@@ -106,19 +141,38 @@
     var vm = new Vue({
         el: '#app',
         data: {
-            chapterNum:22,
-            title:'',
+            msg:'',
+            chapterNum:'',
+            currChapterNum:'',
+            title:'Select Book From List',
             currBookIndex:'',
-            currContent:'123123',
+            currContent:'',
+            bookList:['Shojo no Yakusoku','Pink Yuri','Maboroshi Lyra'],
+            bookContent:[
+            ['1-1','1-2','1-3'],
+            ['2-1','2-2','2-3','2-4'],
+            ['3-1','3-2','3-3','3-4','3-5']
+            ],
+            bookInfo:['1001','1002','1003'],
+            currBookInfo:''
             
-            book1:['wqeqw','qweqwr','gegeg'],
             
             
 
         },
         methods: {
+            getBook(j){
+                this.currBookIndex=j
+                
+                this.chapterNum=this.bookContent[j].length
+                this.title=this.bookList[j]
+                this.currBookInfo=this.bookInfo[j]
+                this.msg="Select Chapter:"
+                
+            },
             getChap(i){
-                this.currContent=this.book1[i-1]
+                this.currContent=this.bookContent[this.currBookIndex][i-1]
+                this.currChapterNum='Chapter '+i
             }
         }
     });
