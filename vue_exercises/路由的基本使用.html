@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <script src="../lib/vue-router.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <a href="#/login">login</a>
+            <a href="#/register">register</a>
+            <!-- 展示组件 -->
+            <router-view></router-view>
+        </div>
+    </div>
+    <script>
+    //【组件模板对象】
+    var login = {
+        template: '<h1>Login Component</h1>'
+    }
+    var register = {
+        template: '<h1>Register Component</h1>'
+    }
+
+
+    //【创建路由对象】
+    var routerObj = new VueRouter({
+        routes: [
+            { path: '/login', component: login },
+            { path: '/register', component: register }
+        ]
+        //【路由匹配规则】，每个规则都是一个对象，每个对象都有2个属性，path（监听链接地址）和component（对应的组件），component的值必须为【组件模板对象】
+    })
+
+    var vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {},
+        router: routerObj //将路由规则对象注册到vm实例上，监听URL变化，展示对应组件
+    });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
