@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <style></style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app">
+        <input ref="mybtn" type="button" value="get element" @click="getElem">
+        <h3 id="myh3" ref="myh3">2333</h3>
+    	<hr>
+        <login ref="mylogin"></login>
+    </div>
+    <script>
+    var login={
+        template:'<h1>login</h1>',
+        data(){
+            return{
+                msg:'子组件msg'
+            }
+
+        },
+        methods:{
+            show(){
+                console.log('子组件方法被调用');
+            }
+        }
+    }
+    var vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+            getElem(){
+                //reference
+                console.log(this.$refs.myh3.innerText)
+                console.log(this.$refs.mybtn.value)
+                // console.log(document.getElementById('myh3').innerText)
+                console.log(this.$refs.mylogin.msg);
+                this.$refs.mylogin.show()
+            }
+        },
+        components:{
+            login
+        }
+    });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
