@@ -12,6 +12,16 @@
             color: red;
            background-color: yellow;
         }
+        .v-enter,
+        .v-leave-to{
+            opacity: 0;
+            transform: translateX(30px);
+        }
+        .v-enter-active,
+        .v-leave-active{
+            transition: all 0.2s ease;
+        }
+
     </style>
 </head>
 
@@ -21,7 +31,11 @@
            <!--  <a href="#/login">login</a>
             <a href="#/register">register</a> -->
             <!-- 展示组件 -->
-            <router-view></router-view>
+            <transition mode="out-in">
+                  <router-view></router-view>
+            </transition>
+          
+
             <router-link to="/login">Login</router-link>
             <router-link to="/register">Register</router-link>
         </div>
