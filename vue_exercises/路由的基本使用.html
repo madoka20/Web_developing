@@ -7,15 +7,23 @@
     <script src="vue.js"></script>
     <script src="../lib/vue-router.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .myActive{
+            color: red;
+           background-color: yellow;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app">
         <div class="container">
-            <a href="#/login">login</a>
-            <a href="#/register">register</a>
+           <!--  <a href="#/login">login</a>
+            <a href="#/register">register</a> -->
             <!-- 展示组件 -->
             <router-view></router-view>
+            <router-link to="/login">Login</router-link>
+            <router-link to="/register">Register</router-link>
         </div>
     </div>
     <script>
@@ -31,9 +39,11 @@
     //【创建路由对象】
     var routerObj = new VueRouter({
         routes: [
+            {path:'/',redirect:'/login'},//重定向
             { path: '/login', component: login },
             { path: '/register', component: register }
-        ]
+        ],
+        linkActiveClass:'myActive'
         //【路由匹配规则】，每个规则都是一个对象，每个对象都有2个属性，path（监听链接地址）和component（对应的组件），component的值必须为【组件模板对象】
     })
 
