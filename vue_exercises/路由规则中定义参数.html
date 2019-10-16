@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <script src="../lib/vue-router.js"></script>
+    <style></style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <router-view></router-view>
+            <!-- 如果在路由中使用查询字符串给路由传递参数则不需要修改路由规则的path属性 -->
+            <router-link to="/login?id=233&name=madoka">Login</router-link>
+            <router-link to="/register">Register</router-link>
+        </div>
+    </div>
+    <script>
+    var login = {
+        template: '<h1>Login---{{$route.query.id}}---{{$route.query.name}}</h1>',
+        created(){
+            console.log(this.$route.query.id);
+        }
+    }
+    var register = {
+        template: '<h1>Register</h1>'
+    }
+    var router = new VueRouter({
+        routes: [
+            { path: '/login', component: login },
+            { path: '/register', component: register }
+
+        ]
+    })
+    var vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {},
+        router
+    });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
