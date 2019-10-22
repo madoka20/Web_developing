@@ -1,15 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Music</title>
-	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Music</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <style>
+        .content{
+            /*border:3px solid pink;*/
+            border-radius: 10px;
+            height:600px;
+            margin-top: 70px;
+            background-color: rgb(255,192,203,0.3);
+        }
+         .subtitle{
+            text-align: center;
+             font-family: 'Chilanka', cursive;
+             color:orange;
+            margin-top: 5px;
+
+        }
+          .iconImg{
+            width: 24px;
+            height: 24px;
+            transform: translateY(-2px);
+        }
+         .catList{
+            list-style-type: none;
+            transform: translateX(-34px);
+        }
+        .catItem{
+            border: 1px solid orange;
+            border-radius: 5px;
+            margin-top: 3px;
+            background-color: rgb(255, 255, 255, 0.6);
+        }
+         .catLink{
+         /*  color: violet;*/  
+            font-family: 'Chilanka', cursive;
+        }
+        .catLink:hover{
+            color:orange;
+            text-decoration: none;
+           
+        }
+        .musicTable{
+            width: 100%;
+            height: 70%;
+            overflow: auto;
+            text-align: center;
+             font-family: 'Chilanka', cursive;
+             background-color: rgb(255, 255, 255, 0.6);
+
+
+        }
+        table,td{
+            border:1px solid orange;
+
+
+        }
+    </style>
 </head>
+
 <body>
-	 <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgb(255,192,203,0.6);">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgb(255,192,203,0.6);">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <img id="logo" src="imgs/yumemi.png" width="34" height="26" alt=""><span class="linkText">Yumemi's world</span>
@@ -32,23 +89,82 @@
             </div>
         </div>
     </nav>
-
-	<div class="container">
-		<div class="row"></div>
-	</div>
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="col-lg-12 content">
+                        <h2 class="subtitle">Music List</h2>
+                        <ul class="catList">
+                            <a v-for="(item,j) in musicList" class="catLink" href="" @click.prevent="getMusic(j)">
+                                <li class="catItem"><img src="https://img.icons8.com/carbon-copy/100/000000/image.png" class="iconImg">&nbsp;{{musicList[j]}}</li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="col-lg-12 content">
+                        <div>
+                             <h2 class="subtitle">{{currListName}}</h2>
+                            <table class="musicTable">
+                                <tr>
+                                <td>ID</td>
+                                <td>Name</td>
+                                <td>Singer</td>
+                                <td>Album</td>
+                                <td>Duration</td>
+                                <td>Play</td>
+                               
+                                </tr>
+                                <tr v-for="(item,i) in currList">
+                                    <td>{{item.id}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.singer}}</td>
+                                    <td>{{item.album}}</td>
+                                    <td>{{item.duration}}</td>
+                                    <td><a :href="item.link">Play</a></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer class="footer">
         <p class="footerText">Author: Clare&nbsp; &nbsp;&nbsp; Last updated:10/06/2019</p>
     </footer>
-	<script>
-		var vm= new Vue({
-			el:'#app',
-			data:{},
-			methods:{}
-		});
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            musicList: ['Japanese', 'Chinese', 'English'],
+            currListName:'Select List',
+            fullList:[
+            [
+             {id:1,name:'hirahira hirara',singer:'Claris',album:'unknown',duration:'04:39',link:'https://www.youtube.com/watch?v=6d1ZiK9NINk'}
+            ],
+            [
+            ],
+            [
+            ]
+            ],
+            currList:[
+           
+            ]
 
-	</script>
-     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        },
+        methods: {
+            getMusic(j) {
+                this.currList=this.fullList[j]
+                this.currListName=this.musicList[j]
+            }
+        }
+    });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+
 </html>

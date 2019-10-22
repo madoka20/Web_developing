@@ -1,58 +1,81 @@
-<!DOCTYPE html> 
-
+<!DOCTYPE html>
 
 <head>
-<title>Centered Fixed 3-Column Layout</title>
+    <title>Centered Fixed 3-Column Layout</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <style>
+    body {
+        font-family: arial;
+    }
 
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
-<style>
-body {font-family: arial;}
+    #wrapper {
+        width: 960px;
+        margin-right: auto;
+        margin-left: auto;
+        border: thin solid;
+        background-color: #ffc;
 
+    }
 
-#wrapper {
-	width: 960px; 
-	margin-right: auto; 
-	margin-left: auto; 
-	border: thin solid;
-	background-color: #ffc;
-}
+    #header {
+        background-color: #e5dfec;
+        width: 960px;
+        height: 100px;
+		float: left;
 
-#header {
-	background-color: #e5dfec;
-	
-}
+    }
 
-#left {
-	background-color: #fabf8f;
-}
+    #left {
+        background-color: #fabf8f;
+        width: 200px;
+        height: 400px;
+        float: left;
+    }
 
-#middle {
-	background-color: #fff;
-}
+    #middle {
+        background-color: #fff;
+        width: 560px;
+        height: 400px;
+        float: left;
 
-#right {
-	background-color: #c6d9f1;
-}
+    }
 
-#footer {
-		background-color: #ddeeff;
-}
+    #right {
+        background-color: #c6d9f1;
+        width: 200px;
+        height: 400px;
+        float: right;
 
-</style>
+    }
 
+    #footer {
+        background-color: #ddeeff;
+        width: 960px;
+        height: 40px;
+        clear: both;
+    }
+    </style>
 </head>
+
 <body>
-<div id="wrapper">
-<div id="header"><h2>Header</h2></div>
-<div id="left"><h2>Left</h2></div>
-
-<div id="middle"><h2>Middle</h2></div>
-<div id="right"><h2>Right</h2></div>
-<div id="footer"><h2>Footer</h2></div>
-</div>
-
-
+    <div id="wrapper">
+        <div id="header">
+            <h2>Header</h2>
+        </div>
+        <div id="left">
+            <h2>Left</h2>
+        </div>
+        <div id="middle">
+            <h2>Middle</h2>
+        </div>
+        <div id="right">
+            <h2>Right</h2>
+        </div>
+        <div id="footer">
+            <h2>Footer</h2>
+        </div>
+    </div>
 </body>
-</html>
 
+</html>
