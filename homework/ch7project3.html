@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html> 
+
+<html>
+<head>
+<title>Float Layouts</title>
+
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<style>
+body {font-family: arial, sans-serif;}
+h3 {text-align: center;}
+
+#wrapper {
+	width: 600px; 
+	height: 600px; 
+	margin-right: auto; 
+	margin-left: auto; 
+	border: 1px solid red;
+}
+
+
+
+#col1 {
+	width: 180px; 
+	height: 400px; 
+	float: left; 
+	border: 1px solid black; 
+	margin-left: 10px;
+	margin-top: 20px;
+	background-color: #e5dfec;
+}
+
+#col2 {
+	width: 280px; 
+	height: 200px; 
+	float: left; 
+	border: solid 1px black; 
+	background-color: #ccc; 
+	margin-left: 10px; 
+	margin-top: 20px;
+	background-color: #fabf8f;
+}	
+
+
+#footer {
+	width: 350px; 
+	height: 100px; 
+	float: left;
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border: solid 1px black; 
+	background-color: #c6d9f1;
+}
+	
+</style>
+
+</head>
+<body>
+<div id="wrapper">
+
+<div id="col1"><h3>Column 1</h3></div>
+<div id="col2"><h3>Column 2</h3></div> 
+
+<div id="footer"><h3>Footer</h3></div>
+
+</div> <!-- close wrapper -->
+
+
+</body>
+</html>
+
