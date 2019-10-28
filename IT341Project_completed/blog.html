@@ -3,13 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Model</title>
+    <title>Blog</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
-    
     <link href="style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
-    
+    <style>
+        .content{
+            /*border:3px solid pink;*/
+            border-radius: 10px;
+            height:600px;
+            margin-top: 70px;
+            background-color: rgb(255,192,203,0.3);
+            overflow: auto;
+        }
+         .subtitle{
+            text-align: center;
+             font-family: 'Chilanka', cursive;
+             color:orange;
+            margin-top: 5px;
+
+        }
+        .form-group{
+            margin-left: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -37,22 +55,89 @@
         </div>
     </nav>
     <div id="app">
-           <div class="container">
-        <div class="row">
-            
+        <div class="container content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="subtitle">Blog</h1>
+                    <cmt-box @refresh="loadComments"></cmt-box>
+                    <ul class="list-group">
+                        <li class="list-group-item" v-for="item in list" :key="item.id">
+                            <div style="font-family: 'Chilanka', cursive; color:orange;">ID:&nbsp;{{item.id}}&nbsp;&nbsp;
+                                Title:&nbsp;{{item.title}}
+                            </div>
+                            <hr>
+                            <div style="font-family: 'Chilanka', cursive; ">{{item.content}}</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
- 
+    <template id="tmp1">
+        <div>
+            <div class="form-group form-inline row">
+                <label style="font-family: 'Chilanka', cursive; color:orange;font-size: 22px;" class="col-1">Title:</label>
+                <input type="text" class="form-control col-lg-3 offset-1" v-model="title">
+            </div>
+            <div class="form-group form-inline row">
+                <label style="font-family: 'Chilanka', cursive;color:orange;font-size: 22px;" class="col-1">Content:</label>
+                <textarea class="form-control col-lg-8 offset-1" v-model="content"></textarea>
+            </div>
+            <div class="form-group form-inline">
+                <input style="font-family: 'Chilanka', cursive; " type="button" value="submit" class="btn btn-primary offset-2" @click="postCmt">
+            </div>
+        </div>
+    </template>
     <footer class="footer">
         <p class="footerText">Author: Clare&nbsp; &nbsp;&nbsp; Last updated:10/27/2019</p>
     </footer>
-
     <script>
-          var vm = new Vue({
+    var commentBox = {
+        template: '#tmp1',
+        data() {
+            return {
+                title: '',
+                content: '',
+                num:0
+            }
+        },
+        methods: {
+            postCmt() {
+
+                var list = JSON.parse(localStorage.getItem('cmts') || '[]')
+
+                this.num=this.num+1
+                var comment = { id: this.num, title: this.title, content: this.content }
+                list.push(comment)
+                localStorage.setItem('cmts', JSON.stringify(list))
+                this.title = ''
+                this.content = ''
+                this.$emit('refresh')
+            }
+        }
+    }
+
+    var vm = new Vue({
         el: '#app',
-        data: {},
-        methods: {}
+        data: {
+
+            list: [
+
+            ]
+        },
+        created() {
+            this.loadComments()
+        },
+        methods: {
+            loadComments() {
+                var list = JSON.parse(localStorage.getItem('cmts') || '[]')
+                this.list = list
+
+            }
+        },
+        components: {
+            'cmt-box': commentBox
+        }
     });
     </script>
     </script>
