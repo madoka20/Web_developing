@@ -106,7 +106,7 @@
 
                 var list = JSON.parse(localStorage.getItem('cmts') || '[]')
 
-                this.num=this.num+1
+                this.num=list.length+1
                 var comment = { id: this.num, title: this.title, content: this.content }
                 list.push(comment)
                 localStorage.setItem('cmts', JSON.stringify(list))
