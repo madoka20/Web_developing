@@ -45,12 +45,25 @@ $stmt->bind_param("sssisii",$value1,$value2,$value3,$value4,$value5,$value6,$val
 $stmt->execute();
 $stmt->close();
 
-$sql="select servicetag,model,type,purchasedate,warrantyprovider,warrantyexp,retired from devices";
-$result=$conn->query($sql);
-if($result->num_rows>0){
-	$row=$result->fetch_assoc();
+// $sql="select servicetag,model,type,purchasedate,warrantyprovider,warrantyexp,retired from devices";
+// $result=$conn->query($sql);
+// if($result->num_rows>0){
+// 	while($row=$result->fetch_assoc()){
+
+//                     echo "<tr>
+//                         <td>.$row["servicetag"].</td>
+//                         <td>.$row["model"].</td>
+//                         <td>.$row["type"].</td>
+//                         <td>.$row["purchasedate"].</td>
+//                         <td>.$row["warrantyprovider"].</td>
+//                         <td>.$row["warrantyexp"].</td>
+//                         <td>.$row["retired"].</td>
+//                     </tr>";
+    
+               
+// 	}
 		
-}else{
-	echo "0 results";
-}
+// }else{
+// 	echo "0 results";
+// }
 ?>
