@@ -4,30 +4,36 @@ $conn=db_connect();
 
 $stmt=$conn->prepare("insert into devices(servicetag,model,type,purchasedate,warrantyprovider,warrantyexp,retired) values(?,?,?,?,?,?,?)");
 
+$radio_value=$_POST['radio'];
+if($radio_value=="1"){
+	$tags=$_POST['servicetags'];
+	$value1_array=explode(",", $tags);
+	$len=count($value1_array);
+	for($i=0;$i<$len;$i++){
+		$value1=$value1_array[$i];
+		$value2=$_POST['model'];
+		$value3=$_POST['type'];
+		$value4=strtotime($_POST['pdate']);
+		$value5=$_POST['wpro'];
+		$value6=strtotime($_POST['wdate']);
+		$value7=(isset($_POST['retired'])) ? 1 : 0;
+		$stmt->bind_param("sssisii",$value1,$value2,$value3,$value4,$value5,$value6,$value7);
+		$stmt->execute();
+	}
+}
+if($radio_value=="0"){
 
-// if(isset($_POST['radio'])){
-// 	for($i=0;$i<$_POST['servicetags'].length;$i++){
-// 		$value1=$_POST['servicetags'][$i];
-// 		$value2=$_POST['model'];
-// 		$value3=$_POST['type'];
-// 		$value4=$_POST['pdate'];
-// 		$value5=$_POST['wpro'];
-// 		$value6=$_POST['wdate'];
-// 		$value7=(isset($_POST['retired'])) ? 1 : 0;
-// 		$stmt->bind_param("sssisii",$value1,$value2,$value3,$value4,$value5,$value6,$value7);
-// 		$stmt->execute();
-// 	}
-// }
-
-if(isset($_POST['servicetag'])){$value1=$_POST['servicetag'];}
-if(isset($_POST['model'])){$value2=$_POST['model'];}
-if(isset($_POST['type'])){$value3=$_POST['type'];}
-if(isset($_POST['pdate'])){$value4=strtotime($_POST['pdate']);}
-if(isset($_POST['wpro'])){$value5=$_POST['wpro'];}
-if(isset($_POST['wdate'])){$value6=strtotime($_POST['wdate']);}
+$value1=$_POST['servicetag'];
+$value2=$_POST['model'];
+$value3=$_POST['type'];
+$value4=strtotime($_POST['pdate']);
+$value5=$_POST['wpro'];
+$value6=strtotime($_POST['wdate']);
 $value7=(isset($_POST['retired'])) ? 1 : 0;
-
-
+$stmt->bind_param("sssisii",$value1,$value2,$value3,$value4,$value5,$value6,$value7);
+$stmt->execute();
+$stmt->close();
+}
 // if(isset($_POST['retired'])){$value7=$_POST['retired'];}
 
 
@@ -41,9 +47,7 @@ $value7=(isset($_POST['retired'])) ? 1 : 0;
 
 // $stmt="insert into devices(servicetag,model,type,purchasedate,warrantyprovider,warrantyexp,retired) values($value1,$value2,$value3,$value4,$value5,$value6,$value7)";
 // $conn->query($stmt);
-$stmt->bind_param("sssisii",$value1,$value2,$value3,$value4,$value5,$value6,$value7);
-$stmt->execute();
-$stmt->close();
+
 
 // $sql="select servicetag,model,type,purchasedate,warrantyprovider,warrantyexp,retired from devices";
 // $result=$conn->query($sql);

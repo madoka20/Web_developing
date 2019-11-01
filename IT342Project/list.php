@@ -19,7 +19,7 @@
                     <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" id="devices" aria-haspopup="true" aira-expanded="false">Devices</a>
                     <div class="dropdown-menu" aria-labelledby="devices">
                         <a href="#" class="dropdown-item">List</a>
-                        <a href="#" class="dropdown-item">Add Device</a>
+                        <a href="form.html" class="dropdown-item">Add Device</a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -34,7 +34,7 @@
         </div>
     </nav>
     <div class="container">
-        <form action="process.php">
+       
             <table class="table table-light table-hover table-bordered" style="table-layout: fixed; margin-top: 20px;">
                 <thead>
                     <tr style="text-align: center;">
@@ -89,7 +89,7 @@
                 ?>
                 </tbody>
             </table>
-        </form>
+       
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
