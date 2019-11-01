@@ -10,6 +10,7 @@ if($conn->connect_error){
     die("Connection failed：".$conn->connect_error);
 } 
 echo "connect successfully";
+return $conn;
 }
 function db_disconnect($conn){
    $conn-close(); 
