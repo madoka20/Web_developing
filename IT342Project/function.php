@@ -13,7 +13,7 @@ echo "connect successfully";
 return $conn;
 }
 function db_disconnect($conn){
-   $conn-close(); 
+   $conn->close(); 
 }
 
 
