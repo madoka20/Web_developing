@@ -18,32 +18,58 @@
             margin-top: 70px;
             background-color: rgb(255,192,203,0.3);
         }
+
  	#signupforms{
  		display: none;
  	}
+    .interface{
+        margin-top: 20px;
+    }
+ 	#login{
+        border-color: orange;
+        color:orange;
+        margin-bottom: 10px;
+ 	}
+    #signup{
+   margin-bottom: 10px;
+    }
 	.form{
-		display: block;
-	}
+		display: block
+
+        	}
 	.button{
-		 background-color: orange; 
-  border: none;
-  color: white;
-  padding: 10px 20px;
+		     background-color: rgb(255, 255, 255, 0.6);
+  border: 1px solid violet;
+   border-radius: 5px;
+  color: violet;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  width: 49%;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+   font-family: 'Chilanka', cursive;
+
 	}
+    label{
+          font-family: 'Chilanka', cursive;
+display: block;
+    }
  		    </style>
     <script>
         $("document").ready(function() {
             $("#login").on("click",function(){
                 $("#loginforms").css("display","block");
+                $("#login").css("border-color","orange").css("color","orange");
                 $("#signupforms").css("display","none");
+                $("#signup").css("border-color","violet").css("color","violet");
             });
             $("#signup").on("click",function(){
                 $("#loginforms").css("display","none");
+                $("#login").css("border-color","violet").css("color","violet");
                 $("#signupforms").css("display","block");
+                $("#signup").css("border-color","orange").css("color","orange");
             });
          })
     </script>
@@ -76,21 +102,32 @@
     <div class="container">
         <div class="row">
         	
-            <div class="col-lg-12 content">
+            <div class="col-lg-12 content" align="center">
 			
-                <div class="col-lg-4 offset-4">
+                <div class="col-lg-3" align="left">
                     <div class="interface">
                         <button id="login"  class="button">Login</button>
                         <button id="signup" class="button">Sign up</button>
                         <div id="loginforms">
-                            User ID:<input type="text" class="form">
-                            Password:<input type="text" class="form">
+                                <label for="">
+                                    User ID:<input type="text" class="form form-control">
+                                </label>
+                       			<label for="">
+                                     Password:<input type="text" class="form form-control">
+                                </label>
+                           
+                        	<button style="margin-top: 10px;   font-family: 'Chilanka', cursive;width: 100%;" class="btn btn-primary" >Login</button>
+                    
                         
                         </div>
                         <div id="signupforms">
-                        	User ID:<input type="text" class="form">
-                            Password:<input type="text" class="form">
-                            Comfirm Password:<input type="text" class="form">
+                            <label for="">User ID:<input type="text" class="form form-control"></label>
+                            <label for=""> Password:<input type="text" class="form form-control"></label>
+                            <label for=""> Comfirm Password:<input type="text" class="form form-control"></label>
+                        	
+                           
+                           
+                            <button style="margin-top: 10px;   font-family: 'Chilanka', cursive; width: 100%;" class="btn btn-primary">Sign up</button>
                         </div>
                     </div>
                 </div>
