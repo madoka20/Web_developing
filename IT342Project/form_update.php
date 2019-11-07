@@ -8,23 +8,7 @@
     <title>BootstrapForm</title>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script>
-        $("document").ready(function() {
-            $("#n").on("click",function(){
-                $("#tag").css("display","block");
-                $("#tags").css("display","none");
-            });
-            $("#y").on("click",function(){
-                $("#tag").css("display","none");
-                $("#tags").css("display","block");
-            });
-         })
-        
-        
-
-
-       
-    </script>
+  
 </head>
 
 <body>
@@ -53,20 +37,13 @@
     <div class="container">
         <h2 style="text-align: center;">Add Device</h2>
 
-        <form action="process.php" method="post">
+        <form action="process_update.php" method="post">
 
-        <div class="form-group">
-            <div class="form-check form-check-inline">
-                <label class="form-check-label" for="n">
-                    Multiple Machines <input class="form-check-input" name="radio" id="n" type="radio" value="0" checked="checked" />No</label></div>
-            <div class="form-check form-check-inline"><label class="form-check-label" for="y">
-                    <input class="form-check-input" name="radio" id="y" type="radio" value="1" />Yes</label></div>
-        </div>
+      
         <!-- radio buttons to toggle -->
         <div class="form-group row"><label class="form-control-label col-sm-3" id="tag" style="display:block;">Service Tag:
-                <input class="form-control" type="text" name="servicetag"></label>
-            <label class="form-control-label col-sm-3" id="tags" style="display:none;">Multiple Service Tags:
-                <textarea class="form-control" rows="4" name="servicetags"></textarea></label>
+                <input class="form-control" type="text" name="servicetag" value="<?php echo $_GET['servicetag']; ?>" ></label>
+  
         </div>
         <!-- service tag / multiple service tags -->
         <div class="form-group row">

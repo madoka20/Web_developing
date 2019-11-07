@@ -2,7 +2,8 @@
 include "function.php";
 $conn=db_connect();
 
-$stmt=$conn->prepare("insert into devices(servicetag,model,type,purchasedate,warrantyprovider,warrantyexp,retired) values(?,?,?,?,?,?,?)");
+
+$stmt1=$conn->prepare("insert into devices(servicetag,model,type,purchasedate,warrantyprovider,warrantyexp,retired) values(?,?,?,?,?,?,?)");
 
 $radio_value=$_POST['radio'];
 if($radio_value=="1"){
@@ -17,8 +18,8 @@ if($radio_value=="1"){
 		$value5=$_POST['wpro'];
 		$value6=strtotime($_POST['wdate']);
 		$value7=(isset($_POST['retired'])) ? 1 : 0;
-		$stmt->bind_param("sssisii",$value1,$value2,$value3,$value4,$value5,$value6,$value7);
-		$stmt->execute();
+		$stmt1->bind_param("sssisii",$value1,$value2,$value3,$value4,$value5,$value6,$value7);
+		$stmt1->execute();
 	}
 }
 if($radio_value=="0"){
@@ -30,10 +31,19 @@ $value4=strtotime($_POST['pdate']);
 $value5=$_POST['wpro'];
 $value6=strtotime($_POST['wdate']);
 $value7=(isset($_POST['retired'])) ? 1 : 0;
-$stmt->bind_param("sssisii",$value1,$value2,$value3,$value4,$value5,$value6,$value7);
-$stmt->execute();
-$stmt->close();
+$stmt1->bind_param("sssisii",$value1,$value2,$value3,$value4,$value5,$value6,$value7);
+$stmt1->execute();
+$stmt1->close();
 }
+
+// else if($_GET['action']=='delete') {
+// $stmt2=$conn->prepare("delete from devices where servicetag='?'");
+
+
+// }
+
+
+
 // if(isset($_POST['retired'])){$value7=$_POST['retired'];}
 
 
