@@ -104,7 +104,7 @@
 
         var ans = confirm("Are you sure to leave this page? Your input will no longer saved.");
         if (ans == true) {
-            window.location.href = 'IT342BootstrapTable.html';
+            window.location.href = 'list.php';
         }
 
     }

@@ -85,7 +85,7 @@
                             <a href="form_update.php?servicetag=<?php echo $row["servicetag"];?>" >Update</a>
                         </td>
                         <td>
-                            <a href="list.php?servicetag=<?php echo $row["servicetag"];?>" onclick="cfm()">Delete</a>
+                            <a href="list.php?servicetag=<?php echo $row["servicetag"];?>"  onclick="return confirm('Are you sure?')">Delete</a>
                         </td>
                     </tr>
                     <?php              
@@ -101,27 +101,19 @@
        
     </div>
     <script>
-         function cfm() {
-
-        var ans = confirm("Are you sure to delete?");
-        if (ans == true) {
-            del()
-
-        }
-
-    }
-        function del(){
+        
+       
             <?php $stmt2=$conn->prepare("delete from devices where servicetag=?");
                             $value1=$_GET["servicetag"];
                             $stmt2->bind_param("s",$value1);
                             $stmt2->execute();
                             $stmt2->close();
-
+                         
 
                                 ?>
         
           
-        }
+        
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
