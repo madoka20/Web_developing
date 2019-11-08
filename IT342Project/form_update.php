@@ -19,7 +19,7 @@
                 <div class="dropdown">
                     <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" id="devices" aria-haspopup="true" aira-expanded="false">Devices</a>
                     <div class="dropdown-menu" aria-labelledby="devices">
-                        <a href="list.php" class="dropdown-item">List</a>
+                        <a target="_blank" href="list.php" class="dropdown-item">List</a>
                         <a href="#" class="dropdown-item">Add Device</a>
                     </div>
                 </div>
@@ -35,14 +35,14 @@
         </div>
     </nav>
     <div class="container">
-        <h2 style="text-align: center;">Add Device</h2>
+        <h2 style="text-align: center;">Update Device</h2>
 
         <form action="process_update.php" method="post">
 
       
         <!-- radio buttons to toggle -->
         <div class="form-group row"><label class="form-control-label col-sm-3" id="tag" style="display:block;">Service Tag:
-                <input class="form-control" type="text" name="servicetag" value="<?php echo $_GET['servicetag']; ?>" ></label>
+                <input readonly class="form-control" type="text" name="servicetag" value="<?php echo $_GET['servicetag']; ?>" ></label>
   
         </div>
         <!-- service tag / multiple service tags -->

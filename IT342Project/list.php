@@ -20,7 +20,7 @@
                     <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" id="devices" aria-haspopup="true" aira-expanded="false">Devices</a>
                     <div class="dropdown-menu" aria-labelledby="devices">
                         <a href="#" class="dropdown-item">List</a>
-                        <a href="form.html" class="dropdown-item">Add Device</a>
+                        <a target="_blank" href="form.html" class="dropdown-item">Add Device</a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -82,7 +82,7 @@
                             <?php echo $row["retired"]; ?>
                         </td>
                         <td>
-                            <a href="form_update.php?servicetag=<?php echo $row["servicetag"];?>" >Update</a>
+                            <a target="_blank" href="form_update.php?servicetag=<?php echo $row["servicetag"];?>" >Update</a>
                         </td>
                         <td>
                             <a href="list.php?servicetag=<?php echo $row["servicetag"];?>"  onclick="return confirm('Are you sure?')">Delete</a>
