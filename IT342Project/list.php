@@ -70,13 +70,13 @@
                             <?php echo $row["type"]; ?>
                         </td>
                         <td>
-                            <?php echo $row["purchasedate"]; ?>
+                            <?php echo date("Y-m-d", $row["purchasedate"]); ?>
                         </td>
                         <td>
                             <?php echo $row["warrantyprovider"]; ?>
                         </td>
                         <td>
-                            <?php echo $row["warrantyexp"]; ?>
+                            <?php echo date("Y-m-d", $row["warrantyexp"]); ?>
                         </td>
                         <td>
                             <?php echo $row["retired"]; ?>
