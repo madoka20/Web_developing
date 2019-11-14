@@ -12,4 +12,5 @@ $value7=(isset($_POST['retired'])) ? 1 : 0;
 $stmt3->bind_param("ssisiis",$value2,$value3,$value4,$value5,$value6,$value7,$value1);
 $stmt3->execute();
 $stmt3->close();
+header("Location: list.php");
 ?>
