@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>BootstrapTable</title>
+    <title>Computer List</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <style>
@@ -82,7 +82,7 @@
                             <?php echo $row["retired"]; ?>
                         </td>
                         <td>
-                            <a target="_blank" href="form_update.php?servicetag=<?php echo $row["servicetag"];?>" >Update</a>
+                            <a target="_blank" href="form_update.php?servicetag=<?php echo $row["servicetag"];?>&model=<?php echo $row["model"]; ?>&type= <?php echo $row["type"]; ?>&purchasedate=<?php echo date("Y-m-d", $row["purchasedate"]); ?>&warrantyprovider=<?php echo $row["warrantyprovider"]; ?>&warrantyexp=<?php echo date("Y-m-d", $row["warrantyexp"]); ?>&retired= <?php echo $row["retired"]; ?>" >Update</a>
                         </td>
                         <td>
                             <a href="list.php?servicetag=<?php echo $row["servicetag"];?>"  onclick="return confirm('Are you sure?')">Delete</a>
@@ -108,7 +108,7 @@
                             $stmt2->bind_param("s",$value1);
                             $stmt2->execute();
                             $stmt2->close();
-                         
+                         echo "window.location.replace('list.php');"
 
                                 ?>
         

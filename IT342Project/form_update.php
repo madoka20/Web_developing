@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>BootstrapForm</title>
+    <title>Update Device</title>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   
@@ -48,13 +48,13 @@
         <!-- service tag / multiple service tags -->
         <div class="form-group row">
             <label class="form-control-label col-sm-3" id="model">Model:
-                <input class="form-control" type="text" name="model"></label>
+                <input class="form-control" value="<?php echo $_GET['model']; ?>" type="text" name="model"></label>
         </div>
         <!-- model -->
         <div class="form-group row">
             <label class="col-sm-3">Type:
-                <select class="custom-select" name="type">
-                    <option selected>Choose one...</option>
+                <select class="custom-select" name="type" >
+                    <option selected value="<?php echo $_GET['type']; ?>"><?php echo $_GET['type']; ?></option>
                     <option value="laptop">laptop</option>
                     <option value="desktop">desktop</option>
                     <option value="tablet">tablet</option>
@@ -64,24 +64,24 @@
         <!-- type -->
         <div class="form-group row">
             <label class="form-control-label col-sm-3">Purchase Date:
-                <input class="form-control" placeholder="MM/DD/YYYY" type="text" name="pdate"/></label>
+                <input class="form-control"  value="<?php echo $_GET['purchasedate']; ?>" placeholder="MM/DD/YYYY" type="text" name="pdate"/></label>
         </div>
         <!-- purchase date -->
         <div class="form-group row">
             <label class="form-control-label col-sm-3" id="warPro">Warranty Provider:
-                <input class=" form-control" type="text" name="wpro"></label>
+                <input value="<?php echo $_GET['warrantyprovider']; ?>" class=" form-control" type="text" name="wpro"></label>
         </div>
         <!-- warranty provider -->
         <div class="form-group row">
             <label class="form-control-label col-sm-3">Warranty Expiration:
-                <input class="form-control" placeholder="MM/DD/YYYY" type="text" name="wdate" /></label>
+                <input value="<?php echo $_GET['warrantyexp']; ?>" class="form-control" placeholder="MM/DD/YYYY" type="text" name="wdate" /></label>
         </div>
         <!-- warranty expiration -->
         <div class="form-group row">
             <label class="form-check-label col-sm-3">
                 Retired
                 <div class="form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" name="retired" >
+                    <input value="<?php echo $_GET['retired']; ?>" type="checkbox" class="form-check-input" name="retired" >
                 </div>
             </label>
         </div>
