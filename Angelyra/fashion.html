@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <title>Fashion</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
     <link href="https://fonts.googleapis.com/css?family=Marcellus&display=swap" rel="stylesheet">
     <style>
@@ -58,10 +62,10 @@
   border-radius: 5px;
 }
 .subnav{
-  min-height: 50px;
+ 
   margin-top: 20px;
   border: 3px dotted pink;
-  border-radius: 10px;
+
   background-color: #fff;
 }
 .subnav ul{
@@ -103,6 +107,7 @@ list-style-type: none;
 }
 .path{
   color: grey;
+  font-family: 'Marcellus', serif;
 }
 .path:hover{
               color: limegreen;
@@ -139,7 +144,7 @@ list-style-type: none;
                     </div>
                 </form>
                 <ul class="navbar-nav">
-                    <li><a href="" class="navbar-link nav-item"></a><span class="linkText">Login</span></li>
+                    <li><a href="#" class="navbar-link nav-item"><span class="linkText">Login</span></a></li>
                 </ul>
             </div>
         </div>
@@ -162,6 +167,7 @@ list-style-type: none;
                 </a>
             </div>
         </div>
+
         <div class="row" style="height:30px;">
             <a href="index.html">
                 <p class="path">Home</p>
@@ -170,22 +176,43 @@ list-style-type: none;
                 <p class="path">Fashion</p>
             </a>
         </div>
+
+        <div class="row" style="height: 40px;">
+          <p style="font-family: 'Marcellus', serif; margin-top: 6px; font-size: 25px; font-weight: bold;">Design For MtF sisters</p>
+         
+        </div>
+
+        <div class="row">
+           <p style="font-family: 'Marcellus', serif; color:rgb(90,90,90);">Angelyra can fit everyone's body with your favorite items without worrying about sizing and shape. It is mainly design for MtFs, who have slightly different body shape than cis-women. In this case, our size may have wilder shoulder width and bust width. </p>
+        </div>
+
         <div class="row">
             <div class="col-lg-3 subnav">
-                <p style="font-size:20px;text-align: center;font-family: 'Marcellus', serif;padding-top: 10px;font-weight: bold;">Category</p>
+                <p style="font-size:20px;font-family: 'Marcellus', serif;padding-top: 10px;font-weight: bold; float: left; margin-left: 10px;">Category </p>
+            
+        <input  id="toggle" align="right" type="button">
                 <hr>
-                <ul>
-                    <li><a href="">dresses</a></li>
-                    <li><a href="">top</a></li>
-                    <li><a href="">skirt</a></li>
-                    <li><a href="">pants</a></li>
-                    <li><a href="">underwear</a></li>
-                    <li><a href="">shoes</a></li>
+                <ul class="category" style="margin-left: -30px;">
+                    <li><a href="">Dresses</a></li>
+                    <li><a href="">Top</a></li>
+                    <li><a href="">Skirt</a></li>
+                    <li><a href="">Pants</a></li>
+                    <li><a href="">Underwear</a></li>
+                    <li><a href="">Shoes</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>
+    
+ $("#toggle").click(function(){
+        $(".category").css("display","none");
+      });
+
+      
+    </script>
+    
+ 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
