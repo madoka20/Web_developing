@@ -3,31 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>MTF</title>
+    <title>Fashion</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
  <link href="https://fonts.googleapis.com/css?family=Marcellus&display=swap" rel="stylesheet">
     <style>
-
+body{
+	background-color: rgb(241,242,246);
+}
         .linkText{
-			 color: violet;
+			 color: white;
     	font-size: 17px;
   	padding: 4px;
      margin-left: 24px;
      font-family: 'Marcellus', serif;
     	}
     	 .linkText:hover{
-    background-color: violet;
-    color:white;
+    background-color: white;
+    color:violet;
 	border-radius: 5px;
 	transition: all ease 0.3s;
 
 
  }
 
-    	.btn{
-    		background-color: white;
-    	}
+
 	a{
 		text-decoration: none !important;
 	}
@@ -51,23 +51,41 @@
 	.newslist{
 		list-style-type: none;
 	}
-	#bg{
-		position: fixed;
-		top: 0;
-		left: 0;
-		min-width: 100%;
-		min-height: 100%;
-		z-index: -1;
-
-	}
+	
+.active{
+	color:violet;
+	background-color: white;
+	border-radius: 5px;
+}
+.subnav{
+	min-height: 50px;
+	margin-top: 20px;
+	border: 3px dotted pink;
+	border-radius: 10px;
+	background-color: #fff;
+}
+.subnav ul{
+list-style-type: none;
+}
+.subnav ul li{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.subnav ul li a{
+	font-family: 'Marcellus', serif;
+	color: #000;
+}
+.subnav ul li a:hover{
+	color: limegreen;
+}
 
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(255,255,255,0);">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: violet;">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.html">
                 <img id="logo" src="" width="34" height="26" alt="">
                 <span class="linkText">MTF</span>
             </a>
@@ -76,7 +94,7 @@
             </button>
             <div class="collapse navbar-collapse" id="nav">
                 <ul class="navbar-nav mr-auto">
-                    <li><a href="fashion.html" class="navbar-link nav-item"><span class="linkText">Fashion</span></a></li>
+                    <li><a href="" class="navbar-link nav-item"><span class="linkText active">Fashion</span></a></li>
                     <li><a href="" class="navbar-link nav-item"><span class="linkText">Makeup</span></a></li>
                     <li><a href="" class="navbar-link nav-item"><span class="linkText">Medical&nbsp;resources</span></a></li>
                     <li><a href="" class="navbar-link nav-item"><span class="linkText">Voice&nbsp;training</span></a></li>
@@ -86,7 +104,7 @@
                 	<div class="input-group">
                 		<input class="form-control" type="search" placeholder="HRT" aria-label="Search">
                      <div class="input-group-append">
-                         <button class="btn search" type="submit" style="color:white;background-color: violet;font-size:15px;">Search</button>
+                         <button class="btn search" type="submit" style="color:white;background-color: limegreen;font-size:15px;">Search</button>
                     </div>
                 	</div>
                     
@@ -98,21 +116,22 @@
             </div>
         </div>
     </nav>
-    <img src="imgs/bg.jpg" id="bg" alt="">
+  
     <div class="container">
         <div class="row">
-           
-            <div class="col-lg-4 news" style="overflow: auto; height: 300px;">
-            	<p id="newstitle">Today News <script>var dt=new Date();
-            	var yyyy=dt.getFullYear();
-            	var mm=dt.getMonth()+1;
-            	var dd=dt.getDate();
-            	var str="Today News "+yyyy+"/"+mm+"/"+dd;
-            document.getElementById("newstitle").innerHTML = str;</script></p>
-            	<ul class="newslist">
-            		<li></li>
-            	</ul>
-            </div>
+           <div class="col-lg-2 subnav">
+           	<p style="font-size:20px;text-align: center;font-family: 'Marcellus', serif;padding-top: 10px;font-weight: bold;">Category</p>
+           	<hr>
+           	<ul>
+           		<li><a href="">dresses</a></li>
+
+           		<li><a href="">top</a></li>
+           		<li><a href="">skirt</a></li>
+           		<li><a href="">pants</a></li>
+           		<li><a href="">underwear</a></li>
+           		<li><a href="">shoes</a></li>
+           	</ul>
+           </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
