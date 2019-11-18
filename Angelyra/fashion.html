@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fashion</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <link href="https://fonts.googleapis.com/css?family=Marcellus&display=swap" rel="stylesheet">
+    <style>
+        body{
+  background-color: rgb(241,242,246);
+}
+        .linkText{
+       color: white;
+      font-size: 17px;
+    padding: 4px;
+     margin-left: 24px;
+     font-family: 'Marcellus', serif;
+      }
+       .linkText:hover{
+    background-color: white;
+    color:violet;
+  border-radius: 5px;
+  transition: all ease 0.3s;
+
+
+ }
+
+
+  a{
+    text-decoration: none !important;
+  }
+
+.search:hover{
+  
+
+
+}
+  .news{
+      margin-top: 30px;
+      border: 2px dotted pink;
+      background-color: rgb(255,192,203,0.4);
+      border-radius: 10px;
+  }
+  #newstitle{
+    padding: 10px;
+    font-size: 17px;
+    font-family: 'Marcellus', serif;
+  }
+  .newslist{
+    list-style-type: none;
+  }
+  
+.active{
+  color:violet;
+  background-color: white;
+  border-radius: 5px;
+}
+.subnav{
+  min-height: 50px;
+  margin-top: 20px;
+  border: 3px dotted pink;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.subnav ul{
+list-style-type: none;
+}
+.subnav ul li{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.subnav ul li a{
+  font-family: 'Marcellus', serif;
+  color: #000;
+}
+.subnav ul li a:hover{
+  color: limegreen;
+}
+.ads{
+  margin-top: 20px;
+
+}
+.ads a{
+  font-family: 'Marcellus', serif;
+
+}
+#ad1{
+  background-color: limegreen;
+  color: white;
+  padding:10px;
+}
+#ad2{
+  background-color: deepskyblue;
+  color:white;
+  padding:10px;
+}
+#ad3{
+  background-color: white;
+  color:#000;
+  padding: 10px;
+}
+.path{
+  color: grey;
+}
+.path:hover{
+              color: limegreen;
+              text-decoration: underline;
+            }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: violet;">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img id="logo" src="" width="34" height="26" alt="">
+                <span class="linkText">Angelyra</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav mr-auto">
+                    <li><a href="" class="navbar-link nav-item"><span class="linkText active">Fashion</span></a></li>
+                    <li><a href="" class="navbar-link nav-item"><span class="linkText">Makeup</span></a></li>
+                    <li><a href="" class="navbar-link nav-item"><span class="linkText">Medical&nbsp;resources</span></a></li>
+                    <li><a href="" class="navbar-link nav-item"><span class="linkText">Voice&nbsp;training</span></a></li>
+                    <li><a href="" class="navbar-link nav-item"><span class="linkText">Forum</span></a></li>
+                </ul>
+                <form class="form-inline">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="HRT" aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn search" type="submit" style="color:white;background-color: limegreen;font-size:15px;">Search</button>
+                        </div>
+                    </div>
+                </form>
+                <ul class="navbar-nav">
+                    <li><a href="" class="navbar-link nav-item"></a><span class="linkText">Login</span></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 ads">
+                <a href="">
+                    <p id="ad1">Free shiping for $39 or more!</p>
+                </a>
+            </div>
+            <div class="col-lg-4 ads">
+                <a href="">
+                    <p id="ad2">Login for receiving points!</p>
+                </a>
+            </div>
+            <div class="col-lg-4 ads">
+                <a href="">
+                    <p id="ad3">742 new items updated!</p>
+                </a>
+            </div>
+        </div>
+        <div class="row" style="height:30px;">
+            <a href="index.html">
+                <p class="path">Home</p>
+            </a>
+            <p> &nbsp;>&nbsp; </p> <a href="">
+                <p class="path">Fashion</p>
+            </a>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 subnav">
+                <p style="font-size:20px;text-align: center;font-family: 'Marcellus', serif;padding-top: 10px;font-weight: bold;">Category</p>
+                <hr>
+                <ul>
+                    <li><a href="">dresses</a></li>
+                    <li><a href="">top</a></li>
+                    <li><a href="">skirt</a></li>
+                    <li><a href="">pants</a></li>
+                    <li><a href="">underwear</a></li>
+                    <li><a href="">shoes</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
