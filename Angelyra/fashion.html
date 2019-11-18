@@ -114,6 +114,42 @@ list-style-type: none;
               text-decoration: underline;
             }
 
+.switch{
+      position: relative;
+      left: 111px;
+      top:15px;
+    }
+    .switch label{
+      width:55px;
+      height: 23px;
+     position: absolute;
+      background-color: #999;
+      top:0;
+      left: 0;
+      border-radius: 50px;
+      transition:all 0.2s;
+    }
+    .switch input[type="checkbox"]{
+      visibility: hidden;
+    }
+    .switch label:after{
+      content: '';
+      width:21px;
+      height: 21px;
+      border-radius: 50px;
+      position: absolute;
+      top:1px;
+      left: 1px;
+      transition:all 0.1s;
+      background-color: white;
+    }
+    .switch input[type="checkbox"]:checked+label:after{
+      left:33px;
+    }
+    .switch input[type="checkbox"]:checked+label{
+      background-color: rgb(127,255,0);
+    }
+
     </style>
 </head>
 
@@ -188,9 +224,20 @@ list-style-type: none;
 
         <div class="row">
             <div class="col-lg-3 subnav">
-                <p style="font-size:20px;font-family: 'Marcellus', serif;padding-top: 10px;font-weight: bold; float: left; margin-left: 10px;">Category </p>
-            
-        <input  id="toggle" align="right" type="button">
+
+
+      
+      
+       
+
+                <p style="font-size:20px;font-family: 'Marcellus', serif;padding-top: 10px;font-weight: bold; float: left; margin-left: 10px;">Category 
+
+                </p>
+            <div class="switch">
+                  
+           <input  id="toggle"  type="checkbox" checked="checked" value="1"> 
+           <label for="toggle" class="toggleLabel"> </label>
+              </div>
                 <hr>
                 <ul class="category" style="margin-left: -30px;">
                     <li><a href="">Dresses</a></li>
@@ -206,7 +253,15 @@ list-style-type: none;
     <script>
     
  $("#toggle").click(function(){
+      if($(this).val()=="1"){
         $(".category").css("display","none");
+        $(this).val("0");
+      }
+      else{
+        $(".category").css("display","block");
+        $(this).val("1");
+      }
+     
       });
 
       
