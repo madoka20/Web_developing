@@ -18,7 +18,7 @@
             margin-top: 70px;
             background-color: rgb(255,192,203,0.3);
         }
-
+    /*style for the forms*/
  	#signupforms{
  		display: none;
  	}
@@ -58,6 +58,8 @@ display: block;
     }
  		    </style>
     <script>
+        // jquery switch function
+        // it will switch the form once you click the login/signup button and the style of the buttons
         $("document").ready(function() {
             $("#login").on("click",function(){
                 $("#loginforms").css("display","block");
@@ -76,6 +78,7 @@ display: block;
 </head>
 
 <body>
+    <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgb(255,192,203,0.6);">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -86,16 +89,19 @@ display: block;
             </button>
             <div class="collapse navbar-collapse" id="nav">
                 <ul class="navbar-nav mr-auto">
-                    <li><a class="nav-item nav-link" href="gallery.html"><span class="linkText active">Gallery</span></a></li>
+                    <li><a class="nav-item nav-link" href="gallery.html"><span class="linkText">Gallery</span></a></li>
                     <li><a class="nav-item nav-link" href="music.html"><span class="linkText">Music</span></a></li>
                     <li><a class="nav-item nav-link" href="story.html"><span class="linkText">Story</span></a></li>
                     <li><a class="nav-item nav-link" href="blog.html"><span class="linkText">Blog</span></a></li>
-                    <li><a class="nav-item nav-link" href="#"><span class="linkText">Login</span></a></li>
+                  
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn linkText my-2 my-sm-0" type="submit">Search</button>
                 </form>
+                 <ul class="navbar-nav">
+                    <li><a class="nav-item nav-link " href="login.html"><span class="linkText active">Login</span></a></li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -106,8 +112,11 @@ display: block;
 			
                 <div class="col-lg-3" align="left">
                     <div class="interface">
+                        <!-- the two buttons for switch -->
                         <button id="login"  class="button">Login</button>
                         <button id="signup" class="button">Sign up</button>
+
+                        <!-- the login form and button -->
                         <div id="loginforms">
                                 <label for="">
                                     User ID:<input type="text" class="form form-control">
@@ -120,6 +129,7 @@ display: block;
                     
                         
                         </div>
+                        <!-- the sign up form and button-->
                         <div id="signupforms">
                             <label for="">User ID:<input type="text" class="form form-control" placeholder="Allows alphabets and numbers"></label>
                             <label for=""> Password:<input type="text" class="form form-control" placeholder="Minimum 8 characters"></label>
@@ -139,7 +149,7 @@ display: block;
         </div>
     </div>
     <footer class="footer">
-        <p class="footerText">Author: Clare&nbsp; &nbsp;&nbsp; Last updated:10/15/2019</p>
+        <p class="footerText">Author: Clare&nbsp; &nbsp;&nbsp; Last updated:11/19/2019</p>
     </footer>
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

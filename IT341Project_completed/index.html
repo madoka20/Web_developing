@@ -86,14 +86,15 @@
         <!-- The "news" block -->
         <p class="title">Welcome to Dream Garden !</p>
         <div class="news" align="left" style="text-indent:2em;">
-            <p style="font-size: 30px;" align="center">
-                Recent News
-            </p>
-            <p>
-                11/05/2019: Website Update: Login page and index page & Quiz 09
-            </p>
-            <p> 11/12/2019: Website in-class presentation & Quiz 10</p>
-            <p>11/19/2019: Quiz 11</p>
+          <p id="newstitle" style="text-align: center; font-size: 30px; text-indent: 0;">Today News <script>var dt=new Date();
+                var yyyy=dt.getFullYear();
+                var mm=dt.getMonth()+1;
+                var dd=dt.getDate();
+                var str="Today News "+yyyy+"/"+mm+"/"+dd;
+            document.getElementById("newstitle").innerHTML = str;</script></p>
+           
+            <p>11/19/2019:Update navigation bar and code documentation</p>
+            <p>11/26/2019: Quiz 11</p>
             <p>12/03/2019: Quiz 12</p>
             <p>12/10/2019: Final exam</p>
         </div>
