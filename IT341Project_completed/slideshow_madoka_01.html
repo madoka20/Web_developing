@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- The slideshow -->
+<!-- The code of each slideshow will be similar so I just document this page -->
 <head>
     <meta charset="UTF-8">
     <title>Slide show</title>
@@ -14,8 +15,10 @@
 
 <body>
     <div id="app">
+        <!-- title -->
          <p class="title"><a href="gallery.html"><img src="imgs/yumemi.png" alt=""></a>&#x2661; Madoka Magica &#x2661;</p>
-
+        <!-- four pictures with text in the bottom -->
+        <!-- also include the number -->
         <div class="container">
             <div class="mySlides fade">
                 <div class="numbertext">1 / 4</div>
@@ -38,62 +41,65 @@
                 <div class="textwhite">"To go, or die"</div>
             </div>
         </div>
+        <!-- when click prev then go to previous page -->
+        <!-- when click next then go to next page -->
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
         <div style="text-align:center">
+            <!-- click the dot will go to the corresponding page -->
             <span class="dot" onclick="currentSlide(1)"></span>
             <span class="dot" onclick="currentSlide(2)"></span>
             <span class="dot" onclick="currentSlide(3)"></span>
             <span class="dot" onclick="currentSlide(4)"></span>
         </div>
     </div>
-    <script>
-    var vm = new Vue({
-        el: '#app',
-        data: {},
-        methods: {}
-    });
-    </script>
+  
     <script>
     var slideIndex = 1;
     showSlides(slideIndex);
 
-    // Next/previous controls
+   // the function for the prev/next button
     function plusSlides(n) {
         showSlides(slideIndex += n);
     }
 
-    // Thumbnail image controls
+    //the function for the dot
     function currentSlide(n) {
         showSlides(slideIndex = n);
     }
-
+    //the main function. Once a slide is visible the corresponding dot will be active. It uses loop to change the display option to hide/show slides
     function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("mySlides");
         var dots = document.getElementsByClassName("dot");
+        //right: when reach the last slide, back to the first
         if (n > slides.length) { slideIndex = 1 }
+        //left: when reach the first slide, go to the last.
         if (n < 1) { slideIndex = slides.length }
+        //hide all slides first
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
         }
+        //disactive all the dotted first
         for (i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
         }
+        //show the correct slide and make the correct dot active
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
     }
+    //keyboard function
     window.onload = function() {
 
         document.onkeydown = function(event) {
             event = event || window.event;
             console.log(event.keyCode);
             switch (event.keyCode) {
-
+                // <- go to the prev slide
                 case 37:
                     plusSlides(-1)
                     break;
-
+                // -> go to the next slide
                 case 39:
                     plusSlides(1)
                     break;

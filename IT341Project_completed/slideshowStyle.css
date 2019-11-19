@@ -1,3 +1,4 @@
+/*style for title*/
 .title {
         font-family: 'Chilanka', cursive;
         color: rgb(255, 192, 203);
@@ -15,7 +16,7 @@
 
       
     }
-
+/*style for container, slides, buttons*/
     .container {
         max-width: 1000px;
         position: relative;
@@ -52,7 +53,7 @@
     .next:hover {
         background-color: rgba(0, 0, 0, 0.8);
     }
-
+/*style for text in the bottom of slides*/
     .textblack {
         color: #000;
         font-size: 19px;
@@ -79,7 +80,7 @@
          text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
     }
-
+/*style for number and dots. */
     .numbertext {
         color: #f2f2f2;
         font-size: 12px;

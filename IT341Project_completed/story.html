@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Story</title>
     <style>
+        /*style for the content area*/
         .content{
             /*border:3px solid pink;*/
             border-radius: 10px;
@@ -19,6 +20,7 @@
             margin-top: 5px;
 
         }
+        /*style for the chapter selector*/
         .chap{
              font-family: 'Chilanka', cursive;
              color: orange;
@@ -35,6 +37,7 @@
              font-family: 'Chilanka', cursive;
 
         }
+        /*style for the list*/
          .iconImg{
             width: 24px;
             height: 24px;
@@ -75,6 +78,7 @@
 
 <body>
     <div id="app">
+        <!-- navbar -->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgb(255,192,203,0.6);">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
@@ -100,6 +104,9 @@
         </nav>
         <div class="container">
             <div class="row">
+                <!-- The book list (selector) -->
+                <!-- using v-for to render data into the list -->
+                <!-- using getBook(j) to display data properly -->
                 <div class="col-lg-3">
                     <div class="col-lg-12 content" style="overflow:auto;">
                         <h2 class="subtitle">Book List</h2>
@@ -110,6 +117,9 @@
                         </ul>
                     </div>
                 </div>
+                <!-- The reading area -->
+                <!-- using v-for, getChap(i) to display the correct chapter according to user's choice -->
+                <!-- The number of chapter should be the same as the number of number buttons -->
                 <div class="col-lg-6">
                     <div class="col-lg-12 content" style="overflow:auto;">  
                         
@@ -135,6 +145,7 @@
                         </ul>
                     </div>
                 </div>
+                <!-- The introduction and information about the book -->
                 <div class="col-lg-3">
                     <div class="col-lg-12 content" style="overflow:auto;">
                         <h2 class="subtitle">Book Info</h2>
@@ -145,24 +156,32 @@
         </div>
     </div>
      <footer class="footer">
-        <p class="footerText">Author: Clare&nbsp; &nbsp;&nbsp; Last updated:10/27/2019</p>
+        <p class="footerText">Author: Clare&nbsp; &nbsp;&nbsp; Last updated:11/19/2019</p>
     </footer>
     <script>
     var vm = new Vue({
         el: '#app',
         data: {
+            //"select chapter"
             msg: '',
+            //chapter number is the length of book array
             chapterNum: '',
+            //current chapter number
             currChapterNum: '',
+            //title
             title: 'Select Book From List',
+            //current book index of the list
             currBookIndex: '',
+            //current content
             currContent: '',
             bookList: ['少女的约束', '粉百合', '幻天琴'],
+            // sample text
             bookContent: [
                 ['<h4 style="text-align:center;text-indent:0;">极光</h4><br><p>“初秋，我来到了这座与世隔绝的小镇里。远处的山坡上，发光的淡蓝色野花在绿叶和红叶的映衬下形成了三种颜色，交错镶嵌在彼此的空隙中。每当我往山坡的方向前进一步，那些淡蓝色的光点似乎也离我越来越近了，像是萤火虫一般拂面而来，可是伸手却又遥不可及。它们持续而有规律的闪烁着，我仔细观察了其中的一个光点，它亮了大约3秒，又暗下去了大约3秒，反反复复，永无止境。天色渐晚，凉风轻拂着我湿润的脸颊，远处的天边出现了一缕炫目的晚霞，从一个接近地平线的光点散发开来，呈辐射状向上方扩散，颜色从金黄渐变到橙色，再到橘红色，然后是红色，紫色和深蓝色。我站在山崖边，朝西南方驻足眺望，直到夕阳隐没在对岸的山间，至此，归去。”</p><p>雪樱写下了8月16日的日记，合上了粉红色封面的日记本，安静的睡去了。百叶窗外的繁星，像是小镇南面那座山坡上的千百万个光点一样，持续而有规律的闪烁着，只不过闪烁的频率要比野花上的光点要高很多。横跨大半个夜空的北斗七星随着时间绕着一个看不见的圆心逆时针旋转着，直到最后一颗星星消失在渐渐泛白的晨光里。</p><p>天微微亮，雪樱带着厚重的书本乘上了第一班去往小镇北面的诺艾尔学院的巴士。这是她第一次来到这个陌生而神秘的国度。22岁的雪樱作为一个宇宙和天体物理专业的研究生，为了寻找一个看似遥不可及的真相而远离繁华的城市来到了这座大洋中心的孤岛上，来到了这座古老且无人问津的小镇上。车窗外破旧的房屋，裂开的地面，坍塌的围墙，以及折断在房顶上的褪色的旗帜，无一不证明了这座小镇早已不被世人所知。车上只有雪樱和一个穿着黑色长裙，扎着及腰麻花辫，戴着圆框眼镜的年轻姑娘，手上拿着一本厚厚的棕色硬质封面的书在仔细的端详着。雪樱从上到下打量了她的全身，沉默了一会儿，转过头去继续看着窗外的风景。</p>', '1-2', '1-3','1-4','1-5','1-6','1-7','1-8','1-9','1-10','1-11','1-12'],
                 ['2-1', '2-2', '2-3', '2-4','2-5', '2-6', '2-7', '2-8','2-9', '2-10', '2-11', '2-12','2-13', '2-14', '2-15', '2-16','2-17', '2-18', '2-19', '2-20'],
                 ['3-1', '3-2', '3-3', '3-4','3-5', '3-6', '3-7', '3-8','3-9', '3-10', '3-11', '3-12','3-13', '3-14', '3-15', '3-16','3-17', '3-18', '3-19', '3-20']
             ],
+            //book information
             bookInfo: ['Author:Yumemi<br>Number of Words:71000<br>Genre:Scientific', '1002', '1003'],
             currBookInfo: ''
 
@@ -171,6 +190,7 @@
 
         },
         methods: {
+            //get the content of chapters, num of chapters, info of the book
             getBook(j) {
                 this.currBookIndex = j
                 this.currChapterNum='Chapter 1'
@@ -181,6 +201,7 @@
                 this.msg = "Select Chapter:"
 
             },
+            //get the content of chapter and change the header
             getChap(i) {
                 this.currContent = this.bookContent[this.currBookIndex][i - 1]
                 this.currChapterNum = 'Chapter ' + i

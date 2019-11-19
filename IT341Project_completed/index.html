@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- Dream Garden -->
+<!-- Author:Clare -->
+<!-- Date:9/15/19-12/15/19 -->
 <head>
     <meta charset="UTF-8">
     <title>Dream Garden</title>
@@ -8,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <style>
+        /*The background img*/
         body {
         background: url(imgs/sakura_01_02.jpg) no-repeat center center fixed;
         -webkit-background-size: cover;
@@ -16,7 +19,7 @@
         background-size: cover;
 
     }
-        
+    /*style of news block*/
     .title{
           color:rgb(68,68,68);
      padding: 20px;
@@ -45,30 +48,42 @@
 </head>
 
 <body>
+    <!-- navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(255,192,203);">
         <div class="container">
+            <!-- The logo and title of this site -->
             <a class="navbar-brand" href="#">
                 <img id="logo" src="imgs/yumemi.png" width="34" height="26" alt=""><span class="linkText active">Dream Garden</span>
             </a>
+            <!-- The toggler for collapsing or expanding the navbar -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="nav">
+                <!-- list of links to subpages -->
                 <ul class="navbar-nav mr-auto">
                     <li><a class="nav-item nav-link" href="gallery.html"><span class="linkText">Gallery</span></a></li>
                     <li><a class="nav-item nav-link" href="music.html"><span class="linkText">Music</span></a></li>
                     <li><a class="nav-item nav-link" href="story.html"><span class="linkText">Story</span></a></li>
                     <li><a class="nav-item nav-link" href="blog.html"><span class="linkText">Blog</span></a></li>
-                    <li><a class="nav-item nav-link" href="login.html"><span class="linkText">Login</span></a></li>
+                   
                 </ul>
+                <!-- The search form -->
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn linkText my-2 my-sm-0" type="submit">Search</button>
                 </form>
+                <!-- The login button -->
+                <ul class="navbar-nav">
+                     <li><a class="nav-item nav-link" href="login.html"><span class="linkText">Login</span></a></li>
+                </ul>
             </div>
         </div>
     </nav>
+    
+    <!-- main content -->
     <div class="container" align="center">
+        <!-- The "news" block -->
         <p class="title">Welcome to Dream Garden !</p>
         <div class="news" align="left" style="text-indent:2em;">
             <p style="font-size: 30px;" align="center">
