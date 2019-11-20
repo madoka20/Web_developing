@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <title>Fashion</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.css" integrity="sha256-4C7m+UgUV2kxtJghiwom8uM4hbJHHYCn/bwN7yLTshY=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.2/nouislider.js" integrity="sha256-krkpYRPLj2Sia09bne9gI1bgVHUihD54P23pOXbOzKk=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Marcellus&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Tinos&display=swap" rel="stylesheet">
     <style>
+     
         body{
   background-color: rgb(241,242,246);
 }
@@ -179,6 +180,7 @@ list-style-type: none;
     }
     .info{
       width: 180px;
+
     }
   .itemlist p{
    
@@ -205,8 +207,62 @@ list-style-type: none;
   border-radius: 5px;
   color:red;
 }
+.filter p{
+  display: inline;
+  font-family: 'Tinos', sans-serif;
+
+}
+.noUi-connect {
+    background: violet;
+}
+.noUi-handle {
+/*border-radius: 50%;*/
+
+
+}
+.filter li{
+  margin-bottom: 10px;
+}
+.filterInfo{
+  margin-bottom: 6px;
+
+}
+.filter li select{
+  font-family: 'Tinos', sans-serif;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+#color1{
+  color: white;
+  background-color: #000;
+}
+#color3{
+ color: white;
+ background-color: blue;
+}
+#color4{
+   color: white;
+ background-color: green;
+}
+#color5{
+   color: #000;
+ background-color: yellow;
+}
+#color6{
+   color: white;
+ background-color: red;
+}
+#color7{
+   color: #000;
+ background-color: pink;
+}
+#color8{
+   color: white;
+ background-color: brown;
+}
     </style>
-  
 </head>
 
 <body>
@@ -229,7 +285,7 @@ list-style-type: none;
                 </ul>
                 <form class="form-inline">
                     <div class="input-group">
-                        <input class="form-control" type="search" placeholder="HRT" aria-label="Search">
+                        <input class="form-control" type="search" placeholder="Long dress for winter" aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn search" type="submit" style="color:white;background-color: limegreen;font-size:15px;">Search</button>
                         </div>
@@ -259,7 +315,6 @@ list-style-type: none;
                 </a>
             </div>
         </div>
-
         <div class="row" style="height:30px;">
             <a href="index.html">
                 <p class="path">Home</p>
@@ -268,34 +323,21 @@ list-style-type: none;
                 <p class="path">Fashion</p>
             </a>
         </div>
-
         <div class="row" style="height: 40px;">
-          <p style="font-family: 'Marcellus', serif; margin-top: 6px; font-size: 25px; font-weight: bold;">Design For MtF sisters</p>
-         
+            <p style="font-family: 'Marcellus', serif; margin-top: 6px; font-size: 25px; font-weight: bold;">Design For MtF sisters</p>
         </div>
-
         <div class="row">
-           <p style="font-family: 'Marcellus', serif; color:rgb(90,90,90);">Angelyra can fit everyone's body with your favorite items without worrying about sizing and shape. It is mainly design for MtFs, who have slightly different body shape than cis-women. In this case, our size may have wilder shoulder width and bust width. </p>
+            <p style="font-family: 'Marcellus', serif; color:rgb(90,90,90);">Angelyra can fit everyone's body with your favorite items without worrying about sizing and shape. It is mainly design for MtFs, who have slightly different body shape than cis-women. In this case, our size may have wilder shoulder width and bust width. </p>
         </div>
-
         <div class="row">
             <div class="col-lg-3 subnav">
-
-
-      
-      
-       
-
-                <p style="font-size:20px;font-family: 'Marcellus', serif;padding-top: 10px;font-weight: bold; float: left; margin-left: 10px;">Category 
-
+                <p style="font-size:20px;font-family: 'Marcellus', serif;padding-top: 10px;font-weight: bold; float: left; margin-left: 10px;">Category
                 </p>
-            <div class="switch">
-                  
-           <input  id="toggle"  type="checkbox" checked="checked" value="1"> 
-           <label for="toggle" class="toggleLabel"> </label>
-              </div>
-             
-                <ul class="category" style="margin-left: -30px;">  
+                <div class="switch">
+                    <input id="toggle" type="checkbox" checked="checked" value="1">
+                    <label for="toggle" class="toggleLabel"> </label>
+                </div>
+                <ul class="category" style="margin-left: -30px;">
                     <li><a href="">Dresses</a></li>
                     <li><a href="">Top</a></li>
                     <li><a href="">Coats</a></li>
@@ -304,81 +346,215 @@ list-style-type: none;
                     <li><a href="">Underwear</a></li>
                     <li><a href="">Tights</a></li>
                     <li><a href="">Shoes</a></li>
-
-                
                 </ul>
                 <hr>
                 <p style="font-size:20px;font-family: 'Marcellus', serif;padding-top: 10px;font-weight: bold; float: left; margin-left: 10px;">Filter
-
-
                 </p>
-
+                <ul class="filter">
+                    <li>
+                        <div class="filterInfo">
+                            <p>Price:</p>
+                            <p>$</p>
+                            <p id="minPrice">0.00</p>
+                            <p>~</p>
+                            <p>$</p>
+                            <p id="maxPrice">100.00</p>
+                        </div>
+                        <div style="width: 80%;" id="price"></div>
+                    </li>
+                    <li>
+                        <div class="filterInfo">
+                            <p>Size:</p>
+                            <p id="minSize">2XS</p>
+                            <p>~</p>
+                            <p id="maxSize">5XL</p>
+                        </div>
+                        <div style="width: 80%" id="size"></div>
+                    </li>
+                    <li>
+                        <p>Color:</p>
+                        <select>
+                            <option id="color1" value="1">Black</option>
+                            <option id="color2" value="2">White</option>
+                            <option id="color3" value="3">Blue</option>
+                            <option id="color4" value="4">Green</option>
+                            <option id="color5" value="5">Yellow</option>
+                            <option id="color6" value="6">Red</option>
+                            <option id="color7" value="7">Pink</option>
+                            <option id="color8" value="8">Brown</option>
+                        </select>
+                        <br>
+                        <p>Pattern:</p>
+                        <select>
+                            <option  value="1">One-color</option>
+                            <option  value="2">Dotted</option>
+                            <option  value="3">Strike</option>
+                            <option  value="4">Grid</option>
+                            <option  value="5">Flower</option>
+                        </select>
+                    </li>
+                </ul>
             </div>
-
             <div class="col-lg-9">
-              <ul class="itemlist">
-                <li><a href=""> <img src="imgs/1.jpg" alt="">
-                  <div class="info">
-                  <p class="description">Long sleeve short black dress for winter</p>
-                    <p class="size">Size:XS~2XL</p><p class="price">$21.43</p>
-                 
-                  </div>
-                
-                 
-                </li>
-                <li><a href=""> <img src="imgs/3.jpg" alt="">
-                   <div class="info">
-                  
-                       <p class="description">Yellow T-shirt with grid skirt suit</p>
-                    <p class="size">Top size: XS~XL Skirt size: XS~XL</p><p class="price">$19.95</p>
-                 
-
-  
-
-                  </div>
-                 </a>
-                 
-                </li>
-                <li><a href=""> <img src="imgs/2.jpg" alt="">
-                   <div class="info">
-                  
-                    <p class="description">Striped sweater with loose sleeves</p>
-                    <p class="size">Size:S~3XL</p>
-                    <p class="price"><strike>$18.46&nbsp</strike>$14.51<span class="discount">&nbsp;&#9733;22% off!</span></p>
-                  </div>
-                 </a>
-                 
-                </li>    <li><a href=""> <img src="imgs/4.jpg" alt="">
-                   <div class="info">
-                  
-                   <p class="description">Long sleeve navy grid dress </p>
-                    <p class="size">Size:S~L</p><p class="price"><strike>$28.97&nbsp</strike>$17.63<span class="discount">&nbsp;&#9733;39% off!</span></p>
-                  </div>
-                  </a>
-                 
-                </li>
-              </ul>
+                <ul class="itemlist">
+                    <li><a href=""> <img src="imgs/1.jpg" alt="">
+                            <div class="info">
+                                <p class="description">Long sleeve short black dress for winter</p>
+                                <p class="size">Size:XS~2XL</p>
+                                <p class="price">$21.43</p>
+                            </div>
+                    </li>
+                    <li><a href=""> <img src="imgs/3.jpg" alt="">
+                            <div class="info">
+                                <p class="description">Yellow T-shirt with grid skirt suit</p>
+                                <p class="size">Top size: XS~XL Skirt size: XS~XL</p>
+                                <p class="price">$19.95</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li><a href=""> <img src="imgs/2.jpg" alt="">
+                            <div class="info">
+                                <p class="description">Striped sweater with loose sleeves</p>
+                                <p class="size">Size:S~3XL</p>
+                                <p class="price"><strike>$18.46&nbsp</strike>$14.51<span class="discount">&nbsp;&#9733;22% off!</span></p>
+                            </div>
+                        </a>
+                    </li>
+                    <li><a href=""> <img src="imgs/4.jpg" alt="">
+                            <div class="info">
+                                <p class="description">Long sleeve navy grid dress </p>
+                                <p class="size">Size:S~L</p>
+                                <p class="price"><strike>$28.97&nbsp</strike>$17.63<span class="discount">&nbsp;&#9733;39% off!</span></p>
+                            </div>
+                        </a>
+                    </li>
+                    <li><a href=""> <img src="imgs/1.jpg" alt="">
+                            <div class="info">
+                                <p class="description">Long sleeve short black dress for winter</p>
+                                <p class="size">Size:XS~2XL</p>
+                                <p class="price">$21.43</p>
+                            </div>
+                    </li>
+                    <li><a href=""> <img src="imgs/3.jpg" alt="">
+                            <div class="info">
+                                <p class="description">Yellow T-shirt with grid skirt suit</p>
+                                <p class="size">Top size: XS~XL Skirt size: XS~XL</p>
+                                <p class="price">$19.95</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li><a href=""> <img src="imgs/2.jpg" alt="">
+                            <div class="info">
+                                <p class="description">Striped sweater with loose sleeves</p>
+                                <p class="size">Size:S~3XL</p>
+                                <p class="price"><strike>$18.46&nbsp</strike>$14.51<span class="discount">&nbsp;&#9733;22% off!</span></p>
+                            </div>
+                        </a>
+                    </li>
+                    <li><a href=""> <img src="imgs/4.jpg" alt="">
+                            <div class="info">
+                                <p class="description">Long sleeve navy grid dress </p>
+                                <p class="size">Size:S~L</p>
+                                <p class="price"><strike>$28.97&nbsp</strike>$17.63<span class="discount">&nbsp;&#9733;39% off!</span></p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
     <script>
-    
- $("#toggle").click(function(){
-      if($(this).val()=="1"){
-        $(".category").css("display","none");
-        $(this).val("0");
-      }
-      else{
-        $(".category").css("display","block");
-        $(this).val("1");
-      }
-     
-      });
+    var priceSlider = document.getElementById('price');
 
-      
+    noUiSlider.create(priceSlider, {
+        start: [0, 100],
+        connect: true,
+        range: {
+            'min': 0,
+            'max': 100
+        }
+    });
+
+
+
+    var sizeSlider = document.getElementById('size');
+    priceSlider.noUiSlider.on('update', function() {
+        var priceRange = priceSlider.noUiSlider.get()
+        document.getElementById('minPrice').innerHTML = priceRange[0]
+        document.getElementById('maxPrice').innerHTML = priceRange[1]
+    });
+    noUiSlider.create(sizeSlider, {
+        start: [1, 10],
+        connect: true,
+        step: 1,
+        range: {
+            'min': 1,
+            'max': 10
+        }
+    });
+    sizeSlider.noUiSlider.on('update', function() {
+        var sizeRange = sizeSlider.noUiSlider.get()
+        var minsz;
+        if (sizeRange[0] == 1) {
+            minsz = '2XS'
+        } else if (sizeRange[0] == 2) {
+            minsz = 'XS'
+        } else if (sizeRange[0] == 3) {
+            minsz = 'S'
+        } else if (sizeRange[0] == 4) {
+            minsz = 'M'
+        } else if (sizeRange[0] == 5) {
+            minsz = 'L'
+        } else if (sizeRange[0] == 6) {
+            minsz = 'XL'
+        } else if (sizeRange[0] == 7) {
+            minsz = '2XL'
+        } else if (sizeRange[0] == 8) {
+            minsz = '3XL'
+        } else if (sizeRange[0] == 9) {
+            minsz = '4XL'
+        } else if (sizeRange[0] == 10) {
+            minsz = '5XL'
+        }
+        var maxsz;
+        if (sizeRange[1] == 1) {
+            maxsz = '2XS'
+        } else if (sizeRange[1] == 2) {
+            maxsz = 'XS'
+        } else if (sizeRange[1] == 3) {
+            maxsz = 'S'
+        } else if (sizeRange[1] == 4) {
+            maxsz = 'M'
+        } else if (sizeRange[1] == 5) {
+            maxsz = 'L'
+        } else if (sizeRange[1] == 6) {
+            maxsz = 'XL'
+        } else if (sizeRange[1] == 7) {
+            maxsz = '2XL'
+        } else if (sizeRange[1] == 8) {
+            maxsz = '3XL'
+        } else if (sizeRange[1] == 9) {
+            maxsz = '4XL'
+        } else if (sizeRange[1] == 10) {
+            maxsz = '5XL'
+        }
+
+        document.getElementById('minSize').innerHTML = minsz
+        document.getElementById('maxSize').innerHTML = maxsz
+    })
     </script>
-    
- 
+    <script>
+    $("#toggle").click(function() {
+        if ($(this).val() == "1") {
+            $(".category").css("display", "none");
+            $(this).val("0");
+        } else {
+            $(".category").css("display", "block");
+            $(this).val("1");
+        }
+
+    });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
