@@ -74,6 +74,7 @@ list-style-type: none;
 .subnav ul li{
   padding-top: 5px;
   padding-bottom: 5px;
+  clear: both;
 }
 .subnav ul li a{
   font-family: 'Marcellus', serif;
@@ -82,8 +83,8 @@ list-style-type: none;
 .subnav ul li a:hover{
   color: limegreen;
 }
-.ads{
-  margin-top: 20px;
+.advs{
+  margin-top: 70px;
 
 }
 .ads a{
@@ -163,7 +164,7 @@ list-style-type: none;
        position: relative;
        top:10px;
         left: -10px;
-        height: 260px;
+        height: 280px;
       margin:5px;
        
 
@@ -180,15 +181,36 @@ list-style-type: none;
       width: 180px;
     }
   .itemlist p{
-   color: grey;
+   
    font-size: 13px;
   }
-
+  .description{
+  height: 26px;
+  color:grey;
+}
+.size{
+  height: 26px;
+  color:grey;
+}
+.price{
+  height: 13px;
+  color: limegreen;
+  font-weight: bold;
+}
+.price strike{
+  color: grey;
+}
+.discount{
+  background-color: yellow;
+  border-radius: 5px;
+  color:red;
+}
     </style>
+  
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: violet;">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: violet;">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <img id="logo" src="" width="34" height="26" alt="">
@@ -220,7 +242,7 @@ list-style-type: none;
         </div>
     </nav>
     <div class="container">
-        <div class="row">
+        <div class="row advs">
             <div class="col-lg-4 ads">
                 <a href="">
                     <p id="ad1">Free shiping for $39 or more!</p>
@@ -272,49 +294,65 @@ list-style-type: none;
            <input  id="toggle"  type="checkbox" checked="checked" value="1"> 
            <label for="toggle" class="toggleLabel"> </label>
               </div>
-                <hr>
-                <ul class="category" style="margin-left: -30px;">
+             
+                <ul class="category" style="margin-left: -30px;">  
                     <li><a href="">Dresses</a></li>
                     <li><a href="">Top</a></li>
+                    <li><a href="">Coats</a></li>
                     <li><a href="">Skirt</a></li>
                     <li><a href="">Pants</a></li>
                     <li><a href="">Underwear</a></li>
+                    <li><a href="">Tights</a></li>
                     <li><a href="">Shoes</a></li>
+
+                
                 </ul>
+                <hr>
+                <p style="font-size:20px;font-family: 'Marcellus', serif;padding-top: 10px;font-weight: bold; float: left; margin-left: 10px;">Filter
+
+
+                </p>
+
             </div>
 
             <div class="col-lg-9">
               <ul class="itemlist">
                 <li><a href=""> <img src="imgs/1.jpg" alt="">
                   <div class="info">
-                  <p>Long sleeve short black dress for winter
-                    <br>Size:XS~2XL<br>$21.43</p>
+                  <p class="description">Long sleeve short black dress for winter</p>
+                    <p class="size">Size:XS~2XL</p><p class="price">$21.43</p>
                  
                   </div>
                 
                  
                 </li>
+                <li><a href=""> <img src="imgs/3.jpg" alt="">
+                   <div class="info">
+                  
+                       <p class="description">Yellow T-shirt with grid skirt suit</p>
+                    <p class="size">Top size: XS~XL Skirt size: XS~XL</p><p class="price">$19.95</p>
+                 
+
+  
+
+                  </div>
+                 </a>
+                 
+                </li>
                 <li><a href=""> <img src="imgs/2.jpg" alt="">
                    <div class="info">
-                  <p>Striped sweater with loose sleeves
-                    <br>Size:S~3XL<br>$14.85</p>
-                 
+                  
+                    <p class="description">Striped sweater with loose sleeves</p>
+                    <p class="size">Size:S~3XL</p>
+                    <p class="price"><strike>$18.46&nbsp</strike>$14.51<span class="discount">&nbsp;&#9733;22% off!</span></p>
                   </div>
                  </a>
                  
-                </li>  <li><a href=""> <img src="imgs/3.jpg" alt="">
+                </li>    <li><a href=""> <img src="imgs/4.jpg" alt="">
                    <div class="info">
-                  <p>Yellow T-shirt with grid skirt suit
-                    <br>Top size: XS~XL Skirt size: XS~XL<br>$19.95</p>
-                 
-                  </div>
-                 </a>
-                 
-                </li>  <li><a href=""> <img src="imgs/4.jpg" alt="">
-                   <div class="info">
-                  <p>Long sleeve navy grid dress 
-                    <br>Size:S~L<br>$17.63</p>
-                 
+                  
+                   <p class="description">Long sleeve navy grid dress </p>
+                    <p class="size">Size:S~L</p><p class="price"><strike>$28.97&nbsp</strike>$17.63<span class="discount">&nbsp;&#9733;39% off!</span></p>
                   </div>
                   </a>
                  

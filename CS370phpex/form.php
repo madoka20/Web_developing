@@ -26,7 +26,7 @@
           or die ("Could not connect to database clinicsch");
   
     
-    $query = "SELECT * FROM address ";
+    $query = "SELECT * FROM address order by zip";
     $result = pg_query ($query)
         or die ("Query failed");
 
