@@ -2,7 +2,10 @@
 <html lang="en">
 <!-- Author:Clare -->
 <!-- Last Modified:9/26/19 -->
-
+<?php 
+include "function.php";
+$username=loggedIn();
+?>
 <head>
     <meta charset="UTF-8">
     <title>Update Device</title>
@@ -20,7 +23,7 @@
                     <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" id="devices" aria-haspopup="true" aira-expanded="false">Devices</a>
                     <div class="dropdown-menu" aria-labelledby="devices">
                         <a target="_blank" href="list.php" class="dropdown-item">List</a>
-                        <a href="#" class="dropdown-item">Add Device</a>
+                        <a href="form.php" class="dropdown-item">Add Device</a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -35,6 +38,7 @@
         </div>
     </nav>
     <div class="container">
+        <?php echo "Welcome, ".$username."!"; ?>
         <h2 style="text-align: center;">Update Device</h2>
 
         <form action="process_update.php" method="post">

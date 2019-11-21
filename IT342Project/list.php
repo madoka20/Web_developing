@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Author:Clare Date:9/12/19 -->
+<?php 
+include "function.php";
+$username=loggedIn();
 
+?>
 <head>
     <meta charset="UTF-8">
     <title>Computer List</title>
@@ -20,7 +24,7 @@
                     <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" id="devices" aria-haspopup="true" aira-expanded="false">Devices</a>
                     <div class="dropdown-menu" aria-labelledby="devices">
                         <a href="#" class="dropdown-item">List</a>
-                        <a target="_blank" href="form.html" class="dropdown-item">Add Device</a>
+                        <a target="_blank" href="form.php" class="dropdown-item">Add Device</a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -35,7 +39,7 @@
         </div>
     </nav>
     <div class="container">
-       
+        <?php echo "Welcome, ".$username."!"; ?>
             <table class="table table-light table-hover table-bordered" style="table-layout: fixed; margin-top: 20px;">
                 <thead>
                     <tr style="text-align: center;">
@@ -52,7 +56,7 @@
                 </thead>
                 <tbody>
                 <?php
-                include "function.php";
+                
                 $conn=db_connect();
                 $sql="select servicetag,model,type,purchasedate,warrantyprovider,warrantyexp,retired from devices";
                 $result=$conn->query($sql);

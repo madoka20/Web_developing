@@ -2,7 +2,10 @@
 <html lang="en">
 <!-- Author:Clare -->
 <!-- Last Modified:9/26/19 -->
-
+<?php 
+include "function.php";
+$username=loggedIn();
+?>
 <head>
     <meta charset="UTF-8">
     <title>Add Device</title>
@@ -50,7 +53,9 @@
             </div>
         </div>
     </nav>
+
     <div class="container">
+        <?php echo "Welcome, ".$username."!"; ?>
         <h2 style="text-align: center;">Add Device</h2>
 
         <form action="process.php" method="post">
