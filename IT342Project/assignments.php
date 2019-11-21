@@ -1,5 +1,5 @@
 <?php
-include('functions.php');
+include('function.php');
 if (isset($_GET['serviceTag']))
 {
 	$records = getAssignments($_GET['serviceTag']);

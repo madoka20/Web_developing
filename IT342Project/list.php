@@ -4,6 +4,13 @@
 <?php 
 include "function.php";
 $username=loggedIn();
+$conn=db_connect();
+$getmnglevel="select manager from users where username='$username'";
+$result=$conn->query($getmnglevel) or die($conn->error);
+$row=$result->fetch_assoc();
+
+$mnglevel= $row['manager'];
+
 
 ?>
 <head>
@@ -39,7 +46,14 @@ $username=loggedIn();
         </div>
     </nav>
     <div class="container">
-        <?php echo "Welcome, ".$username."!"; ?>
+        <?php echo "Welcome, ".$username."! ";
+        if($mnglevel==0){
+    echo "you are not a manager.";
+}
+if($mnglevel==1){
+    echo "<a href='#'>Manage users</a>";
+}
+         ?>
             <table class="table table-light table-hover table-bordered" style="table-layout: fixed; margin-top: 20px;">
                 <thead>
                     <tr style="text-align: center;">
@@ -49,21 +63,35 @@ $username=loggedIn();
                         <th>Purchase Date</th>
                         <th>Warranty Provider</th>
                         <th>Warranty Expiration</th>
+
                         <th>Retired</th>
+                        <th>Assigned User</th>
                         <th>Update</th>
                         <th>Delete</th>
+
                     </tr>
                 </thead>
                 <tbody>
                 <?php
                 
-                $conn=db_connect();
+                
                 $sql="select servicetag,model,type,purchasedate,warrantyprovider,warrantyexp,retired from devices";
                 $result=$conn->query($sql);
                 if($result->num_rows>0){
                 while($row=$result->fetch_assoc()){
                  ?>
-                    <tr>
+                    <?php 
+                         if((time()-$row["purchasedate"])>94867200&&(time()-$row["purchasedate"])<189734400){
+                                     echo "<tr style='background-color:#ffffe0;'>";
+                                }
+                               else if((time()-$row["purchasedate"])>189734400){
+                                     echo "<tr style='background-color:#ffcccb;'>";
+                                }else{
+                                    echo "<tr>";
+                                }
+                    ?>
+
+                 
                         <td>
                             <?php echo $row["servicetag"];?>
                         </td>
@@ -74,7 +102,10 @@ $username=loggedIn();
                             <?php echo $row["type"]; ?>
                         </td>
                         <td>
-                            <?php echo date("Y-m-d", $row["purchasedate"]); ?>
+                            <?php echo date("Y-m-d", $row["purchasedate"]);
+                               
+
+                             ?>
                         </td>
                         <td>
                             <?php echo $row["warrantyprovider"]; ?>
@@ -85,6 +116,7 @@ $username=loggedIn();
                         <td>
                             <?php echo $row["retired"]; ?>
                         </td>
+                        <td></td>
                         <td>
                             <a target="_blank" href="form_update.php?servicetag=<?php echo $row["servicetag"];?>&model=<?php echo $row["model"]; ?>&type= <?php echo $row["type"]; ?>&purchasedate=<?php echo date("Y-m-d", $row["purchasedate"]); ?>&warrantyprovider=<?php echo $row["warrantyprovider"]; ?>&warrantyexp=<?php echo date("Y-m-d", $row["warrantyexp"]); ?>&retired= <?php echo $row["retired"]; ?>" >Update</a>
                         </td>
