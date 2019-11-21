@@ -31,8 +31,8 @@ $mnglevel= $row['manager'];
                     <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" id="devices" aria-haspopup="true" aira-expanded="false">Devices</a>
                     <div class="dropdown-menu" aria-labelledby="devices">
                         <a href="#" class="dropdown-item">List</a>
-                        <a target="_blank" href="form.php" class="dropdown-item">Add Device</a>
-                        <a target="_blank" href="list_retired.php" class="dropdown-item">Retired Devices</a>
+                        <a href="form.php" class="dropdown-item">Add Device</a>
+                        <a href="list_retired.php" class="dropdown-item">Retired Devices</a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -61,6 +61,8 @@ echo "<a href='ch_pw_user.php'>Change password</a>";
 echo " | ";
 echo "<a href='login.php'>Log out</a>";
          ?>
+
+          <h2 align="center">Current Devices</h2>
             <table class="table table-light table-hover table-bordered" style="table-layout: fixed; margin-top: 20px;">
                 <thead>
                     <tr style="text-align: center;">
@@ -124,7 +126,7 @@ echo "<a href='login.php'>Log out</a>";
                         
                         <td></td>
                         <td>
-                            <a target="_blank" href="form_update.php?servicetag=<?php echo $row["servicetag"];?>&model=<?php echo $row["model"]; ?>&type= <?php echo $row["type"]; ?>&purchasedate=<?php echo date("Y-m-d", $row["purchasedate"]); ?>&warrantyprovider=<?php echo $row["warrantyprovider"]; ?>&warrantyexp=<?php echo date("Y-m-d", $row["warrantyexp"]); ?>&retired= <?php echo $row["retired"]; ?>" >Update</a>
+                            <a href="form_update.php?servicetag=<?php echo $row["servicetag"];?>&model=<?php echo $row["model"]; ?>&type= <?php echo $row["type"]; ?>&purchasedate=<?php echo date("Y-m-d", $row["purchasedate"]); ?>&warrantyprovider=<?php echo $row["warrantyprovider"]; ?>&warrantyexp=<?php echo date("Y-m-d", $row["warrantyexp"]); ?>&retired= <?php echo $row["retired"]; ?>" >Update</a>
                         </td>
                         <td>
                             <a href="list.php?servicetag=<?php echo $row["servicetag"];?>"  onclick="return confirm('Are you sure?')">Delete</a>
