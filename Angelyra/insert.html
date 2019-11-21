@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		input{
+			display: block;
+		}
+	</style>
+</head>
+
+<body>
+	<form action="insert.php" method="post">
+		picture: <input type="file" name="picture" accept="image/*">
+  		productid:<input type="text" name="productid">
+  		title:<input type="text" name="title">
+  		price:(xx.xx)<input type="text" name="price">
+  		minimumsize:(1-10)<input type="text" name="minimumsize">
+  		maximumsize:(1-10)<input type="text" name="maximumsize">
+  		category:<input type="text" name="category">
+		color:<input type="text" name="color">
+		pattern:<input type="text" name="pattern">
+		textile:<input type="text" name="textile">
+		brand:<input type="text" name="brand">
+
+  		<button type="submit">Submit</button>
+
+	</form>
+</body>
+</html>
