@@ -30,7 +30,7 @@ $mnglevel= $row['manager'];
                 <div class="dropdown">
                     <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" id="devices" aria-haspopup="true" aira-expanded="false">Devices</a>
                     <div class="dropdown-menu" aria-labelledby="devices">
-                        <a href="#" class="dropdown-item">List</a>
+                        <a target="_blank" href="list.php" class="dropdown-item">List</a>
                         <a target="_blank" href="form.php" class="dropdown-item">Add Device</a>
                         <a target="_blank" href="list_retired.php" class="dropdown-item">Retired Devices</a>
                     </div>
@@ -48,18 +48,12 @@ $mnglevel= $row['manager'];
     </nav>
     <div class="container">
         <?php echo "Welcome, ".$username."! ";
-        echo " | ";
         if($mnglevel==0){
     echo "you are not a manager.";
 }
-
 if($mnglevel==1){
     echo "<a href='manage.php'>Manage users</a>";
 }
-echo " | ";
-echo "<a href='ch_pw_user.php'>Change password</a>";
-echo " | ";
-echo "<a href='login.php'>Log out</a>";
          ?>
             <table class="table table-light table-hover table-bordered" style="table-layout: fixed; margin-top: 20px;">
                 <thead>
@@ -72,10 +66,10 @@ echo "<a href='login.php'>Log out</a>";
                         <th>Warranty Expiration</th>
 
                         
-                        <th>Assigned User</th>
+                        
                         <th>Update</th>
                         <th>Delete</th>
-                        <th>Assign</th>
+                       
 
                     </tr>
                 </thead>
@@ -83,7 +77,7 @@ echo "<a href='login.php'>Log out</a>";
                 <?php
                 
                 
-                $sql="select servicetag,model,type,purchasedate,warrantyprovider,warrantyexp,retired from devices where retired=0";
+                $sql="select servicetag,model,type,purchasedate,warrantyprovider,warrantyexp,retired from devices where retired=1";
                 $result=$conn->query($sql);
                 if($result->num_rows>0){
                 while($row=$result->fetch_assoc()){
@@ -122,14 +116,14 @@ echo "<a href='login.php'>Log out</a>";
                             <?php echo date("Y-m-d", $row["warrantyexp"]); ?>
                         </td>
                         
-                        <td></td>
+                        
                         <td>
                             <a target="_blank" href="form_update.php?servicetag=<?php echo $row["servicetag"];?>&model=<?php echo $row["model"]; ?>&type= <?php echo $row["type"]; ?>&purchasedate=<?php echo date("Y-m-d", $row["purchasedate"]); ?>&warrantyprovider=<?php echo $row["warrantyprovider"]; ?>&warrantyexp=<?php echo date("Y-m-d", $row["warrantyexp"]); ?>&retired= <?php echo $row["retired"]; ?>" >Update</a>
                         </td>
                         <td>
                             <a href="list.php?servicetag=<?php echo $row["servicetag"];?>"  onclick="return confirm('Are you sure?')">Delete</a>
                         </td>
-                        <td><a href="assignments.php?servicetag=<?php echo $row["servicetag"];?>">Assign</a></td>
+                        
                     </tr>
                     <?php              
     }

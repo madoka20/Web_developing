@@ -10,21 +10,35 @@ function loggedIn(){
 	return $username;
 
 }
+function createUser($username,$password,$manager=0){
+$conn=db_connect();
+if(!$stmt=$conn->prepare("INSERT INTO users (username,pw,manager) VALUES (?,?,?) ")){
+	die( "error:".$conn->error);
+}
+if(!$stmt->bind_param("ssi",$username,$password,$manager)){
+	die( "error:".$conn->error);
+}
+$password=password_hash($password,PASSWORD_BCRYPT);
 
-function getAssignments($serviceTag)
+
+if(!$stmt->execute()){
+		die( "error:".$conn->error);
+}
+}
+function getAssignments($servicetag)
 {
 	// connect to db
-	$conn = connect_db();
+	$conn = db_connect();
 	// create prepared statement
-	$stmt = $conn->prepare("SELECT assignmentID, serviceTag, assignedUser, assignmentStart, assignmentEnd FROM assignments where serviceTag = ? order by assignmentStart desc");
+	$stmt = $conn->prepare("SELECT assignmentID, serviceTag, assignedUser, assignmentStart, assignmentEnd FROM assignments where servicetag = ? order by assignmentStart desc") or die ($conn->error);
 	// bind parameter
 	$stmt->bind_param("s", $st);
 	// insert value in to parameter
-	$st = $serviceTag;
+	$st = $servicetag;
 	// execute query
 	$stmt->execute();
 	// bind result tells it where to put the values it retrieves for the row
-	$stmt->bind_result($assignmentID, $serviceTag, $assignedUser,
+	$stmt->bind_result($assignmentID, $servicetag, $assignedUser,
 					   $assignmentStart, $assignmentEnd);
 	$i=0;
 	// putting this fetch in a while loop tells it to keep going as long 
@@ -33,7 +47,7 @@ function getAssignments($serviceTag)
 	{
 		// put the values in a multi-dimensional array
 		$r[$i]['assignmentID'] = $assignmentID;
-		$r[$i]['serviceTag'] = $serviceTag;
+		$r[$i]['serviceTag'] = $servicetag;
 		$r[$i]['assignedUser'] = $assignedUser;
 		$r[$i]['assignmentStart'] = $assignmentStart;
 		$r[$i]['assignmentEnd'] = $assignmentEnd;
@@ -46,20 +60,20 @@ function getAssignments($serviceTag)
 /*------------------------------------
 // Get a device's current assignement
 ------------------------------------*/
-function getCurrentAssignment ($serviceTag)
+function getCurrentAssignment ($servicetag)
 {
 	// connect to db
-	$conn = connect_db();
+	$conn = db_connect();
 	// create prepared statement
 	$stmt = $conn->prepare("SELECT assignmentID, serviceTag, assignedUser, assignmentStart FROM assignments where serviceTag = ? and assignmentEnd IS NULL");
 	// bind parameter
 	$stmt->bind_param("s", $st);
 	// insert value in to parameter
-	$st = $serviceTag;
+	$st = $servicetag;
 	// execute query
 	$stmt->execute();
 	// bind result tells it where to put the values it retrieves for the row
-	$stmt->bind_result($assignmentID, $serviceTag, $assignedUser, $assignmentStart);
+	$stmt->bind_result($assignmentID, $servicetag, $assignedUser, $assignmentStart);
 	if ($stmt->fetch())
 	{
 		return $assignmentID;
@@ -71,11 +85,11 @@ function getCurrentAssignment ($serviceTag)
 /*------------------------------------
 // This function assigns a device to a user
 ------------------------------------*/
-function assignDevice($serviceTag, $assignedUser, $assignmentStart)
+function assignDevice($servicetag, $assignedUser, $assignmentStart)
 {
-	$conn = connect_db();
+	$conn = db_connect();
 	// Check to see if it's currently assigned to someone
-	$assignmentID = getCurrentAssignment($serviceTag);
+	$assignmentID = getCurrentAssignment($servicetag);
 	if ($assignmentID != 0)
 	{
 		// it is, so end that assignement before doing a new one.
@@ -83,14 +97,14 @@ function assignDevice($serviceTag, $assignedUser, $assignmentStart)
 	}
 
 	// create prepared statement
-	if (!$stmt = $conn->prepare("INSERT INTO assignments(serviceTag, assignedUser, assignmentStart) values (?, ?, ?)"))
+	if (!$stmt = $conn->prepare("INSERT INTO assignments(servicetag, assignedUser, assignmentStart) values (?, ?, ?)"))
 	{
 		die("Error preparing Statement: ".$conn->error);
 	}
 	// bind parameter
 	$stmt->bind_param("sss", $st, $au, $as);
 	// insert value in to parameter
-	$st = $serviceTag;
+	$st = $servicetag;
 	$au = $assignedUser;
 	$as = $assignmentStart;
 	// execute query
@@ -108,7 +122,7 @@ function endAssignment($assignmentID, $assignmentEnd = 0)
 		$assignmentEnd = date("Y-n-j");
 	}
 	
-	$conn = connect_db();
+	$conn = db_connect();
 	// create prepared statement
 	if (!$stmt = $conn->prepare("update assignments set assignmentEnd = ?
 					where assignmentID = ?"))

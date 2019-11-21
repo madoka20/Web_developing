@@ -1,9 +1,9 @@
 <?php
 include('function.php');
-if (isset($_GET['serviceTag']))
+if (isset($_GET['servicetag']))
 {
-	$records = getAssignments($_GET['serviceTag']);
-//	print_r($records);
+	$records = getAssignments($_GET['servicetag']);
+print_r($records);
 } else {
 	die("No Service Tag Provided");
 }
@@ -37,7 +37,7 @@ if (isset($_GET['serviceTag']))
 	</table>
 	
 	<h3>Assign to New User</h3>
-	<form action="process.php" method="post">
+	<form action="process_assign.php" method="post">
 	<div>
 		<label for="assignedUser">New User:</label>
 		<input type="text" name="assignedUser" />

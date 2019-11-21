@@ -1,21 +1,7 @@
 <?php 
 include("function.php");
-function createUser($username,$password,$manager=0){
-$conn=db_connect();
-if(!$stmt=$conn->prepare("INSERT INTO users (username,pw,manager) VALUES (?,?,?) ")){
-	die( "error:".$conn->error);
-}
-if(!$stmt->bind_param("ssi",$username,$password,$manager)){
-	die( "error:".$conn->error);
-}
-$password=password_hash($password,PASSWORD_BCRYPT);
 
 
-if(!$stmt->execute()){
-		die( "error:".$conn->error);
-}
-}
-// createUser("fumx17","1173790");
 
 
 function checkUser($username,$password){
