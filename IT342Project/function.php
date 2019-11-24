@@ -30,7 +30,7 @@ function getAssignments($servicetag)
 	// connect to db
 	$conn = db_connect();
 	// create prepared statement
-	$stmt = $conn->prepare("SELECT assignmentID, serviceTag, assignedUser, assignmentStart, assignmentEnd FROM assignments where servicetag = ? order by assignmentStart desc") or die ($conn->error);
+	$stmt = $conn->prepare("SELECT assignmentID, servicetag, assignedUser, assignmentStart, assignmentEnd FROM assignments where servicetag = ? order by assignmentStart desc") or die ($conn->error);
 	// bind parameter
 	$stmt->bind_param("s", $st);
 	// insert value in to parameter
@@ -43,11 +43,12 @@ function getAssignments($servicetag)
 	$i=0;
 	// putting this fetch in a while loop tells it to keep going as long 
 	// as there are records
+	$r=array();
 	while ($stmt->fetch())
 	{
 		// put the values in a multi-dimensional array
 		$r[$i]['assignmentID'] = $assignmentID;
-		$r[$i]['serviceTag'] = $servicetag;
+		$r[$i]['servicetag'] = $servicetag;
 		$r[$i]['assignedUser'] = $assignedUser;
 		$r[$i]['assignmentStart'] = $assignmentStart;
 		$r[$i]['assignmentEnd'] = $assignmentEnd;
@@ -65,7 +66,7 @@ function getCurrentAssignment ($servicetag)
 	// connect to db
 	$conn = db_connect();
 	// create prepared statement
-	$stmt = $conn->prepare("SELECT assignmentID, serviceTag, assignedUser, assignmentStart FROM assignments where serviceTag = ? and assignmentEnd IS NULL");
+	$stmt = $conn->prepare("SELECT assignmentID, servicetag, assignedUser, assignmentStart FROM assignments where servicetag = ? and assignmentEnd IS NULL");
 	// bind parameter
 	$stmt->bind_param("s", $st);
 	// insert value in to parameter
@@ -81,7 +82,27 @@ function getCurrentAssignment ($servicetag)
 		return 0;
 	}
 }
-
+function getCurrentUser ($servicetag)
+{
+	// connect to db
+	$conn = db_connect();
+	// create prepared statement
+	$stmt = $conn->prepare("SELECT assignmentID, servicetag, assignedUser, assignmentStart FROM assignments where servicetag = ? and assignmentEnd IS NULL");
+	// bind parameter
+	$stmt->bind_param("s", $st);
+	// insert value in to parameter
+	$st = $servicetag;
+	// execute query
+	$stmt->execute();
+	// bind result tells it where to put the values it retrieves for the row
+	$stmt->bind_result($assignmentID, $servicetag, $assignedUser, $assignmentStart);
+	if ($stmt->fetch())
+	{
+		return $assignedUser;
+	} else {
+		return 'unassigned';
+	}
+}
 /*------------------------------------
 // This function assigns a device to a user
 ------------------------------------*/
@@ -108,7 +129,10 @@ function assignDevice($servicetag, $assignedUser, $assignmentStart)
 	$au = $assignedUser;
 	$as = $assignmentStart;
 	// execute query
-	$stmt->execute();
+	if(!$stmt->execute()){
+		die("Error execute: " .$conn->error);
+	}
+	
 }
 
 /*------------------------------------
@@ -135,7 +159,9 @@ function endAssignment($assignmentID, $assignmentEnd = 0)
 	$ae = $assignmentEnd;
 	$id = $assignmentID;
 	// execute query
-	$stmt->execute();
+	if(!$stmt->execute()){
+		die("Error execute: " .$conn->error);
+	}
 }
 
 function db_connect(){

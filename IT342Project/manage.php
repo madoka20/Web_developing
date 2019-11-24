@@ -13,7 +13,15 @@ if($row2['manager']==0){
 	header('Location:list.php');
 }
 echo "Welcome, ".$username."! ";
+     
+  
+
+echo " | ";
+echo "<a href='ch_pw_user.php'>Change password</a>";
+echo " | ";
 echo "<a href='list.php'>Back to list</a>";
+echo " | ";
+echo "<a href='login.php'>Log out</a>";
 ?>
 
 <!DOCTYPE html>

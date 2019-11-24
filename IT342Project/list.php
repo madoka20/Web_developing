@@ -124,7 +124,11 @@ echo "<a href='login.php'>Log out</a>";
                             <?php echo date("Y-m-d", $row["warrantyexp"]); ?>
                         </td>
                         
-                        <td></td>
+                        <td>
+                            <?php 
+                                echo getCurrentUser($row['servicetag']);
+                            ?>
+                        </td>
                         <td>
                             <a href="form_update.php?servicetag=<?php echo $row["servicetag"];?>&model=<?php echo $row["model"]; ?>&type= <?php echo $row["type"]; ?>&purchasedate=<?php echo date("Y-m-d", $row["purchasedate"]); ?>&warrantyprovider=<?php echo $row["warrantyprovider"]; ?>&warrantyexp=<?php echo date("Y-m-d", $row["warrantyexp"]); ?>&retired= <?php echo $row["retired"]; ?>" >Update</a>
                         </td>

@@ -3,20 +3,46 @@ include('function.php');
 if (isset($_GET['servicetag']))
 {
 	$records = getAssignments($_GET['servicetag']);
-print_r($records);
+
 } else {
 	die("No Service Tag Provided");
 }
+?>
+<?php 
+$username=loggedIn();
+$conn=db_connect();
+$getmnglevel="select manager from users where username='$username'";
+$result=$conn->query($getmnglevel) or die($conn->error);
+$row=$result->fetch_assoc();
+
+$mnglevel= $row['manager'];
 ?>
 <!doctype html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Untitled Document</title>
+<title>assignments</title>
 </head>
 
 <body>
-	<h2>Assignment History for <?php echo $_GET['serviceTag']; ?></h2>
+	
+	  <?php echo "Welcome, ".$username."! ";
+        echo " | ";
+        if($mnglevel==0){
+    echo "you are not a manager.";
+}
+	if($mnglevel==1){
+    echo "<a href='manage.php'>Manage users</a>";
+}
+echo " | ";
+echo "<a href='ch_pw_user.php'>Change password</a>";
+echo " | ";
+echo "<a href='list.php'>Back to list</a>";
+echo " | ";
+echo "<a href='login.php'>Log out</a>";
+
+         ?>
+	<h2>Assignment History for <?php echo $_GET['servicetag']; ?></h2>
 	<table border="1">
 		<tr>
 			<th>Assigned User</th>
@@ -25,7 +51,7 @@ print_r($records);
 		</tr>	
 			
 	<?php
-	foreach ($records as $assignment)
+	foreach ((array)$records as $assignment)
 	{
 		echo "		<tr>\n";
 		echo "			<td>".$assignment['assignedUser']."</td>\n";
@@ -44,10 +70,10 @@ print_r($records);
 	</div>	
 	<div>
 		<label for="assignmentStart">Assignment Date:</label>
-		<input type="date" name="assignmentStart" />
+		<input type="text" name="assignmentStart" />
 	</div>
 		
-	<input type="hidden" name="serviceTag" value="<?php echo $_GET['serviceTag'];?>" />
+	<input type="hidden" name="servicetag" value="<?php echo $_GET['servicetag'];?>" />
 	<input type="submit" name="submitAssignment" value="Assign" />
 	</form>
 </body>
