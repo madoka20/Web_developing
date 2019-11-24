@@ -12,7 +12,54 @@ $row2=$result2->fetch_assoc();
 if($row2['manager']==0){
 	header('Location:list.php');
 }
-echo "Welcome, ".$username."! ";
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Manage users</title>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<style>
+		.subtitle{
+			font-size: 20px;
+			margin-top: 10px;
+		}
+		
+	</style>
+</head>
+<body>
+
+	 <nav class="navbar navbar-light bg-light navbar-expand-sm">
+        <div class="container">
+            <div class="navbar-brand" href="#">CTS Computer Inventory</div>
+            <div class="navbar-nav">
+                <div class="dropdown">
+                    <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" id="devices" aria-haspopup="true" aira-expanded="false">Devices</a>
+                    <div class="dropdown-menu" aria-labelledby="devices">
+                        <a href="#" class="dropdown-item">List</a>
+                        <a href="form.php" class="dropdown-item">Add Device</a>
+                        <a href="list_retired.php" class="dropdown-item">Retired Devices</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" id="reports" aria-haspopup="true" aira-expanded="false">Reports</a>
+                    <div class="dropdown-menu" aria-labelledby="reports">
+                        <a href="#" class="dropdown-item">Report 1</a>
+                        <a href="#" class="dropdown-item">Report 2</a>
+                        <a href="#" class="dropdown-item">Report 3</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+	<div class="container">
+	  <?php 
+    echo "Welcome, ".$username."! ";
      
   
 
@@ -22,30 +69,10 @@ echo " | ";
 echo "<a href='list.php'>Back to list</a>";
 echo " | ";
 echo "<a href='login.php'>Log out</a>";
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Manage users</title>
-	<style>
-		table{
-			border-collapse: collapse;
-		}
-		table th{
-			border:1px solid #000;
-			
-		}
-		table td{
-			border:1px solid #000;
-			
-		}
-	</style>
-</head>
-<body>
-	<h3>Manage Users</h3>
-	<table>
+    ?>
+	<h3 style="text-align: center;">Manage Users</h3>
+	<table class="table table-light table-hover table-bordered">
 		<tr>
 			<th>Username</th>
 			<th>Password</th>		
@@ -69,31 +96,38 @@ echo "<a href='login.php'>Log out</a>";
 	<?php }} ?>
 	</table>
 
-
+	<div class="col-lg-3">
 	<form action="adduser.php" method="post">
-		<p>Add User</p>
-		Username:<input type="text" name="username"><br>
-		password:<input type="text" name="pw"><br>
-		Manager Level:<input type="text" name="manager"><br>
-		<input type="submit" value="add user">
+		<p class="subtitle">Add User</p>
+		Username:<input class="form-control" type="text" name="username"><br>
+		password:<input class="form-control" type="text" name="pw"><br>
+		Manager Level:<input class="form-control" type="text" name="manager"><br>
+		<input class="btn btn-primary" type="submit" value="add user">
 	</form>
 	
-
+	<hr>
 	<form action="ch_access.php" method="post">
-		<p>Change Manage Level (1:Manager 0:staff)</p>
+		<p class="subtitle">Change Manage Level (1:Manager 0:staff)</p>
 		
-		Username:<input type="text" name="username"><br>
-		New Manager Level:<input type="text" name="manager"><br>
-		<input type="submit" value="change">
+		Username:<input class="form-control" type="text" name="username"><br>
+		New Manager Level:<input class="form-control" type="text" name="manager"><br>
+		<input class="btn btn-primary" type="submit" value="change">
 	</form>
-
+	
+	<hr>
 	<form action="ch_pw.php" method="post">
-		<p>Change Password</p>
+		<p class="subtitle">Change Password</p>
 
-		Username:<input type="text" name="username"><br>
-		New Password<input type="text" name="pw"><br>
-		<input type="submit" value="change">
+		Username:<input class="form-control" type="text" name="username"><br>
+		New Password<input class="form-control" type="text" name="pw"><br>
+		<input class="btn btn-primary" type="submit" value="change">
 	</form>
+	</div>
+		
+	</div>
 
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
