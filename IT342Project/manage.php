@@ -71,7 +71,7 @@ echo " | ";
 echo "<a href='login.php'>Log out</a>";
 
     ?>
-	<h3 style="text-align: center;">Manage Users</h3>
+	<h2 style="text-align: center;">Manage Users</h2>
 	<table class="table table-light table-hover table-bordered">
 		<tr>
 			<th>Username</th>
