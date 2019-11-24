@@ -51,8 +51,7 @@ $mnglevel= $row['manager'];
     echo "<a href='manage.php'>Manage users</a>";
 }
 echo " | ";
-echo "<a href='ch_pw_user.php'>Change password</a>";
-echo " | ";
+
 echo "<a href='list.php'>Back to list</a>";
 echo " | ";
 echo "<a href='login.php'>Log out</a>";
