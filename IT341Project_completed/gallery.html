@@ -102,7 +102,7 @@
                         <h2 class="subtitle">Category</h2>
                         <ul class="catList">
                             <a v-for="(item,i) in chName" class="catLink" href="" @click.prevent="show(i)">
-                                <li class="catItem"><img src="https://img.icons8.com/carbon-copy/100/000000/image.png" class="iconImg">&nbsp;{{chName[i]}}</li>
+                                <li class="catItem"><img src="https://img.icons8.com/android/24/000000/picture.png"class="iconImg">&nbsp;{{chName[i]}}</li>
                             
                             </a>
                         </ul>
@@ -162,7 +162,7 @@
         el: '#app',
         data: {
             //character or the artwork name
-            chName: ["01.Madoka Magica", "02.Violet Evergarden", "03.Nagi no Asukara"],
+            chName: ["Madoka Magica", "Violet Evergarden", "Nagi no Asukara"],
             chNameIndex: 0,
             // picture
             p1: ["imgs/madoka_icon_01.jpg"],
