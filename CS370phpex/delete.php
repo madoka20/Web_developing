@@ -4,11 +4,11 @@
 <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-<title>Presidents Table</title>
+
 </head>
 
 <body>
-<h1><center> Presidents Table</center></h1>
+
 <script language="php"> 
      $link = pg_connect("host=itcsdbms user=fumx17 dbname=clinicsch")
           or die ("Could not connect to database clinicsch");

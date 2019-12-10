@@ -40,7 +40,7 @@ if($row2['manager']==0){
                 <div class="dropdown">
                     <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" id="devices" aria-haspopup="true" aira-expanded="false">Devices</a>
                     <div class="dropdown-menu" aria-labelledby="devices">
-                        <a href="#" class="dropdown-item">List</a>
+                        <a href="list.php" class="dropdown-item">List</a>
                         <a href="form.php" class="dropdown-item">Add Device</a>
                         <a href="list_retired.php" class="dropdown-item">Retired Devices</a>
                     </div>

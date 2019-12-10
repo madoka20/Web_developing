@@ -32,9 +32,10 @@
     
 	$city=$_POST['city'];
 	$state=$_POST['state'];
+
 	$zip = $_POST['zip'];
 	$street=$_POST['street'];
-    $query = "insert into address(city,state,zip,street) values ('$city','$state','$zip','$street')";
+    $query = "update address set city='$city',state='$state',street='$street' where zip='$zip'";
     $result = pg_query ($query)
         or die ("Query failed");
 	

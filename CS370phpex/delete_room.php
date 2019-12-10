@@ -14,7 +14,7 @@
           or die ("Could not connect to database clinicsch");
     print ("Connected successfully");
     
-    $query = "SELECT * FROM address ";
+    $query = "SELECT * FROM room ";
     $result = pg_query ($query)
         or die ("Query failed");
 
@@ -30,17 +30,15 @@
 	}
 	print "</table>\n";
     
-	$city=$_POST['city'];
-	$state=$_POST['state'];
-	$zip = $_POST['zip'];
-	$street=$_POST['street'];
-    $query = "insert into address(city,state,zip,street) values ('$city','$state','$zip','$street')";
+
+	$roomnum = $_POST['roomnum'];
+    $query = "delete from room where roomnum='$roomnum'";
     $result = pg_query ($query)
         or die ("Query failed");
 	
 	
     pg_close($link);
-header("Location: form.php");
+header("Location: form_room.php");
     </script>
 </body>
 

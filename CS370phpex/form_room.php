@@ -26,7 +26,7 @@
           or die ("Could not connect to database clinicsch");
   
     
-    $query = "SELECT * FROM address order by zip";
+    $query = "SELECT * FROM room order by roomnum";
     $result = pg_query ($query)
         or die ("Query failed");
 
@@ -34,11 +34,9 @@
 
   print "<table class=\"report\">\n";
     print "\t<tr>\n";
-        print "\t<th>City</th>\n";
-           print "\t<th>State</th>\n";
-              print "\t<th>Zip</th>\n";
-                print "\t<th>street</th>\n";
-                 print "\t<th>Id</th>\n";
+        print "\t<th>roomnum</th>\n";
+           print "\t<th>type</th>\n";
+             
         print "\t</tr>\n";
   while($line = pg_fetch_array($result, NULL, PGSQL_ASSOC)){
     print "\t<tr>\n";
@@ -56,23 +54,18 @@
    
 
 
-<form method="POST" action="insert.php">
+<form method="POST" action="insert_room.php">
  <p>  Enter CSZ data to insert to clinic schedule database: </p>
  
 
-<label for="city">
-    City:<input type="text" name="city" id="city">
+<label for="roomnum">
+    roomnum:<input type="text" name="roomnum" id="roomnum">
 </label>
 
-<label for="state">
-     State: <input type="text" name="state" id="state">
+<label for="type">
+     type: <input type="text" name="type" id="type">
 </label>
- <label for="zip">
-      Zip:<input type="text" name="zip" id="zip">
-  </label>
-   <label for="street">
-      street:<input type="text" name="street" id="street">
-  </label>
+
 <br>
 <div class="smt">
   <button type="submit">Insert</button>
@@ -83,22 +76,17 @@
 
 
 
-<form method="POST" action="update.php">
+<form method="POST" action="update_room.php">
  <p> Update existing data: </p>
  
- <label for="zip">
-      Zip(PK):<input type="text" name="zip" id="zip">
-  </label>
-<label for="city">
-    City:<input type="text" name="city" id="city">
+ <label for="roomnum">
+    roomnum(PK):<input type="text" name="roomnum" id="roomnum">
 </label>
 
-<label for="state">
-     State: <input type="text" name="state" id="state">
+<label for="type">
+     type: <input type="text" name="type" id="type">
 </label>
- <label for="street">
-      street:<input type="text" name="street" id="street">
-  </label>
+
 <br>
 <div class="smt">
   <button type="submit">Update</button>
@@ -109,12 +97,12 @@
 
 
 
-<form method="POST" action="delete.php">
- <p>  Enter the zip code for deletion:</p>
+<form method="POST" action="delete_room.php">
+ <p>  Enter the room number for deletion:</p>
  
- <label for="zip">
-      Zip:<input type="text" name="zip" id="zip">
-  </label>
+ <label for="roomnum">
+    roomnum:<input type="text" name="roomnum" id="roomnum">
+</label>
 <br>
 <div class="smt">
  <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>

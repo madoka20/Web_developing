@@ -14,7 +14,7 @@
           or die ("Could not connect to database clinicsch");
     print ("Connected successfully");
     
-    $query = "SELECT * FROM address ";
+    $query = "SELECT * FROM person ";
     $result = pg_query ($query)
         or die ("Query failed");
 
@@ -30,17 +30,18 @@
 	}
 	print "</table>\n";
     
-	$city=$_POST['city'];
-	$state=$_POST['state'];
-	$zip = $_POST['zip'];
-	$street=$_POST['street'];
-    $query = "insert into address(city,state,zip,street) values ('$city','$state','$zip','$street')";
+	$id=$_POST['id'];
+	$birthdate=$_POST['birthdate'];
+	$name = $_POST['name'];
+	$role=$_POST['role'];
+	$isprimary=$_POST['isprimary'];
+    $query = "insert into person(id,birthdate,name,role,isprimary) values ('$id',TO_TIMESTAMP('$birthdate','YYYY-MM-DD'),'$name','$role','$isprimary')";
     $result = pg_query ($query)
         or die ("Query failed");
 	
 	
     pg_close($link);
-header("Location: form.php");
+header("Location: form_person.php");
     </script>
 </body>
 
