@@ -26,7 +26,7 @@
           or die ("Could not connect to database clinicsch");
   
     
-    $query = "SELECT * FROM room order by roomnum";
+    $query = "SELECT * FROM appointments order by apptnum";
     $result = pg_query ($query)
         or die ("Query failed");
 
