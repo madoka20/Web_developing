@@ -36,7 +36,7 @@
 	$walkintime=$_POST['walkintime'];
 	$id = $_POST['id'];
 	$roomnum = $_POST['roomnum'];
-    $query = "insert into appointments(appttime,dischargetime,walkintime,id,roomnum) values (TO_TIMESTAMP('$appttime','YYYY-MM-DD HH:MI:SS'),TO_TIMESTAMP('$dischargetime','YYYY-MM-DD HH:MI:SS'),TO_TIMESTAMP('$walkintime','YYYY-MM-DD HH:MI:SS'),'$id','$roomnum')";
+    $query = "insert into appointments(appttime,dischargetime,walkintime,id,roomnum) values (TO_TIMESTAMP('$appttime','YYYY-MM-DD HH24:MI:SS'),TO_TIMESTAMP('$dischargetime','YYYY-MM-DD HH24:MI:SS'),TO_TIMESTAMP('$walkintime','YYYY-MM-DD HH24:MI:SS'),'$id','$roomnum')";
     $result = pg_query ($query)
         or die ("Query failed");
 	

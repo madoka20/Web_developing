@@ -35,7 +35,7 @@ $appttime = $_POST['appttime'];
 	$walkintime=$_POST['walkintime'];
 	$id = $_POST['id'];
 	$roomnum = $_POST['roomnum'];
-    $query = "update appointments set appttime=TO_TIMESTAMP('$appttime','YYYY-MM-DD HH:MI:SS'),dischargetime=TO_TIMESTAMP('$dischargetime','YYYY-MM-DD HH:MI:SS'),walkintime=TO_TIMESTAMP('$walkintime','YYYY-MM-DD HH:MI:SS'),id='$id',roomnum='$roomnum' where apptnum='$apptnum'";
+    $query = "update appointments set appttime=TO_TIMESTAMP('$appttime','YYYY-MM-DD HH24:MI:SS'),dischargetime=TO_TIMESTAMP('$dischargetime','YYYY-MM-DD HH24:MI:SS'),walkintime=TO_TIMESTAMP('$walkintime','YYYY-MM-DD HH24:MI:SS'),id='$id',roomnum='$roomnum' where apptnum='$apptnum'";
     $result = pg_query ($query)
         or die ("Query failed");
 	
